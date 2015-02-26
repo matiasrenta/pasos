@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  concept: MyString
+  subconcept: MyString
+  fijo: 1
+  variable: 1
+
+two:
+  concept: MyString
+  subconcept: MyString
+  fijo: 1
+  variable: 1

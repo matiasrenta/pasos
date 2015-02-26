@@ -1,0 +1,116 @@
+<div class="clear">&nbsp;</div>
+
+<!--  start nav-outer-repeat................................................................................................. START -->
+<div class="nav-outer-repeat">
+  <!--  start nav-outer -->
+  <div class="nav-outer">
+
+    <div id="menu">
+      <ul class="menu">
+        <li><a href="<%= root_path %>" class="parent"><span>Portafolio</span></a>
+
+          <div>
+            <ul>
+              <li><%= link_to "<span>Proyectos</span>".html_safe, projects_path %></li>
+              <li><%= link_to "<span>Dashboard</span>".html_safe, company_dashboards_path %></li>
+            </ul>
+          </div>
+        </li>
+
+        <li><a href="#" class="parent"><span>Proyecto</span></a>
+
+          <div>
+            <ul>
+              <li><%= link_to "<span>Recursos</span>".html_safe, actual_project %></li>
+              <li><%= link_to "<span>Tareas</span>".html_safe, tasks_path %></li>
+              <li><%= link_to "<span>Tiempo de tareas</span>".html_safe, {:controller => "/tasks", :action => "progress"} %></li>
+              <li><%= link_to "<span>Riesgos</span>".html_safe, risks_path %></li>
+              <li><%= link_to "<span>Problemas</span>".html_safe, problems_path %></li>
+              <li><%= link_to "<span>Acciones</span>".html_safe, accions_path %></li>
+              <li><%= link_to "<span>Gastos</span>".html_safe, expenses_path %></li>
+              <li><%= link_to "<span>Tableros</span>".html_safe, project_dashboards_path %></li>
+              <li><%= link_to "<span>Calendario</span>".html_safe, holidays_path %></li>
+              <li><%= link_to "<span>Lecciones aprendidas</span>".html_safe, lessons_path %></li>
+              <li><a href="#">Novedades</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li><a href="#"><span>Configuración de proyectos</span></a>
+
+          <div>
+            <ul>
+              <li><%= link_to "<span>Plantillas de proyectos</span>".html_safe, life_cycles_path %></li>
+              <li><a href="#"><span>Riesgos</span></a>
+
+                <div>
+                  <ul>
+                    <li><%= link_to "<span>Estrategias de riesgos</span>".html_safe, risk_strategies_path %></li>
+                    <li><%= link_to "<span>Fuentes de riesgo</span>".html_safe, risk_sources_path %></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="last"><a href="#"><span>Administración de catálogos</span></a>
+
+          <div>
+            <ul>
+              <li><%= link_to "<span>Tipos de gasto</span>".html_safe, expense_types_path %></li>
+              <li><%= link_to "<span>Áreas</span>".html_safe, areas_path %></li>
+              <li><%= link_to "<span>Empresas</span>".html_safe, companies_path %></li>
+              <li><%= link_to "<span>Países</span>".html_safe, countries_path %></li>
+              <li><%= link_to "<span>Estados</span>".html_safe, region_states_path %></li>
+              <li><%= link_to "<span>Ciudades</span>".html_safe, cities_path %></li>
+              <li><%= link_to "<span>Calendario Corporativo</span>".html_safe, holidays_path(:company => true) %></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="last"><a href="#"><span>Reportes</span></a>
+
+          <div>
+            <ul>
+              <li><a href="#">Disponibilidad de recursos</a></li>
+              <li><a href="#">Datos históricos</a></li>
+              <li><a href="#">Reporte N</a></li>
+              <li><a href="#">Lecciones aprendidas</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="last"><a href="#"><span>Super User</span></a>
+
+          <div>
+            <ul>
+              <li><%= link_to "<span>Tipos de tarea</span>".html_safe, task_types_path %></li>
+              <li><%= link_to "<span>Prioridades Accion</span>".html_safe, action_priorities_path %></li>
+              <li><%= link_to "<span>Tipos de fuente Accion</span>".html_safe, action_source_types_path %></li>
+              <li><%= link_to "<span>Estados Accion</span>".html_safe, action_states_path %></li>
+              <li><%= link_to "<span>Estados proyecto</span>".html_safe, project_states_path %></li>
+              <li><%= link_to "<span>Tipos empresa</span>".html_safe, company_types_path %></li>
+              <li><%= link_to "<span>Impactos de riesgo</span>".html_safe, risk_impacts_path %></li>
+              <li><%= link_to "<span>Probabilidades de riesgo</span>".html_safe, risk_probabilities_path %></li>
+              <li><%= link_to "<span>Exposiciones de riesgos</span>".html_safe, risk_expositions_path %></li>
+              <li><%= link_to "<span>Estados de riesgo</span>".html_safe, risk_states_path %></li>
+              <li><%= link_to "<span>Estados de tarea</span>".html_safe, task_states_path %></li>
+              <li><%= link_to "<span>Tipos de tarea</span>".html_safe, task_types_path %></li>
+              <li><%= link_to "<span>Prioridades Problema</span>".html_safe, problem_priorities_path %></li>
+              <li><%= link_to "<span>Severidades Problema</span>".html_safe, problem_severities_path %></li>
+              <li><%= link_to "<span>Estados Problema</span>".html_safe, problem_states_path %></li>
+            </ul>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+  <div class="clear"></div>
+  <!--  start nav-outer -->
+</div>
+<!--  start nav-outer-repeat................................................... END -->
+
+

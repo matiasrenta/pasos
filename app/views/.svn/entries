@@ -1,0 +1,67 @@
+10
+
+dir
+1
+https://deliriumtechmen.svn.cloudforge.com/pasos/app/views
+https://deliriumtechmen.svn.cloudforge.com/pasos
+
+
+
+2014-05-07T20:44:03.092077Z
+1
+matiasrenta
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+a92e26dc-2c2d-438e-8592-3d75d0d9faa1
+
+application
+dir
+
+devise
+dir
+
+errors
+dir
+
+layouts
+dir
+
+my_pendings
+dir
+
+patients
+dir
+
+payments
+dir
+
+presences
+dir
+
+shared
+dir
+
+states
+dir
+
+therapists
+dir
+
+user_mailer
+dir
+
+users
+dir
+

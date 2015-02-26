@@ -1,0 +1,49 @@
+    <table style="width: 100%" border="1">
+      <tbody>
+        <tr>
+          <td><img longdesc="logo" title="logo"
+                        alt="logo"
+                        src="http://<%=HOST%>/images/logo_recibo.png"></td>
+          <td style="text-align:center;">Centro de Atención al Niño y a la Familia, A.C. CAN060201CG3<br>
+            Erasmo Castellanos Quinto No. 379 Col. Educación<br>
+            Delg. Coyoacán C.P. 04400 México, D.F.<br>
+            Tels.: (55) 5544 0841 - 2458 7899</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br>
+    </p>
+    <table style="width: 100%" border="1">
+      <tbody>
+        <tr>
+          <td style="height:70px; padding:5px;">Fecha: <%= Time.now %><br/><br/>Nombre: <%= @payment.patient.nombre_padre ? @payment.patient.nombre_padre : @payment.patient.nombre_madre %></td>
+          <td style="height:70px; padding:5px;">Recibo No.: <b><%= @payment.nro_recibo %></b></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br>
+    </p>
+    <table style="width: 100%" border="1">
+      <tbody>
+        <tr>
+          <td style="width: 500px; text-align:center; padding:5px;"><b>Concepto</b></td>
+          <td style="width: 100px; text-align:center; padding:5px;"><b>Importe</b></td>
+        </tr>
+        <tr>
+          <td style="padding:5px; width: 500px; height:250px; vertical-align:top;"><%= @payment.description %></td>
+          <td style="padding:5px; width: 100px; height:250px; text-align:right; vertical-align:top;">$<%= number_to_currency(@payment.importe, :unit => "") %></td>
+        </tr>
+      </tbody>
+    </table>
+    <table style="width: 100%" border="1">
+      <tbody>
+        <tr>
+          <td style="width: 400px;"><br>
+          </td>
+          <td style="padding:5px; width: 100px; text-align:center;"><b>TOTAL</b></td>
+          <td style="padding:5px; width: 100px; text-align:right;"><b>$<%= number_to_currency(@payment.importe, :unit => "") %></b></td>
+        </tr>
+      </tbody>
+    </table>
+
+

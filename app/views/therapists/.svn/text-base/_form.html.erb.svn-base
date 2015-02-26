@@ -1,0 +1,17 @@
+<div class="gray_form">
+  <%= simple_nested_form_for(@therapist) do |f| %>
+
+      <div class="inputs">
+        <%= f.input :nombre %>
+        <%= f.association :state, :input_html => {:disabled => creating?} %>
+        <%= f.input :state_id, :as => :hidden if creating? %>
+      </div>
+
+      <%= render "therapists_schedules_form", :f => f %>
+
+      <%= render "shared/submit_form_model", :model_class => Therapist %>
+
+  <% end %>
+</div>
+
+

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  income_policy_id: 1
+  customer_id: 1
+  amount: 9.99
+  bank: MyString
+
+two:
+  income_policy_id: 1
+  customer_id: 1
+  amount: 9.99
+  bank: MyString

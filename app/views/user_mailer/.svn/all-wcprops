@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/pasos/!svn/ver/1/app/views/user_mailer
+END
+registration_confirmation.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/pasos/!svn/ver/1/app/views/user_mailer/registration_confirmation.html.erb
+END

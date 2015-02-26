@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyText
+  projects_phases_joins_id: 1
+  user_id: 1
+
+two:
+  description: MyText
+  projects_phases_joins_id: 1
+  user_id: 1

@@ -1,0 +1,73 @@
+<%= render 'shared/pagination', :locals => {:target => @patients, :model_index_path => patients_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => {:model_class => Patient} %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :nombre_contains, :label => t("simple_form.labels.nombre") %>
+        <%= f.input :nombre_padre_contains, :label => t("simple_form.labels.nombre_padre") %>
+        <%= f.input :nombre_madre_contains, :label => t("simple_form.labels.nombre_madre") %>
+
+        <div class="from_to">
+          <%= label_tag(:fecha_ingreso_greater_than_or_equal_to, t("simple_form.labels.fecha_ingreso")) %>
+          <%= f.input :fecha_ingreso_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :fecha_ingreso_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+        <%= f.input :recibo_donativo_equals, :label => t("simple_form.labels.recibo_donativo"), :as => :select %>
+        <%= f.input :factura_equals, :label => t("simple_form.labels.factura"), :as => :select %>
+
+        <div class="from_to">
+          <%= label_tag(:costo_terapia_greater_than_or_equal_to, t("simple_form.labels.costo_terapia")) %>
+          <%= f.input :costo_terapia_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
+          <%= f.input :costo_terapia_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
+        </div>
+
+        <div class="from_to">
+          <%= label_tag(:saldo_greater_than_or_equal_to, t("simple_form.labels.saldo")) %>
+          <%= f.input :saldo_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
+          <%= f.input :saldo_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
+        </div>
+
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :nombre, t("simple_form.labels.nombre") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :nombre_padre, t("simple_form.labels.nombre_padre") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :nombre_madre, t("simple_form.labels.nombre_madre") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :tel_casa, t("simple_form.labels.tel_casa") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :cel_padre, t("simple_form.labels.cel_padre") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :cel_madre, t("simple_form.labels.cel_madre") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :email, t("simple_form.labels.email") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :fecha_ingreso, t("simple_form.labels.fecha_ingreso") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @patients.each do |patient| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= patient.nombre %></td>
+        <td><%= patient.nombre_padre %></td>
+        <td><%= patient.nombre_madre %></td>
+        <td><%= patient.tel_casa %></td>
+        <td><%= patient.cel_padre %></td>
+        <td><%= patient.cel_madre %></td>
+        <td><%= patient.email %></td>
+        <td><%= patient.fecha_ingreso %></td>
+        <%= render 'shared/action_icons', :locals => {:target => patient, :model_edit_path => edit_patient_path(patient)} %>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @patients, :model_index_path => patients_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => {:model_class => Patient, :no_filter => true} %>
+

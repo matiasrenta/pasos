@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/pasos/!svn/ver/1/app/models
+END
+therapist_schedule.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/pasos/!svn/ver/56/app/models/therapist_schedule.rb
+END
+user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/pasos/!svn/ver/5/app/models/user.rb
+END
+presence.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/pasos/!svn/ver/66/app/models/presence.rb
+END
+ability.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/pasos/!svn/ver/54/app/models/ability.rb
+END
+therapist.rb
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/pasos/!svn/ver/37/app/models/therapist.rb
+END
+therapy.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/pasos/!svn/ver/58/app/models/therapy.rb
+END
+role.rb
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/pasos/!svn/ver/1/app/models/role.rb
+END
+payment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/pasos/!svn/ver/24/app/models/payment.rb
+END
+patient.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/pasos/!svn/ver/62/app/models/patient.rb
+END
+special_date.rb
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/pasos/!svn/ver/39/app/models/special_date.rb
+END
+settings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/pasos/!svn/ver/1/app/models/settings.rb
+END
+assessment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/pasos/!svn/ver/41/app/models/assessment.rb
+END
+state.rb
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/pasos/!svn/ver/14/app/models/state.rb
+END

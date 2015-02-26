@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  supplier_id: 1
+  press_type_id: 1
+  contact_id: 1
+  term: 1
+  subtotal: 9.99
+  iva: 9.99
+  total: 9.99
+
+two:
+  supplier_id: 1
+  press_type_id: 1
+  contact_id: 1
+  term: 1
+  subtotal: 9.99
+  iva: 9.99
+  total: 9.99

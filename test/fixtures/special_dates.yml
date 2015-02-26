@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  therapy_id: 1
+  fecha_hora: 2014-05-27 14:13:13
+  cancellation: false
+
+two:
+  therapy_id: 1
+  fecha_hora: 2014-05-27 14:13:13
+  cancellation: false

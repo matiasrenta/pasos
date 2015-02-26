@@ -1,0 +1,28 @@
+<%%= render "shared/control_buttons", :locals => {:instance => @<%= singular_name %>} %>
+
+<table class="show_table">
+<% for attribute in attributes -%>
+  <tr>
+    <% if attribute.name[-6,6] == "_cents" -%>
+        <td class="td_label"><b><%%= t("simple_form.labels.<%= attribute.name[0,attribute.name.length-6] %>") %>:</b></td>
+    <% elsif attribute.name[-3,3] == "_id" -%>
+        <td class="td_label"><b><%%= t("simple_form.labels.<%= attribute.name[0,attribute.name.length-3] %>") %>:</b></td>
+    <% else -%>
+        <td class="td_label"><b><%%= t("simple_form.labels.<%= attribute.name %>") %>:</b></td>
+    <% end -%>
+    <% if attribute.type.to_sym == :date -%>
+        <td class="td_data"><%%= l(@<%= singular_table_name %>.<%= attribute.name %>, :format => :long) if @<%= singular_table_name %>.<%= attribute.name %> %></td>
+    <% elsif attribute.type.to_sym == :integer -%>
+        <% if attribute.name[-3,3] == "_id" -%>
+            <td class="td_data"><%%= @<%= singular_table_name %>.<%= attribute.name[0,attribute.name.length-3] %>.try(:name) %></td>
+        <% elsif attribute.name[-6,6] ==  "_cents" -%>
+            <td class="td_data"><%%= @<%= singular_table_name %>.<%= attribute.name[0,attribute.name.length-6] %> %></td>
+        <% else -%>
+            <td class="td_data"><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
+        <% end -%>
+    <% else -%>
+        <td class="td_data"><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
+    <% end -%>
+  </tr>
+<% end -%>
+</table>

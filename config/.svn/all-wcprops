@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 24
+/pasos/!svn/ver/1/config
+END
+routes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/pasos/!svn/ver/51/config/routes.rb
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/pasos/!svn/ver/1/config/database.yml
+END
+schedule.rb
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/pasos/!svn/ver/1/config/schedule.rb
+END
+environment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/pasos/!svn/ver/53/config/environment.rb
+END
+application_settings.yml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/pasos/!svn/ver/57/config/application_settings.yml
+END
+boot.rb
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/pasos/!svn/ver/1/config/boot.rb
+END
+application.rb
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/pasos/!svn/ver/1/config/application.rb
+END

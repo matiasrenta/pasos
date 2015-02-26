@@ -1,0 +1,15 @@
+<% if @the_id.blank? %>
+    $("<%= @changing_dropdown_id %>").html('');
+<% else %>
+    $("<%= @changing_dropdown_id %>").html('<%= raw options_for_select(@select_options.map {|v| [v.name, v.id]}).gsub(/\n/, '') %>');
+<% end %>
+
+$("<%= @changing_dropdown_id %>").multiselect('destroy');
+$("<%= @changing_dropdown_id %>").multiselect({
+         header: false,
+         selectedText: "No más de 3 horarios",
+         noneSelectedText: 'Seleccionar Horario',
+         selectedList: 3
+     });
+
+$('input[type=submit]').attr('disabled', false);

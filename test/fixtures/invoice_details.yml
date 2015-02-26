@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  invoice_id: 1
+  quotation_id: 1
+  quantity: 1
+  unit_measure_id: 1
+  product_code: MyString
+  product_description: MyText
+  unit_price: 9.99
+  anexo: MyString
+
+two:
+  invoice_id: 1
+  quotation_id: 1
+  quantity: 1
+  unit_measure_id: 1
+  product_code: MyString
+  product_description: MyText
+  unit_price: 9.99
+  anexo: MyString

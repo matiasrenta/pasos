@@ -1,0 +1,5 @@
+<%= render "my_pendings/admin" if current_user.admin? %>
+
+
+
+

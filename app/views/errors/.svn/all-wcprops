@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/pasos/!svn/ver/1/app/views/errors
+END
+internal_server_error.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/pasos/!svn/ver/1/app/views/errors/internal_server_error.html.erb
+END
+not_found.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/1/app/views/errors/not_found.html.erb
+END

@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  status: MyString
+  serie: MyString
+  folio: 1
+  vencimiento: 2013-08-16
+  transport: MyString
+  customer_order: MyString
+  forma_pago: MyString
+  flete: 1
+  retencion: false
+  payment_account: MyString
+  payment_method: MyString
+
+two:
+  status: MyString
+  serie: MyString
+  folio: 1
+  vencimiento: 2013-08-16
+  transport: MyString
+  customer_order: MyString
+  forma_pago: MyString
+  flete: 1
+  retencion: false
+  payment_account: MyString
+  payment_method: MyString

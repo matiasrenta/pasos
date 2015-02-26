@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  quotation_id: 1
+  name: MyString
+  paso: MyString
+  ancho_forma: 9.99
+  ancho_bobina: MyString
+  c1: false
+  c2: false
+  c3: false
+  c4: 1
+  r1: false
+  r2: false
+  r3: false
+  r4: false
+
+two:
+  quotation_id: 1
+  name: MyString
+  paso: MyString
+  ancho_forma: 9.99
+  ancho_bobina: MyString
+  c1: false
+  c2: false
+  c3: false
+  c4: 1
+  r1: false
+  r2: false
+  r3: false
+  r4: false

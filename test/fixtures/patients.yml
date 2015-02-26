@@ -1,0 +1,43 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  nombre_padre: MyString
+  nombre_madre: MyString
+  tel_casa: MyString
+  cel_padre: MyString
+  cel_madre: MyString
+  email: MyString
+  fecha_ingreso: 2014-05-15
+  recibo_donativo: false
+  factura: false
+  nombre_empresa: MyString
+  direccion: MyString
+  colonia: MyString
+  delegacion: MyString
+  cp: MyString
+  ciudad: MyString
+  email_empresa: MyString
+  costo_terapia: 9.99
+  saldo: 9.99
+
+two:
+  nombre: MyString
+  nombre_padre: MyString
+  nombre_madre: MyString
+  tel_casa: MyString
+  cel_padre: MyString
+  cel_madre: MyString
+  email: MyString
+  fecha_ingreso: 2014-05-15
+  recibo_donativo: false
+  factura: false
+  nombre_empresa: MyString
+  direccion: MyString
+  colonia: MyString
+  delegacion: MyString
+  cp: MyString
+  ciudad: MyString
+  email_empresa: MyString
+  costo_terapia: 9.99
+  saldo: 9.99

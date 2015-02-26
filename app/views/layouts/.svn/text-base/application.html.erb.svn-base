@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <%= render :partial => "/layouts/head" %>
+    <%= render :partial => "/layouts/body" %>
+</html>
+
+
+
+
+
+
+
+

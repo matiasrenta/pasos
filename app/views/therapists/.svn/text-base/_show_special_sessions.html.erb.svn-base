@@ -1,0 +1,16 @@
+<h2>Sesiones Especiales</h2>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table" style="margin-top:5px;">
+  <tr>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Horario</a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Paciente</a></th>
+  </tr>
+
+  <%  @therapist.dues_special_dates.each do |special_date| %>
+      <% if special_date.extra_session? %>
+          <tr class=<%= cycle("alternate-row", "") %>>
+            <td><%= l(special_date.fecha_hora, :format => :long_day) %></td>
+            <td><%= special_date.therapy.patient.nombre %></td>
+          </tr>
+      <% end %>
+  <% end %>
+</table>

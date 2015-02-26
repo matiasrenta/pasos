@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/pasos/!svn/ver/13/app/views/therapists
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/pasos/!svn/ver/13/app/views/therapists/new.html.erb
+END
+_show_therapist_schedule_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/pasos/!svn/ver/16/app/views/therapists/_show_therapist_schedule_list.html.erb
+END
+_therapists_schedules_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/pasos/!svn/ver/18/app/views/therapists/_therapists_schedules_form.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/37/app/views/therapists/show.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/13/app/views/therapists/edit.html.erb
+END
+_show_special_sessions.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/pasos/!svn/ver/37/app/views/therapists/_show_special_sessions.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/pasos/!svn/ver/14/app/views/therapists/_form.html.erb
+END
+ajax_get_available_hours.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/pasos/!svn/ver/20/app/views/therapists/ajax_get_available_hours.js.erb
+END
+_show_cancel_dates.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/pasos/!svn/ver/37/app/views/therapists/_show_cancel_dates.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/pasos/!svn/ver/13/app/views/therapists/index.html.erb
+END

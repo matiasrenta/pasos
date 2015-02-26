@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/pasos/!svn/ver/1/app/views/shared
+END
+_control_buttons.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/pasos/!svn/ver/1/app/views/shared/_control_buttons.html.erb
+END
+_pagination.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/pasos/!svn/ver/1/app/views/shared/_pagination.html.erb
+END
+_control_filter.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/pasos/!svn/ver/1/app/views/shared/_control_filter.html.erb
+END
+_submit_form_model.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/pasos/!svn/ver/1/app/views/shared/_submit_form_model.html.erb
+END
+_controls_new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/pasos/!svn/ver/1/app/views/shared/_controls_new.html.erb
+END
+_chart_controls.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/pasos/!svn/ver/1/app/views/shared/_chart_controls.html.erb
+END
+_controls_edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/pasos/!svn/ver/1/app/views/shared/_controls_edit.html.erb
+END
+_error_messages_nested.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/pasos/!svn/ver/1/app/views/shared/_error_messages_nested.html.erb
+END
+_action_icons.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/pasos/!svn/ver/1/app/views/shared/_action_icons.html.erb
+END
+_controls_index_filter.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/pasos/!svn/ver/1/app/views/shared/_controls_index_filter.html.erb
+END
+_submit_form_filter.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/pasos/!svn/ver/1/app/views/shared/_submit_form_filter.html.erb
+END
+_controls_index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/pasos/!svn/ver/1/app/views/shared/_controls_index.html.erb
+END
+_controls_show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/pasos/!svn/ver/1/app/views/shared/_controls_show.html.erb
+END
+_error_messages.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/pasos/!svn/ver/1/app/views/shared/_error_messages.html.erb
+END
+_chart_buttons.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/pasos/!svn/ver/1/app/views/shared/_chart_buttons.html.erb
+END

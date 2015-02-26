@@ -1,0 +1,102 @@
+<style type="text/css">
+    .input-text-datetime {
+        width: 110px;
+    }
+    .input-text-big {
+        width: 280px;
+    }
+
+    .input-text-medium {
+        width: 180px;
+    }
+
+    .input-text-small{
+        width: 90px;
+    }
+
+    .input-text-very-small{
+        width: 80px;
+    }
+
+</style>
+
+<div class="clear"></div>
+
+<div style="margin:10px 0 30px 70px;">
+  <table border="0">
+    <tr>
+      <td style="width:120px; padding:3px; background-color:#bbbbbb;"><b>Terapias</b></td>
+      <td style="width:820px; padding:3px; background-color:#889088; ">* Terapeuta </td>
+      <td style="width:80px; padding:3px; background-color:#889088; "></td>
+    </tr>
+
+    <tr>
+      <td colspan="4">
+        <%= f.simple_fields_for :therapies do |therapy| %>
+            <table border="0" class="div-table-row">
+              <tr>
+                <td style="width:120px; padding: 7px 3px 3px 3px; vertical-align:top;"><%= therapy.association :state, :label => false, :wrapper_tag => :p, :include_blank => false,  :input_html => {:class => "input-text-small"} %></td>
+                <td style="width:820px; padding: 7px 3px 3px 3px;">
+                  <div style="float:left;">
+                    <%= therapy.association :therapist, :label => false, :wrapper_tag => :p, :collection => Therapist.actives, :input_html => {:class => "input-text-medium ajax_dropdown", "data-url"=>"/therapists/ajax_get_available_hours"} %>
+                  </div>
+                  <div style="float:left; margin:0 0 0 20px; width:230px; border-color:black; border:1px;">
+                    <%= therapy.association :therapist_schedules, :label => false, :collection => therapy.object.therapist ? collection_with_actual(TherapistSchedule.available_hours(therapy.object.therapist), therapy.object.therapist_schedules, :name, false) : [], :input_html => {:class => therapy.object.new_record? ? 'multi_select_no_filter_nested' : 'multi_select_no_filter'} %>
+                  </div>
+                  <div style="float:left; margin:0 0 0 20px;">
+                      <table border="0">
+                        <tr>
+                          <td style="width:120px; padding:3px; background-color:#bbbbbb;"><b>Fechas especiales</b></td>
+                          <td style="width:120px; padding:3px; background-color:#889088; ">Cancelación?</td>
+                          <td style="width:80px; padding:3px; background-color:#889088; "></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                              <%= therapy.simple_fields_for :special_dates do |special_date| %>
+                                  <table border="0" class="div-table-row">
+                                    <tr>
+                                      <td style="width:120px; padding:3px;"><%= special_date.input :fecha_hora_string, :label => false, :wrapper_tag => :p, :as => :string, :input_html => {:class => 'datetimepicker input-text-datetime'} %></td>
+                                      <td style="width:120px; padding:3px;"><%= special_date.input :cancellation, :label => false, :wrapper_tag => :p %></td>
+                                      <td style="width:80px; padding:3px;">
+                                        <div class="buttons button-low-remove">
+                                        <%= special_date.link_to_remove(:class => "remove_nested_row_form negative") do %>
+                                            <%= image_tag('/images/glyphicons/trash_small.png', :alt => '') + " " + "Eliminar" %>
+                                        <% end %>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </table>
+                              <% end %>
+                              <div class="buttons button-low-add">
+                                <%= therapy.link_to_add(:special_dates, {:class => "add_nested_row_form"}) do %>
+                                    <%= image_tag('/images/glyphicons/glyphicons_190_circle_plus.png', :alt => '') + " " + "Agregar" %>
+                                <% end %>
+                              </div>
+                            </td>
+                        </tr>
+                      </table>
+                  </div>
+                </td>
+                <td style="width:80px; padding: 7px 3px 3px 3px; text-align:right; vertical-align:top;">
+                  <div class="buttons button-low-remove">
+                  <%= therapy.link_to_remove(:class => "remove_nested_row_form negative") do %>
+                      <%= image_tag('/images/glyphicons/trash_small.png', :alt => '') + " " + "Eliminar" %>
+                  <% end %>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <hr/>
+        <% end %>
+
+
+        <div class="buttons button-low-add">
+            <%= f.link_to_add(:therapies, {:class => "add_nested_row_form"}) do %>
+                <%= image_tag('/images/glyphicons/glyphicons_190_circle_plus.png', :alt => '') + " " + "Agregar" %>
+            <% end %>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+</div>

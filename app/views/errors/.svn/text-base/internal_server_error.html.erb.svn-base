@@ -1,0 +1,42 @@
+<style type="text/css">
+    div.dialog {
+        width: 500px;
+        padding: 10px;
+        margin: 4em auto 0 auto;
+        border: 1px solid #ccc;
+        border-right-color: #999;
+        border-bottom-color: #999;
+    }
+
+    h2 {
+        font-size: 18px;
+        color: #f00;
+    }
+    p {
+        font-size: 14px;
+    }
+
+</style>
+
+
+<div class="dialog">
+  <h2><%= t("screens.errors.we_are_sorry") %>.</h2>
+  <p><%= t("screens.errors.we_have_been_notified") %>.</p>
+  <br/><br/>
+  <div class="buttons">
+    <%= link_to image_tag('/images/glyphicons/glyphicons_025_binoculars.png', :alt => '') + " " + t("screens.links.show_backtrace") , "#", {:class => "trigger"} %>
+  </div>
+</div>
+
+<br/><br/>
+
+
+<div class="toggle_container">
+  <div class="block">
+    <%= @msg %>
+    <br/>
+    <%= @backtrace_html.html_safe %>
+  </div>
+</div>
+
+

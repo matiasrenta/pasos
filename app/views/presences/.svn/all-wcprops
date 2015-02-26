@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/pasos/!svn/ver/21/app/views/presences
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/pasos/!svn/ver/21/app/views/presences/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/pasos/!svn/ver/64/app/views/presences/show.html.erb
+END
+today_sessions.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/pasos/!svn/ver/57/app/views/presences/today_sessions.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/pasos/!svn/ver/21/app/views/presences/edit.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/58/app/views/presences/_form.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/64/app/views/presences/index.html.erb
+END

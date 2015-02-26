@@ -1,0 +1,61 @@
+<style type="text/css">
+    .input-text-big {
+        width: 280px;
+    }
+
+    .input-text-medium {
+        width: 180px;
+    }
+
+    .input-text-small{
+        width: 90px;
+    }
+
+    .input-text-very-small{
+        width: 80px;
+    }
+
+</style>
+
+<div class="clear"></div>
+
+<div style="margin:10px 0 30px 25px;">
+  <table border="0">
+    <tr>
+      <td style="width:120px; padding:3px; background-color:#bbbbbb;"><b>Horarios</b></td>
+      <td style="width:200px; padding:3px; background-color:#889088; ">* Día </td>
+      <td style="width:200px; padding:3px; background-color:#889088; ">* Hora</td>
+      <td style="width:80px; padding:3px; background-color:#889088; "></td>
+    </tr>
+
+    <tr>
+      <td colspan="4">
+        <%= f.simple_fields_for :therapist_schedules do |schedule| %>
+            <table border="0" class="div-table-row">
+              <tr>
+                <td style="width:120px; padding: 7px 3px 3px 3px;"><%= schedule.association :state, :label => false, :wrapper_tag => :p, :include_blank => false, :input_html => {:class => "input-text-small"} %></td>
+                <td style="width:200px; padding: 7px 3px 3px 3px;"><%= schedule.input :dia, :label => false, :wrapper_tag => :p, :collection => [[t("date.day_names")[1], 1], [t("date.day_names")[2], 2], [t("date.day_names")[3], 3], [t("date.day_names")[4], 4], [t("date.day_names")[5], 5], [t("date.day_names")[6], 6], [t("date.day_names")[0], 0]], :input_html => {:class => "input-text-medium"} %></td>
+                <td style="width:200px; padding: 7px 3px 3px 3px;"><%= schedule.input :hora, :label => false, :wrapper_tag => :p, :collection => 0..23, :input_html => {:class => "input-text-medium"} %></td>
+                <td style="width:80px; padding: 7px 3px 3px 3px; text-align:right;">
+                  <div class="buttons button-low-remove">
+                  <%= schedule.link_to_remove(:class => "remove_nested_row_form negative") do %>
+                      <%= image_tag('/images/glyphicons/trash_small.png', :alt => '') + " " + "Eliminar" %>
+                  <% end %>
+                  </div>
+                </td>
+
+              </tr>
+            </table>
+        <% end %>
+
+
+        <div class="buttons button-low-add">
+            <%= f.link_to_add(:therapist_schedules, {:class => "add_nested_row_form"}) do %>
+                <%= image_tag('/images/glyphicons/glyphicons_190_circle_plus.png', :alt => '') + " " + "Agregar" %>
+            <% end %>
+        </div>
+
+      </td>
+    </tr>
+  </table>
+</div>

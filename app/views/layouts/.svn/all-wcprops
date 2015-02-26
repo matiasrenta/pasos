@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/pasos/!svn/ver/1/app/views/layouts
+END
+application.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/pasos/!svn/ver/1/app/views/layouts/application.html.erb
+END
+_footer.erb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/pasos/!svn/ver/7/app/views/layouts/_footer.erb
+END
+_header.erb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/pasos/!svn/ver/1/app/views/layouts/_header.erb
+END
+_navigation-old.erb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/pasos/!svn/ver/1/app/views/layouts/_navigation-old.erb
+END
+_body-login.erb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/pasos/!svn/ver/1/app/views/layouts/_body-login.erb
+END
+_body-content.erb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/1/app/views/layouts/_body-content.erb
+END
+_head.erb
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/pasos/!svn/ver/39/app/views/layouts/_head.erb
+END
+_flash_messages.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/pasos/!svn/ver/1/app/views/layouts/_flash_messages.html.erb
+END
+application.mobile.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/pasos/!svn/ver/1/app/views/layouts/application.mobile.erb
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/pasos/!svn/ver/1/app/views/layouts/index.html
+END
+_body.erb
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/pasos/!svn/ver/1/app/views/layouts/_body.erb
+END
+_navigation.erb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/pasos/!svn/ver/1/app/views/layouts/_navigation.erb
+END

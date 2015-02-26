@@ -1,0 +1,63 @@
+# Additional translations at http://github.com/plataformatec/devise/wiki/I18n
+
+es:
+  errors:
+    messages:
+      not_found: "not found"
+      already_confirmed: "was already confirmed, please try signing in"
+      not_locked: "was not locked"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+
+  devise:
+    failure:
+      already_authenticated: 'Usted ya está logueado.'
+      unauthenticated: 'Debe iniciar sesión primero.'
+      unconfirmed: 'You have to confirm your account before continuing.'
+      locked: 'Su cuenta está bloqueada.'
+      invalid: 'Email o clave incorrectos.'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'La sesión expiró, por favor inicie sesión nuevamente.'
+      inactive: 'Your account was not activated yet.'
+    sessions:
+      signed_in: 'Logueado exitosamente.'
+      signed_out: 'Sesión cerrada exitosamente.'
+    passwords:
+      send_instructions: 'Usted recibirá un mails con instrucciones para resetear su clave en pocos minutos.'
+      updated: 'Su clave ha sido cambiada. Usted esta logueado ahora.'
+    confirmations:
+      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    registrations:
+      signed_up: 'Welcome! You have signed up successfully.'
+      inactive_signed_up: 'You have signed up successfully. However, we could not sign you in because your account is %{reason}.'
+      updated: 'You updated your account successfully.'
+      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+    unlocks:
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+    omniauth_callbacks:
+      success: 'Successfully authorized from %{kind} account.'
+      failure: 'Could not authorize you from %{kind} because "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmation instructions'
+      reset_password_instructions:
+        subject: 'Instrucciones para resetear su clave'
+      unlock_instructions:
+        subject: 'Unlock Instructions'
+
+    labels:
+      send_us_your_email: "Ingrese su email para enviarle las instruciones."
+      email: "Email"
+      change_your_password: "Cambie su clave. Mínimo de 6 caracteres"
+      set_your_password: "Setee su clave. Mínimo de 6 caracteres"
+      new_password: "Nueva clave"
+      password: "Clave"
+      confirm_new_password: "Confirmar clave"
+      new_user_email_sent: "Se ha enviado un mail a %{email} con las instrucciones para setear la clave y comenzar a utilizar el sistema"
+      resend_wellcome_mail: "Reenviar mail de alta"
+      send_reset_pass_mail: "Enviar mail reset-password"
+
+

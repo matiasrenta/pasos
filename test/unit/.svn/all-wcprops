@@ -1,0 +1,335 @@
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/pasos/!svn/ver/1/test/unit
+END
+press_type_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/pasos/!svn/ver/1/test/unit/press_type_test.rb
+END
+lesson_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/pasos/!svn/ver/1/test/unit/lesson_test.rb
+END
+quotation_continue_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/pasos/!svn/ver/1/test/unit/quotation_continue_test.rb
+END
+fc_special_charge_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/1/test/unit/fc_special_charge_test.rb
+END
+warehouse_voucher_detail_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/pasos/!svn/ver/1/test/unit/warehouse_voucher_detail_test.rb
+END
+matrix_pess1_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/pasos/!svn/ver/1/test/unit/matrix_pess1_test.rb
+END
+news_item_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/pasos/!svn/ver/1/test/unit/news_item_test.rb
+END
+pliego_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/pasos/!svn/ver/1/test/unit/pliego_test.rb
+END
+matrix_alsado_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/pasos/!svn/ver/1/test/unit/matrix_alsado_test.rb
+END
+quotation_feature_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/1/test/unit/quotation_feature_test.rb
+END
+production_order_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/pasos/!svn/ver/1/test/unit/production_order_test.rb
+END
+matrix_doblez_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/pasos/!svn/ver/1/test/unit/matrix_doblez_test.rb
+END
+income_policy_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/pasos/!svn/ver/1/test/unit/income_policy_test.rb
+END
+matrix_empaque_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/pasos/!svn/ver/1/test/unit/matrix_empaque_test.rb
+END
+paper_weight_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/pasos/!svn/ver/1/test/unit/paper_weight_test.rb
+END
+quotation_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/pasos/!svn/ver/1/test/unit/quotation_test.rb
+END
+supplier_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/pasos/!svn/ver/1/test/unit/supplier_test.rb
+END
+quotation_flat_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/pasos/!svn/ver/1/test/unit/quotation_flat_test.rb
+END
+paper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/pasos/!svn/ver/1/test/unit/paper_test.rb
+END
+quotation_external_supplier_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/pasos/!svn/ver/1/test/unit/quotation_external_supplier_test.rb
+END
+paper_measure_flat_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/pasos/!svn/ver/1/test/unit/paper_measure_flat_test.rb
+END
+invoice_detail_folio_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/pasos/!svn/ver/1/test/unit/invoice_detail_folio_test.rb
+END
+commission_discount_conf_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/pasos/!svn/ver/1/test/unit/commission_discount_conf_test.rb
+END
+purchase_order_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/pasos/!svn/ver/1/test/unit/purchase_order_test.rb
+END
+fc_factor_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/pasos/!svn/ver/1/test/unit/fc_factor_test.rb
+END
+company_dashboard_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/1/test/unit/company_dashboard_test.rb
+END
+finish_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/pasos/!svn/ver/1/test/unit/finish_test.rb
+END
+commission_profile_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/pasos/!svn/ver/1/test/unit/commission_profile_test.rb
+END
+paper_price_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/pasos/!svn/ver/1/test/unit/paper_price_test.rb
+END
+quotation_state_transition_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/pasos/!svn/ver/1/test/unit/quotation_state_transition_test.rb
+END
+tool_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/pasos/!svn/ver/1/test/unit/tool_test.rb
+END
+document_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/pasos/!svn/ver/1/test/unit/document_test.rb
+END
+tanto_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/pasos/!svn/ver/1/test/unit/tanto_test.rb
+END
+customer_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/pasos/!svn/ver/1/test/unit/customer_test.rb
+END
+quotation_state_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/pasos/!svn/ver/1/test/unit/quotation_state_test.rb
+END
+purchase_order_detail_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/pasos/!svn/ver/1/test/unit/purchase_order_detail_test.rb
+END
+new_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/pasos/!svn/ver/1/test/unit/new_test.rb
+END
+contact_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/pasos/!svn/ver/1/test/unit/contact_test.rb
+END
+unit_measure_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/pasos/!svn/ver/1/test/unit/unit_measure_test.rb
+END
+invoice_detail_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/pasos/!svn/ver/1/test/unit/invoice_detail_test.rb
+END
+coating_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/pasos/!svn/ver/1/test/unit/coating_test.rb
+END
+features_finishes_join_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/pasos/!svn/ver/1/test/unit/features_finishes_join_test.rb
+END
+day_hour_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/pasos/!svn/ver/1/test/unit/day_hour_test.rb
+END
+selling_surplus_conf_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/pasos/!svn/ver/1/test/unit/selling_surplus_conf_test.rb
+END
+income_policy_detail_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/pasos/!svn/ver/1/test/unit/income_policy_detail_test.rb
+END
+commission_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/pasos/!svn/ver/1/test/unit/commission_test.rb
+END
+paper_measure_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/pasos/!svn/ver/1/test/unit/paper_measure_test.rb
+END
+fc_data_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/pasos/!svn/ver/1/test/unit/fc_data_test.rb
+END
+projects_phases_join_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/pasos/!svn/ver/1/test/unit/projects_phases_join_test.rb
+END
+invoice_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/pasos/!svn/ver/1/test/unit/invoice_test.rb
+END
+project_dashboard_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/1/test/unit/project_dashboard_test.rb
+END
+thing_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/pasos/!svn/ver/1/test/unit/thing_test.rb
+END
+product_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/pasos/!svn/ver/1/test/unit/product_test.rb
+END
+implementation_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/pasos/!svn/ver/1/test/unit/implementation_test.rb
+END
+warehouse_voucher_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/1/test/unit/warehouse_voucher_test.rb
+END

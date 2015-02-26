@@ -1,0 +1,29 @@
+<div class="gray_form">
+<%%= simple_form_for(@<%= singular_name %>) do |f| %>
+
+  <div class="inputs">
+  <%- attributes.each do |attribute| -%>
+    <% if attribute.type.to_sym ==  :date || attribute.type.to_sym ==  :time -%>
+        <%%= f.input :<%= attribute.name %>, :as => :string, :input_html => { :class => 'datepicker' } %>
+    <% elsif attribute.type.to_sym ==  :text -%>
+        <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>, :input_html => { :rows => 4, :cols => 30 } %>
+    <% elsif attribute.type.to_sym ==  :integer -%>
+        <% if attribute.name[-3,3] ==  "_id" -%>
+            <%%= f.association :<%= attribute.name[0,attribute.name.length-3] %> %>
+        <% elsif attribute.name[-6,6] ==  "_cents" -%>
+            <%%= f.input :<%= attribute.name[0,attribute.name.length-6] %>, :input_html => {:class => 'money'} %>
+        <% else -%>
+            <%%= f.input :<%= attribute.name %> %>
+        <% end -%>
+    <% else -%>
+        <%%= f.input :<%= attribute.name %> %>
+    <% end -%>
+  <%- end -%>
+  </div>
+
+  <%%= render "shared/submit_form_model", :model_class => <%= singular_name.camelize %> %>
+
+<%% end %>
+</div>
+
+

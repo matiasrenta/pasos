@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/pasos/!svn/ver/1/app/views/devise/registrations
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/pasos/!svn/ver/1/app/views/devise/registrations/new.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/pasos/!svn/ver/1/app/views/devise/registrations/edit.html.erb
+END

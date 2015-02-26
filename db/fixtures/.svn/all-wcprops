@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/pasos/!svn/ver/1/db/fixtures
+END
+roles.rb
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/pasos/!svn/ver/51/db/fixtures/roles.rb
+END
+users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/pasos/!svn/ver/55/db/fixtures/users.rb
+END
+000_states.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/pasos/!svn/ver/1/db/fixtures/000_states.rb
+END

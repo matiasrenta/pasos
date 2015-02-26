@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  pliegos: 1
+  sin_portada: 1
+  portada: 1
+
+two:
+  pliegos: 1
+  sin_portada: 1
+  portada: 1

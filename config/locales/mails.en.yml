@@ -1,0 +1,10 @@
+en:
+  mails:
+    hello: 'Hello %{name}'
+    user_created:
+    setup_password: 'Setup your password'
+    link_not_working:
+    someone_requested_link: 'Someone has requested a link to change your password, and you can do this through the link below'
+    change_my_password: 'Change my password'
+    you_didnt_requested: "If you didn't request this, please ignore this email"
+    your_password_wont_change: "Your password won't change until you access the link above and create a new one"

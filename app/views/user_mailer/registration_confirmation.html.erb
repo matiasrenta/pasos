@@ -1,0 +1,6 @@
+<p><%= @user.full_name %>,</p>
+
+<p>Thank you for registering!</p>
+
+<p>For your security please <%= link_to 'change your password', edit_password_url(@user, :reset_password_token => @user.reset_password_token) %></p>
+

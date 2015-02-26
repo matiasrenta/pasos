@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/pasos/!svn/ver/1/config/initializers
+END
+mime_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/pasos/!svn/ver/1/config/initializers/mime_types.rb
+END
+date_time_formats.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/pasos/!svn/ver/39/config/initializers/date_time_formats.rb
+END
+secret_token.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/1/config/initializers/secret_token.rb
+END
+setup_mail.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/pasos/!svn/ver/1/config/initializers/setup_mail.rb
+END
+session_store.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/pasos/!svn/ver/1/config/initializers/session_store.rb
+END
+my_extensions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/pasos/!svn/ver/1/config/initializers/my_extensions.rb
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/pasos/!svn/ver/1/config/initializers/inflections.rb
+END
+devise.rb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/pasos/!svn/ver/1/config/initializers/devise.rb
+END
+pdfkit.rb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/pasos/!svn/ver/1/config/initializers/pdfkit.rb
+END
+backtrace_silencers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/pasos/!svn/ver/1/config/initializers/backtrace_silencers.rb
+END
+carrierwave.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/pasos/!svn/ver/1/config/initializers/carrierwave.rb
+END
+simple_form.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/16/config/initializers/simple_form.rb
+END
+money.rb
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/pasos/!svn/ver/1/config/initializers/money.rb
+END
+constants.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/pasos/!svn/ver/1/config/initializers/constants.rb
+END

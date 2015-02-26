@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/pasos/!svn/ver/1/app/helpers
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/pasos/!svn/ver/23/app/helpers/application_helper.rb
+END
+states_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/pasos/!svn/ver/1/app/helpers/states_helper.rb
+END
+users_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/pasos/!svn/ver/1/app/helpers/users_helper.rb
+END
+presences_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/pasos/!svn/ver/21/app/helpers/presences_helper.rb
+END
+therapists_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/pasos/!svn/ver/13/app/helpers/therapists_helper.rb
+END
+payments_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/pasos/!svn/ver/24/app/helpers/payments_helper.rb
+END
+patients_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/pasos/!svn/ver/11/app/helpers/patients_helper.rb
+END

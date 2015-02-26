@@ -1,0 +1,42 @@
+<%#
+    locals: instance o model_class
+    CREATE: model_i18n_name, new_model_path
+    READ:
+    UPDATE: edit_model_path
+    INDEX: index_path
+%>
+
+<%
+   if locals[:instance]
+     class_or_instance = locals[:instance]
+     underscore_model_name = class_or_instance.class.to_s.underscore
+   else
+     class_or_instance = locals[:model_class]
+     underscore_model_name = class_or_instance.to_s.underscore
+   end
+
+   model_i18n_name = t("activerecord.models." + underscore_model_name.camelize)
+   new_model_path_string = "new_" + underscore_model_name + "_path"
+   edit_model_path_string = "edit_" + underscore_model_name + "_path"
+   index_model_path_string = underscore_model_name.pluralize + "_path"
+%>
+
+<div class="buttons">
+
+  <%# CREATE %>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + t("helpers.link.create", :model => model_i18n_name) , eval(new_model_path_string) if (listing? && (can? :create, class_or_instance)) %>
+
+  <%# FILTER %>
+  <%= render "shared/control_filter", :locals => locals %>
+
+  <%# READ %>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_025_binoculars.png', :alt => '') + " " + t("helpers.link.show"), class_or_instance  if ( updating? && (can? :read, class_or_instance)) %>
+
+  <%# UPDATE %>
+  <% unless locals[:no_edit] %>
+    <%= link_to image_tag('/images/glyphicons/glyphicons_030_pencil.png', :alt => '') + " " + t("helpers.link.edit"), eval(edit_model_path_string) if ( showing? && (can? :update, class_or_instance))%>
+  <% end %>
+  <%# INDEX %>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_090_table.png', :alt => '') + " " + t("helpers.link.list"), eval(index_model_path_string) if !listing? %>
+
+</div>

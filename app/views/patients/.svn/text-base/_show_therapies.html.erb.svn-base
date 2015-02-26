@@ -1,0 +1,20 @@
+<h2>Terapias</h2>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table" style="margin-top:5px;">
+  <tr>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Terapeuta</a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Horario</a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Fechas Especiales</a></th>
+  </tr>
+
+  <% @patient.therapies.actives.each do |therapy| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= therapy.therapist.nombre %></td>
+        <td>
+          <%= therapy.therapist_schedules.map(&:name).join("<br/>").html_safe %>
+        </td>
+        <td>
+          <%= therapy.special_dates.order("fecha_hora DESC").map(&:name).join("<br/>").html_safe %>
+        </td>
+      </tr>
+  <% end %>
+</table>

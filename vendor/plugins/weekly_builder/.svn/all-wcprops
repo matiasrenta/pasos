@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/pasos/!svn/ver/1/vendor/plugins/weekly_builder
+END
+install.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/pasos/!svn/ver/1/vendor/plugins/weekly_builder/install.rb
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/pasos/!svn/ver/1/vendor/plugins/weekly_builder/Rakefile
+END
+MIT-LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/pasos/!svn/ver/1/vendor/plugins/weekly_builder/MIT-LICENSE
+END
+uninstall.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/pasos/!svn/ver/1/vendor/plugins/weekly_builder/uninstall.rb
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/pasos/!svn/ver/1/vendor/plugins/weekly_builder/init.rb
+END
+README.markdown
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/pasos/!svn/ver/1/vendor/plugins/weekly_builder/README.markdown
+END

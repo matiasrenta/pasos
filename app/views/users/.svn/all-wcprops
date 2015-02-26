@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/pasos/!svn/ver/1/app/views/users
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/pasos/!svn/ver/1/app/views/users/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/pasos/!svn/ver/1/app/views/users/show.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/pasos/!svn/ver/1/app/views/users/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/pasos/!svn/ver/1/app/views/users/index.html.erb
+END

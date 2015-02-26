@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  guillotine_measure_id: 1
+  fabric_measure_id: 1
+  colour: MyString
+  paper_weight_id: 1
+  paper_id: 1
+  tiro: 1
+  arreglo: 1
+  surtido: 1
+  sub_total_fabric_paper: 1
+
+two:
+  guillotine_measure_id: 1
+  fabric_measure_id: 1
+  colour: MyString
+  paper_weight_id: 1
+  paper_id: 1
+  tiro: 1
+  arreglo: 1
+  surtido: 1
+  sub_total_fabric_paper: 1

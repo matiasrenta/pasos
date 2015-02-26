@@ -1,0 +1,56 @@
+<style type="text/css">
+    .input-text-very_big {
+        width: 650px;
+        height: 80px;
+    }
+    .input-text-type {
+        width: 105px;
+    }
+
+
+</style>
+
+<div class="clear"></div>
+
+<div style="margin:10px 0 30px 70px;">
+  <table border="0">
+    <tr>
+      <td style="width:150px; padding:3px; background-color:#bbbbbb;"><b>Valoraciones y visitas</b></td>
+      <td style="width:120px; padding:3px; background-color:#889088; "> Tipo</td>
+      <td style="width:670px; padding:3px; background-color:#889088; "></td>
+      <td style="width:80px; padding:3px; background-color:#889088; "></td>
+    </tr>
+
+    <tr>
+      <td colspan="4">
+
+        <%= f.simple_fields_for :assessments do |assessment| %>
+            <table border="0" class="div-table-row">
+              <tr>
+                <td style="width:150px; padding: 7px 3px 3px 3px;"><%= assessment.object ? assessment.object.created_at : "" %></td>
+                <td style="width:120px; padding: 7px 3px 3px 3px;"><%= assessment.input :assessment_type, :label => false, :wrapper_tag => :p, :as => :select, :collection => ["Valoración", "Revaloración", "Visita Escolar"], :input_html => {:class => "input-text-type"} %></td>
+                <td style="width:670px; padding: 7px 3px 3px 3px;"><%= assessment.input :description, :label => false, :wrapper_tag => :p, :input_html => {:class => "input-text-very_big"} %></td>
+                <td style="width:80px; padding: 7px 3px 3px 3px; text-align:right;">
+                  <div class="buttons button-low-remove">
+                  <%= assessment.link_to_remove(:class => "remove_nested_row_form negative") do %>
+                      <%= image_tag('/images/glyphicons/trash_small.png', :alt => '') + " " + "Eliminar" %>
+                  <% end %>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <hr/>
+        <% end %>
+
+
+        <div class="buttons button-low-add">
+            <%= f.link_to_add(:assessments, {:class => "add_nested_row_form"}) do %>
+                <%= image_tag('/images/glyphicons/glyphicons_190_circle_plus.png', :alt => '') + " " + "Agregar" %>
+            <% end %>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+

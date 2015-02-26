@@ -1,0 +1,251 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/pasos/!svn/ver/1/test/functional
+END
+paper_weights_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/pasos/!svn/ver/1/test/functional/paper_weights_controller_test.rb
+END
+suppliers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/pasos/!svn/ver/1/test/functional/suppliers_controller_test.rb
+END
+papers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/pasos/!svn/ver/1/test/functional/papers_controller_test.rb
+END
+quotations_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/pasos/!svn/ver/1/test/functional/quotations_controller_test.rb
+END
+quotation_external_suppliers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/pasos/!svn/ver/1/test/functional/quotation_external_suppliers_controller_test.rb
+END
+paper_measure_flats_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/pasos/!svn/ver/1/test/functional/paper_measure_flats_controller_test.rb
+END
+commission_discount_confs_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/pasos/!svn/ver/1/test/functional/commission_discount_confs_controller_test.rb
+END
+purchase_orders_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/pasos/!svn/ver/1/test/functional/purchase_orders_controller_test.rb
+END
+company_dashboards_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/pasos/!svn/ver/1/test/functional/company_dashboards_controller_test.rb
+END
+dashboards_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/pasos/!svn/ver/1/test/functional/dashboards_controller_test.rb
+END
+stocks_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/pasos/!svn/ver/1/test/functional/stocks_controller_test.rb
+END
+paper_prices_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/pasos/!svn/ver/1/test/functional/paper_prices_controller_test.rb
+END
+tools_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/pasos/!svn/ver/1/test/functional/tools_controller_test.rb
+END
+documents_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/pasos/!svn/ver/1/test/functional/documents_controller_test.rb
+END
+customers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/pasos/!svn/ver/1/test/functional/customers_controller_test.rb
+END
+quotation_states_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/pasos/!svn/ver/1/test/functional/quotation_states_controller_test.rb
+END
+news_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/pasos/!svn/ver/1/test/functional/news_controller_test.rb
+END
+unit_measures_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/pasos/!svn/ver/1/test/functional/unit_measures_controller_test.rb
+END
+coatings_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/pasos/!svn/ver/1/test/functional/coatings_controller_test.rb
+END
+features_finishes_joins_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/pasos/!svn/ver/1/test/functional/features_finishes_joins_controller_test.rb
+END
+selling_surplus_confs_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/pasos/!svn/ver/1/test/functional/selling_surplus_confs_controller_test.rb
+END
+paper_measures_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/pasos/!svn/ver/1/test/functional/paper_measures_controller_test.rb
+END
+commissions_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/pasos/!svn/ver/1/test/functional/commissions_controller_test.rb
+END
+projects_phases_joins_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/pasos/!svn/ver/1/test/functional/projects_phases_joins_controller_test.rb
+END
+invoices_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/pasos/!svn/ver/1/test/functional/invoices_controller_test.rb
+END
+income_policies_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/pasos/!svn/ver/1/test/functional/income_policies_controller_test.rb
+END
+project_dashboards_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/pasos/!svn/ver/1/test/functional/project_dashboards_controller_test.rb
+END
+things_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/pasos/!svn/ver/1/test/functional/things_controller_test.rb
+END
+products_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/pasos/!svn/ver/1/test/functional/products_controller_test.rb
+END
+user_mailer_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/1/test/functional/user_mailer_test.rb
+END
+warehouse_vouchers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/pasos/!svn/ver/1/test/functional/warehouse_vouchers_controller_test.rb
+END
+finishes_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/pasos/!svn/ver/1/test/functional/finishes_controller_test.rb
+END
+implementations_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/pasos/!svn/ver/1/test/functional/implementations_controller_test.rb
+END
+task_mailer_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/pasos/!svn/ver/1/test/functional/task_mailer_test.rb
+END
+press_types_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/pasos/!svn/ver/1/test/functional/press_types_controller_test.rb
+END
+lessons_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/pasos/!svn/ver/1/test/functional/lessons_controller_test.rb
+END
+fc_special_charges_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/pasos/!svn/ver/1/test/functional/fc_special_charges_controller_test.rb
+END
+news_items_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/pasos/!svn/ver/1/test/functional/news_items_controller_test.rb
+END
+pliegos_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/pasos/!svn/ver/1/test/functional/pliegos_controller_test.rb
+END
+quotation_features_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/pasos/!svn/ver/1/test/functional/quotation_features_controller_test.rb
+END
+production_orders_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/pasos/!svn/ver/1/test/functional/production_orders_controller_test.rb
+END

@@ -1,0 +1,23 @@
+<h1>Listing states</h1>
+
+<table>
+  <tr>
+    <th><%= t("simple_form.labels.name") %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @states.each do |state| %>
+  <tr>
+    <td><%= state.i18n_name %></td>
+    <td><%= link_to 'Show', state if can? :read, state %></td>
+    <td><%= link_to 'Edit', edit_state_path(state) if can? :update, state %></td>
+    <td><%= link_to 'Destroy', state, :confirm => 'Are you sure?', :method => :delete if can? :destroy, state %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New State', new_state_path if can? :create, State %>

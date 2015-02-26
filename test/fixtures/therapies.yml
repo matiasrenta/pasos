@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  patient_id: 1
+  therapist_id: 1
+  fecha_inicio: 2014-05-15
+  sesiones_semanales: 1
+  state_id: 1
+
+two:
+  patient_id: 1
+  therapist_id: 1
+  fecha_inicio: 2014-05-15
+  sesiones_semanales: 1
+  state_id: 1

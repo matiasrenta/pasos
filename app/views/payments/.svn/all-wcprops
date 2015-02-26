@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/pasos/!svn/ver/24/app/views/payments
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/pasos/!svn/ver/24/app/views/payments/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/pasos/!svn/ver/44/app/views/payments/show.html.erb
+END
+_html_origin.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/pasos/!svn/ver/50/app/views/payments/_html_origin.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/pasos/!svn/ver/40/app/views/payments/_form.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/pasos/!svn/ver/64/app/views/payments/index.html.erb
+END

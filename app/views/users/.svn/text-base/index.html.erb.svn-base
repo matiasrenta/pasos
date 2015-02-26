@@ -1,0 +1,62 @@
+<%= render 'shared/pagination', :locals => {:target => @users, :model_index_path => users_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+
+<%= render "shared/control_buttons", :locals => { :model_class => User } %>
+
+<div class="toggle_container">
+  <div class="block">
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name_contains, :label => t("simple_form.labels.name") %>
+        <%= f.input :last_name_contains, :label => t("simple_form.labels.last_name") %>
+        <%= f.input :mother_last_name_contains, :label => t("simple_form.labels.mother_last_name") %>
+        <%= f.input :email_contains, :label => t("simple_form.labels.email") %>
+        <%= f.input :role_id_equals, :label => t("simple_form.labels.role"), :as => :select, :collection => Role.all %>
+        <%= f.input :state_id_equals, :label => t("simple_form.labels.state"), :as => :select, :collection => State.all %>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+  </div>
+</div>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :name, t("simple_form.labels.id") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :name, t("simple_form.labels.name") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :email, t("simple_form.labels.email") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :role, t("simple_form.labels.role") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :work_phone, t("simple_form.labels.work_phone") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :cell_phone, t("simple_form.labels.cell_phone") %></th>
+    <th class="table-header-repeat line-left"><%= sort_link @search, :state_name, t("simple_form.labels.state") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @users.each do |user| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td align="center"><%= user.id %></td>
+        <td><%= can?(:read, user) ? link_to(user.full_name, user) : user.full_name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role.try(:name) %></td>
+        <td><%= user.work_phone %></td>
+        <td><%= user.cell_phone %></td>
+        <td><%= user.state.try(:name) %></td>
+        <td class="options-width-medium">
+          <% if user.sign_in_count == 0 %>
+            <%= link_to('', 'users/resend_password_instructions?id=' + user.id.to_s, :class=>"icon-mail-alta info-tooltip", :title => t("devise.labels.resend_wellcome_mail")) %>
+          <% else %>
+            <%= link_to('', 'users/resend_password_instructions?id=' + user.id.to_s, :class=>"icon-reset-password info-tooltip", :title => t("devise.labels.send_reset_pass_mail")) %>
+          <% end %>
+
+          <%= link_to '', user, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, user %>
+          <%= link_to '', edit_user_path(user), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, user %>
+          <%= link_to '', user, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => t("helpers.messages.are_you_sure"), :method => :delete if can? :destroy, user %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @users, :model_index_path => users_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => { :model_class => User, :no_filter => true } %>
+
+
+

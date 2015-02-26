@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  value: 1
+  value_is_point: false
+  package_kg: 9.99
+
+two:
+  value: 1
+  value_is_point: false
+  package_kg: 9.99

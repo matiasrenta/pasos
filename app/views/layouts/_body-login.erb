@@ -1,0 +1,53 @@
+<body id="login-bg">
+
+<!-- Start: login-holder -->
+<div id="login-holder">
+
+  <!-- start logo -->
+  <div id="logo-login">
+    <a href="index.html"><img src="/stylesheets/skin1/images/shared/<%= LOGO %>" width="156" height="60" alt=""/></a>
+  </div>
+  <!-- end logo -->
+
+  <div class="clear"></div>
+
+        <% if notice %>
+            <!--  start message-red -->
+            <div id="message-green">
+              <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="green-left"><%= notice %></td>
+                  <td class="green-right">
+                    <a class="close-green"><img src="/stylesheets/skin1/images/table/icon_close_green.gif" alt=""/></a></td>
+                </tr>
+              </table>
+            </div>
+            <!--  end message-red -->
+      <% end %>
+
+        <% if alert %>
+            <!--  start message-red -->
+            <div id="message-red">
+              <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="red-left"><%= alert %></td>
+                  <td class="red-right">
+                    <a class="close-red"><img src="/stylesheets/skin1/images/table/icon_close_red.gif" alt=""/></a></td>
+                </tr>
+              </table>
+            </div>
+            <!--  end message-red -->
+      <% end %>
+
+  <div class="clear"></div>
+
+  <!--  start loginbox ................................................................................. -->
+
+    <%= yield %>
+
+  <!--  end loginbox -->
+
+
+</div>
+<!-- End: login-holder -->
+</body>

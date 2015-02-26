@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  hours: 
+  cost_cents: 
+  currency: 
+  life_cycle_phase_id: 
+  project_id: 1
+
+two:
+  hours: 
+  cost_cents: 
+  currency: 
+  life_cycle_phase_id: 
+  project_id: 1

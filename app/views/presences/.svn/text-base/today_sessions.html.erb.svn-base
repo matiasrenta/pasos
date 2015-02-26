@@ -1,0 +1,122 @@
+<table width="100%">
+  <tr>
+    <td valign="top">
+      <h2>Sesiones</h2>
+
+      <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+        <tr>
+          <th class="table-header-repeat line-left"><a href="#">ID</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Paciente</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Terapeuta</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Saldo</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Importe</a></th>
+          <th class="table-header-repeat line-left"><a href="#">A cobrar</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Sesiones</a></th>
+        </tr>
+
+        <% @therapies.each do |therapy| %>
+            <% if Therapy.with_presenciable_in_date?(therapy)
+               costo_terapia = therapy.patient.factura ? therapy.patient.costo_terapia_with_tax : therapy.patient.costo_terapia
+            %>
+
+
+                <tr class=<%= cycle("alternate-row", "") %>>
+                  <td><%= therapy.patient.id %></td>
+                  <td><%= therapy.patient.nombre %></td>
+                  <td><%= therapy.therapist.nombre %></td>
+                  <td align="right">$<%= number_to_currency(therapy.patient.saldo, :unit => "") %></td>
+                  <td align="right">$<%= number_to_currency(costo_terapia, :unit => "") %></td>
+                  <td align="right">
+                    <% if therapy.patient.saldo < costo_terapia %>
+                        <span style="font-weight:bold; color:red;"><%= "$#{number_to_currency(costo_terapia - therapy.patient.saldo, :unit => "")}" %></span>
+                        <%= link_to("(Cobrar)", "/payments/new?patient_id=#{therapy.patient.id}&importe=#{costo_terapia - therapy.patient.saldo}") %>
+                    <% end %>
+                  </td>
+                  <td align="center">
+                    <% therapy.therapist_schedules.each do |schedule| %>
+                        <% if Therapy.presenciable_session?(therapy, schedule) %>
+                            <table>
+                              <tr>
+                                <td><%= t("date.day_names")[schedule.dia] %>, <%= schedule.hora %> hs.</td>
+                                <td>
+                                  <%= simple_form_for(Presence.new, :url => "/presences?from_today=1") do |f| %>
+                                      <%= f.input :therapy_id, :as => :hidden, :input_html => {:value => therapy.id} %>
+                                      <%= f.input :fecha_hora, :as => :hidden, :input_html => {:value => "#{Time.zone.now.to_date} #{schedule.hora}:00"} %>
+                                      <%= f.submit "Asistir" %>
+                                  <% end %>
+                                </td>
+                              </tr>
+                            </table>
+                        <% end %>
+                    <% end %>
+
+                    <% therapy.special_dates.each do |special_date| %>
+                        <% if Therapy.presenciable_session?(therapy, special_date) %>
+                            <table>
+                              <tr>
+                                <td><%= t("date.day_names")[special_date.fecha_hora.wday] %>, <%= special_date.fecha_hora.strftime('%H') %> hs.</td>
+                                <td>
+                                  <%= simple_form_for(Presence.new, :url => "/presences?from_today=1") do |f| %>
+                                      <%= f.input :therapy_id, :as => :hidden, :input_html => {:value => therapy.id} %>
+                                      <%= f.input :fecha_hora, :as => :hidden, :input_html => {:value => "#{Time.zone.now.to_date} #{special_date.fecha_hora.strftime('%H')}:00:00"} %>
+                                      <%= f.input :importe, :as => :hidden, :input_html => {:value => costo_terapia} %>
+                                      <%= f.submit "Asistir" %>
+                                  <% end %>
+                                </td>
+                              </tr>
+                            </table>
+                        <% end %>
+                    <% end %>
+                  </td>
+                </tr>
+
+
+            <% end %>
+        <% end %>
+      </table>
+
+    </td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td valign="top">
+      <h2>Asistencias registradas</h2>
+
+      <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+        <tr>
+          <th class="table-header-repeat line-left"><a href="#">ID</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Paciente</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Terapeuta</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Fecha Hora</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Importe</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Saldo</a></th>
+          <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+
+        </tr>
+
+        <% @presences.each do |presence| %>
+            <tr class=<%= cycle("alternate-row", "") %>>
+              <td><%= presence.therapy.patient.id %></td>
+              <td><%= presence.therapy.patient.nombre %></td>
+              <td><%= presence.therapy.therapist.nombre %></td>
+              <td><%= l(presence.fecha_hora, :format => :without_seg) %></td>
+              <td align="right">$<%= number_to_currency(presence.importe, :unit => "") %></td>
+              <td align="right">
+                <% if presence.therapy.patient.saldo < 0 %>
+                    <span style="font-weight:bold; color:red;">$<%= number_to_currency(presence.therapy.patient.saldo, :unit => "") %></span>
+                <% else %>
+                    $<%= number_to_currency(presence.therapy.patient.saldo, :unit => "") %>
+                <% end %>
+
+              </td>
+              <%= render 'shared/action_icons', :locals => {:target => presence, :model_edit_path => edit_presence_path(presence)} %>
+            </tr>
+        <% end %>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+

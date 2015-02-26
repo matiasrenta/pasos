@@ -1,0 +1,19 @@
+<style type="text/css">
+    .therapy_combovox {width: 500px !important;}
+</style>
+
+<div class="gray_form">
+  <%= simple_form_for(@presence) do |f| %>
+
+      <div class="inputs">
+        <%= f.association :therapy, :wrapper_tag => :p, :collection => collection_with_actual(Therapy.actives.order_by_therapist, @presence.therapy, :name), :input_html => {:class => "therapy_combovox"} %>
+        <br/><br/>
+        <%= f.input :fecha_hora, :as => :string, :input_html => {:class => "datetimepicker"} %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => Presence %>
+
+  <% end %>
+</div>
+
+

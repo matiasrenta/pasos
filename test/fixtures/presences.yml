@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  therapy_id: 1
+  fecha_hora: 2014-05-20 06:09:55
+  importe: 9.99
+
+two:
+  therapy_id: 1
+  fecha_hora: 2014-05-20 06:09:55
+  importe: 9.99

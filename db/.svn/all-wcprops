@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 20
+/pasos/!svn/ver/1/db
+END
+development.sqlite3
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/pasos/!svn/ver/1/db/development.sqlite3
+END
+seeds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/pasos/!svn/ver/1/db/seeds.rb
+END
+schema.rb
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/pasos/!svn/ver/45/db/schema.rb
+END
+fixtures.zip
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/pasos/!svn/ver/1/db/fixtures.zip
+END

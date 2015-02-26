@@ -1,0 +1,18 @@
+defaults: &defaults
+  therapy_cost: 100
+  recibo_start_folio: 100
+  mas_iva: 1.16
+  cool:
+    saweet: nested settings
+  neat_setting: 24
+  awesome_setting: <%= "Did you know 5 + 5 = #{5 + 5}?" %>
+
+development:
+  <<: *defaults
+  neat_setting: 800
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  gramos: 1
+  medio_oficio: 1
+  oficio: 1
+
+two:
+  gramos: 1
+  medio_oficio: 1
+  oficio: 1

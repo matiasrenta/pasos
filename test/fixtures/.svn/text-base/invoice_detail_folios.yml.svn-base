@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  invoice_detail_id: 1
+  folio_inicial: 1
+  folio_final: 1
+  sufijo: MyString
+  anexo: MyString
+
+two:
+  invoice_detail_id: 1
+  folio_inicial: 1
+  folio_final: 1
+  sufijo: MyString
+  anexo: MyString
