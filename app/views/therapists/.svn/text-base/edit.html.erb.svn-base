@@ -1,5 +1,0 @@
-<%= render "shared/error_messages", :target => @therapist %>
-
-<%= render "shared/control_buttons", :locals => { :instance => @therapist } %>
-
-<%= render 'form' %>

@@ -1,5 +1,0 @@
-<%= render "shared/error_messages", :target => @payment %>
-
-<%= render "shared/control_buttons", :locals => { :model_class => Payment } %>
-
-<%= render 'form' %>

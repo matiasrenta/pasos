@@ -1,5 +1,0 @@
-<%%= render "shared/error_messages", :target => @<%= singular_name %> %>
-
-<%%= render "shared/control_buttons", :locals => { :model_class => <%= singular_name.camelize %> } %>
-
-<%%= render 'form' %>

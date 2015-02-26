@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  planned_progress: 1
-  real_progress: 1
-
-two:
-  planned_progress: 1
-  real_progress: 1

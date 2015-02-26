@@ -1,4 +1,0 @@
-<div class="buttons">
-  <% class_or_instance = (locals[:instance] ? locals[:instance] : locals[:model_class]) %>
-  <%#= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + locals[:new_label] + " " + locals[:model_i18n_path], locals[:new_model_path] if can? :create, class_or_instance %>
-</div>

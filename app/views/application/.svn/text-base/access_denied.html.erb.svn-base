@@ -1,5 +1,0 @@
-<br/><br/>
-<div style="width:251px; margin-left:auto; margin-right:auto;">
-    <%= image_tag "/images/icons/access_denied.jpg" %>
-</div>
-

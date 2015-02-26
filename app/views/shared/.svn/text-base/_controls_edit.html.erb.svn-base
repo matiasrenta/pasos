@@ -1,6 +1,0 @@
-<div class="buttons">
-  <% if can? :read, locals[:target] %>
-      <%= link_to image_tag('/images/glyphicons/glyphicons_025_binoculars.png', :alt => '') + " " + t("helpers.link.show"), locals[:target] %>
-  <% end %>
-  <%= link_to image_tag('/images/glyphicons/glyphicons_090_table.png', :alt => '') + " " + t("helpers.link.list"), locals[:model_path] %>
-</div>

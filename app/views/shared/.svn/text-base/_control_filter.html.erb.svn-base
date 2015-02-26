@@ -1,7 +1,0 @@
-<% unless locals[:no_filter] %>
-  <% if @filter_active %>
-    <%= link_to image_tag('/images/glyphicons/glyphicons_320_filter.png', :alt => '') + " " + t("helpers.link.filter_active") , "#", {:class => "trigger negative"} if listing? || locals[:force_filter] %>
-  <% else %>
-    <%= link_to image_tag('/images/glyphicons/glyphicons_320_filter.png', :alt => '') + " " + t("helpers.link.filter") , "#", {:class => "trigger"} if listing? || locals[:force_filter] %>
-  <% end %>
-<% end %>
