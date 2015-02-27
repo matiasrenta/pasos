@@ -24,6 +24,8 @@ GEM
       activesupport (= 3.0.6)
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
+    activerecord-postgresql-adapter (0.0.1)
+      pg
     activeresource (3.0.6)
       activemodel (= 3.0.6)
       activesupport (= 3.0.6)
@@ -74,6 +76,7 @@ GEM
     paper_trail (2.3.3)
       rails (~> 3)
     pdfkit (0.5.3)
+    pg (0.9.0)
     polyglot (0.3.1)
     rack (1.2.2)
     rack-mount (0.6.14)
@@ -125,6 +128,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-postgresql-adapter
   cancan
   carrierwave
   delocalize
@@ -139,6 +143,7 @@ DEPENDENCIES
   nested_form
   paper_trail (~> 2)
   pdfkit
+  pg (= 0.9.0)
   rails (= 3.0.6)
   ruby-graphviz
   seed-fu (~> 2.0.0)

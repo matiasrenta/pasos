@@ -5,8 +5,7 @@ gem 'rails', '3.0.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#gem 'ruby-mysql', '2.9.3'
-gem 'mysql2'#, '0.2.7'
+
 gem 'simple_form', '1.4.2'
 gem 'devise'
 gem 'meta_search'
@@ -32,6 +31,16 @@ group :development do
   gem 'letter_opener'
   gem 'ruby-graphviz'
   gem 'thin'
+  # Gema para Postgresql
+  #gem 'pg'
+  #gem 'postgres-pr'
+  gem 'pg', '0.9.0'
+  gem 'activerecord-postgresql-adapter'
+end
+
+group :production do
+  #gem 'ruby-mysql', '2.9.3'
+  gem 'mysql2'#, '0.2.7'
 end
 
 #gem 'prawn'
