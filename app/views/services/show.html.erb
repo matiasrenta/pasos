@@ -1,0 +1,54 @@
+<%= render "shared/control_buttons", :locals => {:instance => @service} %>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.patient") %>:</b></td>
+    <td class="td_data"><%= @service.patient.try(:nombre) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.therapist") %>:</b></td>
+    <td class="td_data"><%= @service.therapist.try(:nombre) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.from_fecha_hora") %>:</b></td>
+    <td class="td_data"><%= l(@service.from_fecha_hora, :format => :short_day) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.to_fecha_hora") %>:</b></td>
+    <td class="td_data"><%= l(@service.to_fecha_hora, :format => :short_day) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.importe") %>:</b></td>
+    <td class="td_data">$<%= number_to_currency(@service.importe, :unit => "") %></td>
+  </tr>
+  <% if @service.visita_escolar? %>
+      <tr>
+        <td class="td_label"><b><%= t("simple_form.labels.datos_escuela") %>:</b></td>
+        <td class="td_data"><%= @service.datos_escuela %></td>
+      </tr>
+      <tr>
+        <td class="td_label"><b><%= t("simple_form.labels.nombre_profesor") %>:</b></td>
+        <td class="td_data"><%= @service.nombre_profesor %></td>
+      </tr>
+      <tr>
+        <td class="td_label"><b><%= t("simple_form.labels.grado_escolar") %>:</b></td>
+        <td class="td_data"><%= @service.grado_escolar %></td>
+      </tr>
+  <% end %>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.asistido") %>:</b></td>
+    <td class="td_data"><%= @service.asistido %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.cancelado") %>:</b></td>
+    <td class="td_data"><%= @service.cancelado %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.motivo_cancelacion") %>:</b></td>
+    <td class="td_data"><%= @service.motivo_cancelacion %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.service_type") %>:</b></td>
+    <td class="td_data"><%= @service.service_type_name %></td>
+  </tr>
+</table>

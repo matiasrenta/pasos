@@ -1,4 +1,6 @@
 Pru1::Application.routes.draw do
+  resources :services
+
   resources :payments
 
   resources :presences do

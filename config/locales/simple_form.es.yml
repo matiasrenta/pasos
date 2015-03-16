@@ -61,6 +61,10 @@ es:
       patient: 'Paciente'
       rfc: 'RFC'
       therapy: 'Terapia'
+      therapist: 'Terapeuta'
+      from_fecha_hora: 'Inicia'
+      to_fecha_hora: 'Finaliza'
+      service_type: 'Tipo de servicio'
 
     hints:
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140611180420) do
+ActiveRecord::Schema.define(:version => 20150315212324) do
 
   create_table "assessments", :force => true do |t|
     t.integer  "patient_id"
@@ -61,9 +61,11 @@ ActiveRecord::Schema.define(:version => 20140611180420) do
   create_table "presences", :force => true do |t|
     t.integer  "therapy_id"
     t.datetime "fecha_hora"
-    t.decimal  "importe",    :precision => 10, :scale => 2
+    t.decimal  "importe",           :precision => 10, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "presenscable_id"
+    t.string   "presenceable_type"
   end
 
   create_table "roles", :force => true do |t|
@@ -71,6 +73,23 @@ ActiveRecord::Schema.define(:version => 20140611180420) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+  end
+
+  create_table "services", :force => true do |t|
+    t.integer  "patient_id"
+    t.integer  "therapist_id"
+    t.datetime "from_fecha_hora"
+    t.datetime "to_fecha_hora"
+    t.decimal  "importe",            :precision => 10, :scale => 2
+    t.text     "datos_escuela"
+    t.string   "nombre_profesor"
+    t.string   "grado_escolar"
+    t.boolean  "asistido"
+    t.boolean  "cancelado"
+    t.text     "motivo_cancelacion"
+    t.integer  "service_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "special_dates", :force => true do |t|

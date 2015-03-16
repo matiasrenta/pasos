@@ -3,6 +3,8 @@ class Therapist < ActiveRecord::Base
   has_many :therapist_schedules, :dependent => :destroy, :order => 'therapist_schedules.dia, therapist_schedules.hora'
   has_many :therapies
 
+  has_many :services
+
   validates_presence_of :nombre, :state_id
 
   accepts_nested_attributes_for :therapist_schedules, :allow_destroy => true#, :reject_if => lambda { |a| a[:name].blank? && a[:email].blank? && a[:phones].blank? && a[:description].blank?}

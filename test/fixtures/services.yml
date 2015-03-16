@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  patient_id: 1
+  therapist_id: 1
+  from_fecha_hora: 2015-03-15 15:23:25
+  to_fecha_hora: 2015-03-15 15:23:25
+  importe: 9.99
+  datos_escuela: MyText
+  nombre_profesor: MyString
+  grado_escolar: MyString
+  asistido: false
+  cancelado: false
+  motivo_cancelacion: MyText
+  service_type: 1
+
+two:
+  patient_id: 1
+  therapist_id: 1
+  from_fecha_hora: 2015-03-15 15:23:25
+  to_fecha_hora: 2015-03-15 15:23:25
+  importe: 9.99
+  datos_escuela: MyText
+  nombre_profesor: MyString
+  grado_escolar: MyString
+  asistido: false
+  cancelado: false
+  motivo_cancelacion: MyText
+  service_type: 1

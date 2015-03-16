@@ -1,0 +1,78 @@
+<%= render 'shared/pagination', :locals => {:target => @services, :model_index_path => services_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%#= render "shared/control_buttons", :locals => { :model_class => Service } %>
+
+<div class="buttons">
+  <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + "Crear terapia" , new_service_path(:service_type => 1) if (can? :create, Service) %>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + "Crear valoración" , new_service_path(:service_type => 2) if (can? :create, Service) %>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + "Crear visita escolar" , new_service_path(:service_type => 3) if (can? :create, Service) %>
+  <%# FILTER %>
+  <%= render "shared/control_filter", :locals => { :model_class => Service } %>
+</div>
+
+
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :patient_id_equals, :label => t("simple_form.labels.patient"), :as => :select, :collection => Patient.all %>
+        <%= f.input :therapist_id_equals, :label => t("simple_form.labels.therapist"), :as => :select, :collection => Therapist.all %>
+
+        <div class="from_to">
+          <%= label_tag(:from_fecha_hora_greater_than_or_equal_to, t("simple_form.labels.from_fecha_hora")) %>
+          <%= f.input :from_fecha_hora_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :from_fecha_hora_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+        <div class="from_to">
+          <%= label_tag(:importe_greater_than_or_equal_to, t("simple_form.labels.importe")) %>
+          <%= f.input :importe_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
+          <%= f.input :importe_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
+        </div>
+
+        <%= f.input :service_type_equals, :label => t("simple_form.labels.service_type"), :as => :select, :collection =>  [['Terapia', 1], ['Valoración', 2], ['Visita escolar', 3]] %>
+        <%= f.input :datos_escuela_contains, :label => t("simple_form.labels.datos_escuela") %>
+        <%= f.input :nombre_profesor_contains, :label => t("simple_form.labels.nombre_profesor") %>
+        <%= f.input :asistido_equals, :label => t("simple_form.labels.asistido"), :as => :select %>
+        <%= f.input :cancelado_equals, :label => t("simple_form.labels.cancelado"), :as => :select %>
+        <%= f.input :motivo_cancelacion_contains, :label => t("simple_form.labels.motivo_cancelacion") %>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :patient_name, t("simple_form.labels.patient") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :therapist_name, t("simple_form.labels.therapist") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :from_fecha_hora, t("simple_form.labels.from_fecha_hora") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :to_fecha_hora, t("simple_form.labels.to_fecha_hora") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :service_type, t("simple_form.labels.service_type") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :importe, t("simple_form.labels.importe") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :asistido, t("simple_form.labels.asistido") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :cancelado, t("simple_form.labels.cancelado") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @services.each do |service| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= service.patient.try(:nombre) %></td>
+        <td><%= service.therapist.try(:nombre) %></td>
+        <td><%= service.from_fecha_hora %></td>
+        <td><%= service.to_fecha_hora %></td>
+        <td><%= service.service_type_name %></td>
+        <td align="right">$<%= number_to_currency(service.importe, :unit => "") %></td>
+        <td><%= service.asistido %></td>
+        <td><%= service.cancelado %></td>
+        <%= render 'shared/action_icons', :locals => {:target => service, :model_edit_path => edit_service_path(service)} %>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @services, :model_index_path => services_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+

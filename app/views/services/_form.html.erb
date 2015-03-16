@@ -1,0 +1,27 @@
+<div class="gray_form">
+  <%= simple_form_for(@service) do |f| %>
+
+      <div class="inputs">
+        <%= f.association :patient %>
+        <%= f.association :therapist %>
+        <%= f.input :from_fecha_hora_string, :as => :string, :input_html => {:class => 'datetimepicker input-text-datetime'} %>
+        <%= f.input :to_fecha_hora_string, :as => :string, :input_html => {:class => 'datetimepicker input-text-datetime'} %>
+        <%= f.input :service_type, :as => :select, :collection => [['Terapia', 1], ['Valoración', 2], ['Visita escolar', 3]], :input_html => {:disabled => true} %>
+        <%= f.input :service_type, :as => :hidden, :input_html => {:value => @service.service_type} %>
+        <%= f.input :importe, :input_html => {:class => "money"} %>
+        <% if @service.visita_escolar? %>
+            <%= f.input :datos_escuela, :input_html => { :rows => 4, :cols => 30 } %>
+            <%= f.input :nombre_profesor %>
+            <%= f.input :grado_escolar %>
+        <% end %>
+        <%= f.input :asistido %>
+        <%= f.input :cancelado %>
+        <%= f.input :motivo_cancelacion, :input_html => { :rows => 4, :cols => 30 } %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => Service %>
+
+  <% end %>
+</div>
+
+

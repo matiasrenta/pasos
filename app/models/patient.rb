@@ -4,6 +4,8 @@ class Patient < ActiveRecord::Base
   has_many :payments
   has_many :assessments
 
+  has_many :services
+
   before_validation :on => :update do
     therapies.each do |therapy|
       if therapy.marked_for_destruction? && !therapy.destroyable?
