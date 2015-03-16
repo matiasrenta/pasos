@@ -279,6 +279,9 @@ es:
       Application: "Mis pendientes"
       Applications: "Mis pendientes"
 
+      FixedTherapy: "Terapia establecida"
+      FixedTherapies: "Terapias establecidas"
+
       Presence: "Asistencia"
       Presences: "Asistencias"
 

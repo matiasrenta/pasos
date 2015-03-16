@@ -1,0 +1,57 @@
+<%= render 'shared/pagination', :locals => {:target => @fixed_therapies, :model_index_path => fixed_therapies_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => {:model_class => FixedTherapy} %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :patient_id_equals, :label => t("simple_form.labels.patient"), :as => :select, :collection => Patient.all %>
+        <%= f.input :therapist_id_equals, :label => t("simple_form.labels.therapist"), :as => :select, :collection => Therapist.all %>
+
+        <div class="from_to">
+          <%= label_tag(:fecha_inicio_greater_than_or_equal_to, t("simple_form.labels.fecha_inicio")) %>
+          <%= f.input :fecha_inicio_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :fecha_inicio_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+
+        <div class="from_to">
+          <%= label_tag(:fecha_fin_greater_than_or_equal_to, t("simple_form.labels.fecha_fin")) %>
+          <%= f.input :fecha_fin_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :fecha_fin_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :patient_name, t("simple_form.labels.patient") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :therapist_name, t("simple_form.labels.therapist") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :fecha_inicio, t("simple_form.labels.fecha_inicio") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :fecha_fin, t("simple_form.labels.fecha_fin") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @fixed_therapies.each do |fixed_therapy| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= fixed_therapy.patient.try(:nombre) %></td>
+        <td><%= fixed_therapy.therapist.try(:nombre) %></td>
+        <td><%= fixed_therapy.fecha_inicio %></td>
+        <td><%= fixed_therapy.fecha_fin %></td>
+        <%= render 'shared/action_icons', :locals => {:target => fixed_therapy, :model_edit_path => edit_fixed_therapy_path(fixed_therapy)} %>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @fixed_therapies, :model_index_path => fixed_therapies_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => {:model_class => FixedTherapy, :no_filter => true} %>
+
+

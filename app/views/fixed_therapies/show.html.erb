@@ -1,0 +1,20 @@
+<%= render "shared/control_buttons", :locals => {:instance => @fixed_therapy} %>
+
+<table class="show_table">
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.patient") %>:</b></td>
+    <td class="td_data"><%= @fixed_therapy.patient.try(:nombre) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.therapist") %>:</b></td>
+    <td class="td_data"><%= @fixed_therapy.therapist.try(:nombre) %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.fecha_inicio") %>:</b></td>
+    <td class="td_data"><%= l(@fixed_therapy.fecha_inicio, :format => :long) if @fixed_therapy.fecha_inicio %></td>
+  </tr>
+  <tr>
+    <td class="td_label"><b><%= t("simple_form.labels.fecha_fin") %>:</b></td>
+    <td class="td_data"><%= l(@fixed_therapy.fecha_fin, :format => :long) if @fixed_therapy.fecha_fin %></td>
+  </tr>
+</table>

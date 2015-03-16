@@ -1,0 +1,54 @@
+<% last_time_range = nil %>
+<table border="1" width="100%">
+  <tr>
+    <th>Día</th>
+    <th>7:00</th>
+    <th>7:30</th>
+    <th>8:00</th>
+    <th>8:30</th>
+    <th>9:00</th>
+    <th>9:30</th>
+    <th>10:00</th>
+    <th>10:30</th>
+    <th>11:00</th>
+    <th>11:30</th>
+    <th>12:00</th>
+    <th>12:30</th>
+    <th>13:00</th>
+    <th>13:30</th>
+    <th>14:00</th>
+    <th>14:30</th>
+    <th>15:00</th>
+    <th>15:30</th>
+    <th>16:00</th>
+    <th>16:30</th>
+    <th>17:00</th>
+    <th>17:30</th>
+    <th>18:00</th>
+    <th>18:30</th>
+    <th>19:00</th>
+    <th>19:30</th>
+    <th>20:00</th>
+    <th>20:30</th>
+    <th>21:00</th>
+    <th>21:30</th>
+  </tr>
+
+  <% @therapist.time_ranges.order_by_day_time.each do |time_range| %>
+      <%= !last_time_range.nil? && last_time_range.day != time_range.day ? "</tr>".html_safe : "" %>
+      <%= last_time_range.nil? || last_time_range.day != time_range.day ? "<tr> <td>#{t("date.day_names")[time_range.day]}</td>".html_safe : "" %>
+      <%
+         if time_range.taken
+           bg_color = 'background-color: green'
+         elsif time_range.working_time
+           bg_color = 'background-color: blue'
+         else
+           bg_color = ''
+         end
+      %>
+      <td title="" height="30" style="<%= bg_color %>; "></td>
+      <% last_time_range = time_range %>
+  <% end %>
+</table>
+
+

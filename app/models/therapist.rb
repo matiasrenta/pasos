@@ -5,6 +5,7 @@ class Therapist < ActiveRecord::Base
 
   has_many :services
   has_many :time_ranges, :dependent => :delete_all
+  has_many :fixed_therapies
 
   validates_presence_of :nombre, :state_id
 

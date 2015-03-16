@@ -1,4 +1,8 @@
 Pru1::Application.routes.draw do
+  resources :fixed_therapies do
+    put :update_massive_time_ranges, :on => :collection
+  end
+
   resources :services do
     #get :ajax_calculate_to_fecha_hora, :on => :collection
   end

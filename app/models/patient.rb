@@ -5,6 +5,7 @@ class Patient < ActiveRecord::Base
   has_many :assessments
 
   has_many :services
+  has_many :fixed_therapies
 
   before_validation :on => :update do
     therapies.each do |therapy|
