@@ -69,12 +69,14 @@ class TherapistsController < ApplicationController
 
   def update_massive_time_ranges
     @therapist = Therapist.find(params[:therapist][:id])
+    authorize! :update, @therapist
     @time_ranges = TimeRange.update(params[:time_ranges].keys, params[:time_ranges].values)
     @time_ranges.reject! { |tr| tr.errors.empty? }
     if @time_ranges.empty?
       redirect_to  therapist_path(@therapist)
     else
-      render "edit"
+      @therapist.errors.add(:base, "No se a podido hacer la modificacion en los horarios")
+      render(:action => "edit")
     end
   end
 

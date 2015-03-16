@@ -6,6 +6,7 @@ class Patient < ActiveRecord::Base
 
   has_many :services
   has_many :fixed_therapies
+  has_many :time_ranges
 
   before_validation :on => :update do
     therapies.each do |therapy|

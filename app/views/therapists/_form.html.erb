@@ -10,7 +10,7 @@
       <%= render "shared/submit_form_model", :model_class => Therapist %>
   <% end %>
 
-  <%= render "form_time_ranges" if updating? %>
+  <%= render "form_time_ranges" unless @therapist.new_record? %>
 
 </div>
 

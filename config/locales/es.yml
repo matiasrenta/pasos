@@ -373,6 +373,8 @@ es:
       port:
         pendings: "Mis pendientes"
         presences_today: "Asistencia diaria"
+        services: "Servicios"
+        fixed_therapies: "Terapias establecidas"
 
       cata:
         patients: "Pacientes"

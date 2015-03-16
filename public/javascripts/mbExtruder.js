@@ -62,7 +62,9 @@ var htmlAdmi = "";
 
             if (options.portItems.main){
                 if (options.portItems.pendings)             { htmlPort += options.portItems.html_pendings; }
-                if (options.portItems.presences_today)             { htmlPort += options.portItems.html_presences_today; }
+                if (options.portItems.presences_today)      { htmlPort += options.portItems.html_presences_today; }
+                if (options.portItems.services)             { htmlPort += options.portItems.html_services; }
+                if (options.portItems.fixed_therapies)      { htmlPort += options.portItems.html_fixed_therapies; }
             }
 
             if (options.cataItems.main){
