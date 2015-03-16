@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  therapist_id: 1
+  day: 1
+  from_hour: 1
+  from_minute: 1
+  available: false
+
+two:
+  therapist_id: 1
+  day: 1
+  from_hour: 1
+  from_minute: 1
+  available: false

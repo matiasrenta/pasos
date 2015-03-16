@@ -64,6 +64,8 @@ es:
       therapist: 'Terapeuta'
       from_fecha_hora: 'Inicia'
       to_fecha_hora: 'Finaliza'
+      from_fecha_hora_string: 'Inicia'
+      to_fecha_hora_string: 'Finaliza'
       service_type: 'Tipo de servicio'
 
     hints:

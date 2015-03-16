@@ -1,0 +1,7 @@
+<% if @to_fecha_hora.blank? %>
+$("#service_to_fecha_hora").html('');
+<% else %>
+$("#service_to_fecha_hora").html('<%= raw @to_fecha_hora.to_s %>');
+<% end %>
+
+$('input[type=submit]').attr('disabled', false);

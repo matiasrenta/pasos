@@ -1,5 +1,7 @@
 Pru1::Application.routes.draw do
-  resources :services
+  resources :services do
+    #get :ajax_calculate_to_fecha_hora, :on => :collection
+  end
 
   resources :payments
 
@@ -9,6 +11,7 @@ Pru1::Application.routes.draw do
 
   resources :therapists do
     get :ajax_get_available_hours, :on => :collection
+    put :update_massive_time_ranges, :on => :collection
   end
 
   resources :patients

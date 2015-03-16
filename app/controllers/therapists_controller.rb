@@ -43,7 +43,7 @@ class TherapistsController < ApplicationController
 
     respond_to do |format|
       if @therapist.save
-        format.html { redirect_to(@therapist, :notice => t("screens.notice.successfully_created")) }
+        format.html { redirect_to(edit_therapist_path(@therapist), :notice => "Ingrese los rangos horarios en que trabaja este terapeuta") }
         format.xml  { render :xml => @therapist, :status => :created, :location => @therapist }
       else
         format.html { render :action => "new" }
@@ -64,6 +64,17 @@ class TherapistsController < ApplicationController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @therapist.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+
+  def update_massive_time_ranges
+    @therapist = Therapist.find(params[:therapist][:id])
+    @time_ranges = TimeRange.update(params[:time_ranges].keys, params[:time_ranges].values)
+    @time_ranges.reject! { |tr| tr.errors.empty? }
+    if @time_ranges.empty?
+      redirect_to  therapist_path(@therapist)
+    else
+      render "edit"
     end
   end
 

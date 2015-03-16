@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150315212324) do
+ActiveRecord::Schema.define(:version => 20150316035049) do
 
   create_table "assessments", :force => true do |t|
     t.integer  "patient_id"
@@ -137,6 +137,17 @@ ActiveRecord::Schema.define(:version => 20150315212324) do
     t.integer  "therapist_schedule_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "time_ranges", :force => true do |t|
+    t.integer  "therapist_id"
+    t.integer  "day"
+    t.integer  "from_hour"
+    t.integer  "from_minute"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "working_time"
+    t.boolean  "taken"
   end
 
   create_table "users", :force => true do |t|

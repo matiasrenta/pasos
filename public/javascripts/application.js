@@ -138,6 +138,13 @@ function docReady(){
         }
     });
 
+    $(".input_text_on_blur_ajax").blur(function() {
+        if(this.value.length > 0 && $("#" + this.getAttribute("data_start_date_id")).val().length > 0 ){
+            $.post("/tasks/ajax_display_planned_end_date", $("#" + this.getAttribute("data_form_id")).serialize(), null, "script");
+            return false;
+        }
+    });
+
     //este par de funciones son para hacer que un form se submita con ajax, al form hay que ponerle class="submit_with_ajax"
     jQuery.fn.submitWithAjax = function() {
       this.submit(function() {
@@ -186,6 +193,29 @@ function docReady(){
                 dataType: 'script'})
         });
     });
+
+    jQuery(document).ready(function($) {
+        $(".ajax_onblur_input_text").blur(function() {
+            $('input[type=submit]').attr('disabled', true);
+            var params_string = $('#' + this.id).data('parameter');
+            if (params_string == undefined){
+                params_string = this.id
+            }
+            var paramsToRetrieve = params_string.split(',');
+            var obj = {};
+            for (var i = 0; i < paramsToRetrieve.length; i++){
+                var paramSelector = "#" + $.trim(paramsToRetrieve[i]);
+                obj[$(paramSelector).attr('name')] = $(paramSelector).val(); // aqui pongo como debe de ser el nombre del parametro
+                obj["the_id"] = $(paramSelector).val(); // solo por conveniencia algunas veces puede ser mejor desde rails obtener un id desde este param llamado "the_id", solo funciona para uno solo no para varios ids
+                obj["the_this_html_id"] = this.id; // para lo que es nested form necesito el id de quien dispara el ajax, con ese id puedo conseguir los ids de los otros campos hermanos
+            }
+
+            $.ajax({url: this.getAttribute("data-url"),
+                data: obj,
+                dataType: 'script'})
+        });
+    });
+
 
     // lo mismo que la de arriba con .ajax_dropdown, pero esta es para checkbox, solo cambia cuando asigna "obj["is_checked"] = xxxxxxx". Debería solo mejorar la funcion anterior preguntando que si el elemento es un checkbox entonces setear este parametro
     jQuery(document).ready(function($) {

@@ -78,4 +78,16 @@ class ServicesController < ApplicationController
   def destroy
     prudent_destroy(@service)
   end
+
+  #def ajax_calculate_to_fecha_hora
+  #  service = Service.new(:from_fecha_hora_string => params[:service][:from_fecha_hora_string])
+  #  if service.from_fecha_hora_string
+  #    puts "##################################################"
+  #    puts service.to_fecha_hora.to_s
+  #    puts "##################################################"
+  #    #@to_fecha_hora = Service.calculate_to_fecha_hora(service.to_fecha_hora.to_s)
+  #    @to_fecha_hora = Time.now
+  #  end
+  #end
+
 end

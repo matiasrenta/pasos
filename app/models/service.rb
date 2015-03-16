@@ -2,6 +2,11 @@ class Service < ActiveRecord::Base
   belongs_to :patient
   belongs_to :therapist
 
+  #def self.calculate_to_fecha_hora(from_f_h)
+  #  ActiveSupport::TimeZone["Mexico City"].parse(DateTime.strptime(from_f_h, '%d/%m/%Y %H:%M').to_s(:db)) + 1.hour
+  #end
+
+
   def visita_escolar?
     self.service_type == 3
   end
@@ -31,12 +36,13 @@ class Service < ActiveRecord::Base
   def to_fecha_hora_string=(fecha_hora_str)
     self.to_fecha_hora = ActiveSupport::TimeZone["Mexico City"].parse(DateTime.strptime(fecha_hora_str, '%d/%m/%Y %H:%M').to_s(:db))
   rescue ArgumentError
-    @from_fecha_hora_invalid = true
+    @to_fecha_hora_invalid = true
   end
 
   def validate
     errors.add(:from_fecha_hora, "Es inválida") if @from_fecha_hora_invalid
     errors.add(:to_fecha_hora, "Es inválida") if @to_fecha_hora_invalid
   end
+
 
 end
