@@ -7,6 +7,8 @@ class FixedTherapy < ActiveRecord::Base
   validates_uniqueness_of :patient_id, :scope => :therapist_id
   validate :all_dates_correctly?
 
+  after_touch :handle_services
+
   private
 
   def all_dates_correctly?
@@ -17,6 +19,33 @@ class FixedTherapy < ActiveRecord::Base
       errors.add(:fecha_fin, 'Debe ser mayor que la fecha de inicio')
       return false
     end
+  end
+
+  def handle_services
+    #TODO: si fecha_inicio es muy a futuro no debemos crear services
+    start_date_of_working = fecha_inicio > Date.today ? fecha_inicio : Date.today
+    end_date_of_working   = start_date_of_working + 1.month
+    start_end_massive_ranges = TimeRange.start_end_dates_from_massive_adjacent_ranges(self.time_ranges.order_by_day_time)
+
+    #TODO: el campo fecha_inicio no sirve para esta funcionalidad, hay que pregunar al usuario a partir de que fecha se da el cambio de horario
+    # un campo mas que aparezca con el label "A partir de que fecha se aplican estos horarios?" con la fecha Date.today por defecto
+    puts "######################################################################################## debug 2"
+
+    # primero hay que destroy_all los services a partir de start_date_of_working si tienen dia hora inicio igual a {bundle[:start]
+
+
+    (end_date_of_working - start_date_of_working).to_i.times do |i|
+      actual_date = start_date_of_working + i
+      start_end_massive_ranges.each do |bundle|
+
+        puts "#{bundle[:day]} // #{actual_date.wday}"
+        if bundle[:day] == actual_date.wday
+          puts "creao service con from_fecha_hora: #{actual_date} #{bundle[:start]} y to_fecha_hora: #{actual_date} #{bundle[:end]}"
+        end
+      end
+    end
+
+    puts "######################################################################################## debug 3"
   end
 
 end

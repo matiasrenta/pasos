@@ -2,6 +2,7 @@
   <%= simple_form_for(@service) do |f| %>
 
       <div class="inputs">
+        <%= f.input :special, :as => :hidden, :input_html => {:value => true} if creating? %>
         <%= f.association :patient %>
         <%= f.association :therapist %>
         <%= f.input :from_fecha_hora_string, :as => :string, :input_html => {:class => 'datetimepicker input-text-datetime'} %>

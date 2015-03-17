@@ -72,6 +72,7 @@ class FixedTherapiesController < ApplicationController
     @time_ranges = TimeRange.update(params[:time_ranges].keys, params[:time_ranges].values)
     @time_ranges.reject! { |tr| tr.errors.empty? }
     if @time_ranges.empty?
+      @fixed_therapy.touch
       redirect_to  fixed_therapy_path(@fixed_therapy)
     else
       render "edit"
