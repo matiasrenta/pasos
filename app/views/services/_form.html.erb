@@ -7,7 +7,7 @@
         <%= f.association :therapist %>
         <%= f.input :from_fecha_hora_string, :as => :string, :input_html => {:class => 'datetimepicker input-text-datetime'} %>
         <%= f.input :to_fecha_hora_string, :as => :string, :input_html => {:class => 'datetimepicker input-text-datetime'} %>
-        <%= f.input :service_type, :as => :select, :collection => [['Terapia', 1], ['Valoración', 2], ['Visita escolar', 3]], :input_html => {:disabled => true} %>
+        <%= f.input :service_type, :as => :select, :collection => [Service.terapia_type, Service.valoracion_type, Service.visita_escolar_type], :input_html => {:disabled => true} %>
         <%= f.input :service_type, :as => :hidden, :input_html => {:value => @service.service_type} %>
         <%= f.input :importe, :input_html => {:class => "money"} %>
         <% if @service.visita_escolar? %>

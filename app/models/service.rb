@@ -13,6 +13,17 @@ class Service < ActiveRecord::Base
   #  ActiveSupport::TimeZone["Mexico City"].parse(DateTime.strptime(from_f_h, '%d/%m/%Y %H:%M').to_s(:db)) + 1.hour
   #end
 
+  def self.terapia_type
+    ['Terapia', 1]
+  end
+
+  def self.valoracion_type
+    ['Valoración', 2]
+  end
+
+  def self.visita_escolar_type
+    ['Visita escolar', 3]
+  end
 
   def visita_escolar?
     self.service_type == 3

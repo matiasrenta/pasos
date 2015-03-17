@@ -24,28 +24,28 @@ class FixedTherapy < ActiveRecord::Base
   def handle_services
     #TODO: si fecha_inicio es muy a futuro no debemos crear services
     start_date_of_working = fecha_inicio > Date.today ? fecha_inicio : Date.today
-    end_date_of_working   = start_date_of_working + 1.month
+    end_date_of_working   = start_date_of_working + 1.week
     start_end_massive_ranges = TimeRange.start_end_dates_from_massive_adjacent_ranges(self.time_ranges.order_by_day_time)
 
     #TODO: el campo fecha_inicio no sirve para esta funcionalidad, hay que pregunar al usuario a partir de que fecha se da el cambio de horario
     # un campo mas que aparezca con el label "A partir de que fecha se aplican estos horarios?" con la fecha Date.today por defecto
-    puts "######################################################################################## debug 2"
-
-    # primero hay que destroy_all los services a partir de start_date_of_working si tienen dia hora inicio igual a {bundle[:start]
-
+    # destroy los services NOT ESPECIALS a partir de start_date_of_working, que sean de este paciente/terapeuta
+    Service.where("special IS NULL AND patient_id = #{self.patient_id} AND therapist_id = #{self.therapist_id} AND service_type = #{Service.terapia_type[1]}").delete_all
 
     (end_date_of_working - start_date_of_working).to_i.times do |i|
       actual_date = start_date_of_working + i
       start_end_massive_ranges.each do |bundle|
-
-        puts "#{bundle[:day]} // #{actual_date.wday}"
         if bundle[:day] == actual_date.wday
-          puts "creao service con from_fecha_hora: #{actual_date} #{bundle[:start]} y to_fecha_hora: #{actual_date} #{bundle[:end]}"
+          Service.create(:patient_id => self.patient_id,
+                         :therapist_id => self.therapist_id,
+                         :importe => self.patient.costo_terapia_with_tax,
+                         :service_type => Service.terapia_type[1],
+                         :from_fecha_hora => ActiveSupport::TimeZone["Mexico City"].parse(DateTime.strptime("#{actual_date} #{bundle[:start]}", '%d/%m/%Y %H:%M').to_s(:db)),
+                         :to_fecha_hora => ActiveSupport::TimeZone["Mexico City"].parse(DateTime.strptime("#{actual_date} #{bundle[:end]}", '%d/%m/%Y %H:%M').to_s(:db))
+          )
         end
       end
     end
-
-    puts "######################################################################################## debug 3"
   end
 
 end
