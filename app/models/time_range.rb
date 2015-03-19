@@ -54,7 +54,7 @@ class TimeRange < ActiveRecord::Base
       end
       last_tr = tr
     end
-    bundle_adjacent_arrays << adjacent_array
+    bundle_adjacent_arrays << adjacent_array if adjacent_array.size > 0
     bundle_adjacent_arrays
   end
 

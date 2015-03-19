@@ -7,6 +7,8 @@ class Therapist < ActiveRecord::Base
   has_many :time_ranges, :dependent => :delete_all
   has_many :fixed_therapies
 
+  attr_accessor :apply_timetable_from
+
   validates_presence_of :nombre, :state_id
 
   accepts_nested_attributes_for :therapist_schedules, :allow_destroy => true#, :reject_if => lambda { |a| a[:name].blank? && a[:email].blank? && a[:phones].blank? && a[:description].blank?}

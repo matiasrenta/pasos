@@ -18,3 +18,14 @@
     <td class="td_data"><%= l(@fixed_therapy.fecha_fin, :format => :long) if @fixed_therapy.fecha_fin %></td>
   </tr>
 </table>
+<br/>
+<table width="100%">
+  <tr>
+    <td><h2>Horarios <%= @fixed_therapy.timetable_since.blank? ? '' : "a partir del #{@fixed_therapy.timetable_since}" %></h2></td>
+  </tr>
+  <tr>
+    <td><%= render 'form_time_ranges' %></td>
+  </tr>
+</table>
+
+

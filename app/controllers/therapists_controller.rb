@@ -73,7 +73,7 @@ class TherapistsController < ApplicationController
     @time_ranges = TimeRange.update(params[:time_ranges].keys, params[:time_ranges].values)
     @time_ranges.reject! { |tr| tr.errors.empty? }
     if @time_ranges.empty?
-      redirect_to  therapist_path(@therapist)
+      redirect_to(@therapist, :notice => 'Los horarios fueron actualizados correctamente')
     else
       @therapist.errors.add(:base, "No se a podido hacer la modificacion en los horarios")
       render(:action => "edit")

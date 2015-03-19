@@ -69,13 +69,20 @@ class FixedTherapiesController < ApplicationController
 
   def update_massive_time_ranges
     @fixed_therapy = FixedTherapy.find(params[:fixed_therapy][:id])
-    @time_ranges = TimeRange.update(params[:time_ranges].keys, params[:time_ranges].values)
-    @time_ranges.reject! { |tr| tr.errors.empty? }
-    if @time_ranges.empty?
-      @fixed_therapy.touch
-      redirect_to  fixed_therapy_path(@fixed_therapy)
+    @fixed_therapy.timetable_since = params[:fixed_therapy][:apply_timetable_from]
+    if @fixed_therapy.timetable_since.blank? || !@fixed_therapy.valid?
+      @fixed_therapy.errors.add(:apply_timetable_from, 'no puede estar en blanco')
+      render "show"
     else
-      render "edit"
+      @fixed_therapy.save
+      @time_ranges = TimeRange.update(params[:time_ranges].keys, params[:time_ranges].values)
+      @time_ranges.reject! { |tr| tr.errors.empty? }
+      if @time_ranges.empty?
+        @fixed_therapy.touch
+        redirect_to(@fixed_therapy, :notice => 'Los horarios fueron actualizados correctamente')
+      else
+        render "show"
+      end
     end
   end
 

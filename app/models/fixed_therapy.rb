@@ -3,6 +3,8 @@ class FixedTherapy < ActiveRecord::Base
   belongs_to :therapist
   has_many :time_ranges, :dependent => :nullify
 
+  attr_accessor :apply_timetable_from
+
   validates_presence_of :patient_id, :therapist_id, :fecha_inicio
   validates_uniqueness_of :patient_id, :scope => :therapist_id
   validate :all_dates_correctly?
@@ -17,6 +19,9 @@ class FixedTherapy < ActiveRecord::Base
       return false
     elsif fecha_fin && fecha_fin <= fecha_inicio
       errors.add(:fecha_fin, 'Debe ser mayor que la fecha de inicio')
+      return false
+    elsif timetable_since && timetable_since < fecha_inicio
+      errors.add(:timetable_since, 'No puede ser menor a la fecha de inicio')
       return false
     end
   end

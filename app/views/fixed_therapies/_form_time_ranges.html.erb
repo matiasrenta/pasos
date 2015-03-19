@@ -2,7 +2,7 @@
 
     <%= fields_for :fixed_therapy, @fixed_therapy do |fixed_therapy_fields| %>
         <%= fixed_therapy_fields.hidden_field :id %>
-    <% end %>
+
     <% last_time_range = nil %>
     <table border="1" width="100%">
       <tr>
@@ -56,10 +56,19 @@
           <% last_time_range = time_range %>
       <% end %>
     </table>
+    <br/>
+    <table>
+      <tr>
+        <td>
+          <b>Aplicar estos horarios a partir del:</b>
+          <%= fixed_therapy_fields.text_field :apply_timetable_from, :class => 'datepicker' %>
+          <% end %>
+          <%= submit_tag "Aplicar horarios" %>
+        </td>
+      </tr>
+    </table>
 
-    <div class="actions">
-      <%= submit_tag "Guardar horarios" %>
-    </div>
+
 
 <% end %>
 
