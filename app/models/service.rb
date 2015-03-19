@@ -9,6 +9,13 @@ class Service < ActiveRecord::Base
   #TODO: asegurar que un paciente no tenga dos servicios intersectados en un mismo dia
   #validate :uniq_service_at_time
 
+  scope :therapies, lambda{where(:service_type => Service.terapia_type[1])}
+  #scope :dues, lambda{|till_datetime| where("from_fecha_hora <= ?", ActiveSupport::TimeZone["Mexico City"].parse(till_datetime.to_s(:db)))}
+  scope :dues, lambda{|till_datetime| where("from_fecha_hora >= ? AND from_fecha_hora <= ?", Time.now, till_datetime)}
+  scope :by_patient, lambda{|patient_id| where(:patient_id => patient_id)}
+  scope :by_therapist, lambda{|therapist_id| where(:therapist_id => therapist_id)}
+
+
   #def self.calculate_to_fecha_hora(from_f_h)
   #  ActiveSupport::TimeZone["Mexico City"].parse(DateTime.strptime(from_f_h, '%d/%m/%Y %H:%M').to_s(:db)) + 1.hour
   #end

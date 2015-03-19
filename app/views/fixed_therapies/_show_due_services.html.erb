@@ -1,0 +1,18 @@
+<h2>Próximos servicios de terapia</h2>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table" style="margin-top:5px;">
+  <tr>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Desde</a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Hasta</a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Importe</a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Especial</a></th>
+  </tr>
+
+  <%  Service.therapies.dues(Date.today + 3.days).by_patient(@fixed_therapy.patient_id).by_therapist(@fixed_therapy.therapist_id).each do |service| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= l(service.from_fecha_hora, :format => :long_day) %></td>
+        <td><%= l(service.to_fecha_hora, :format => :long_day) %></td>
+        <td align="right">$<%= number_to_currency(service.importe, :unit => "") %></td>
+        <td><%= service.special %></td>
+      </tr>
+  <% end %>
+</table>
