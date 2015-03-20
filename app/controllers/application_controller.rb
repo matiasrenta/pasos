@@ -133,6 +133,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def create_services_if_needed
+    DaylyServiceCreation.handle_creations
+  end
+
 
   private ############################################ PRIVATE #################################################
 
