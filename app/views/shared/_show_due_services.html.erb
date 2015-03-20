@@ -7,7 +7,7 @@
     <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Especial</a></th>
   </tr>
 
-  <%  Service.therapies.dues(Date.today + 15.days).by_patient(@fixed_therapy.patient_id).by_therapist(@fixed_therapy.therapist_id).each do |service| %>
+  <%  @services.each do |service| %>
       <tr class=<%= cycle("alternate-row", "") %>>
         <td><%= l(service.from_fecha_hora, :format => :long_day) %></td>
         <td><%= l(service.to_fecha_hora, :format => :long_day) %></td>

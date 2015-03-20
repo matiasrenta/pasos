@@ -16,7 +16,7 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.xml
   def show
-
+    @services = Service.dues(Date.today + 15.days).by_patient(@patient.id).order_by_date
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @patient }

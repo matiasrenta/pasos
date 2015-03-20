@@ -14,6 +14,7 @@ class Service < ActiveRecord::Base
   scope :dues, lambda{|till_datetime| where("from_fecha_hora >= ? AND from_fecha_hora <= ?", Time.now, till_datetime)}
   scope :by_patient, lambda{|patient_id| where(:patient_id => patient_id)}
   scope :by_therapist, lambda{|therapist_id| where(:therapist_id => therapist_id)}
+  scope :order_by_date, order(:from_fecha_hora)
 
 
   #def self.calculate_to_fecha_hora(from_f_h)

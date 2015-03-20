@@ -16,7 +16,7 @@ class FixedTherapiesController < ApplicationController
   # GET /fixed_therapies/1
   # GET /fixed_therapies/1.xml
   def show
-
+    @services = Service.therapies.dues(Date.today + 15.days).by_patient(@fixed_therapy.patient_id).by_therapist(@fixed_therapy.therapist_id).order_by_date
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @fixed_therapy }

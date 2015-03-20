@@ -13,6 +13,14 @@ module ApplicationHelper
     end
   end
 
+  def boolean_check_mark(boo)
+    if boo
+      '&#10003;'.html_safe
+    else
+      ''
+    end
+  end
+
   def avatar_url(user)
 #    if user.avatar_url.present?
 #      user.avatar_url
