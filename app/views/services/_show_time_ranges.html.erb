@@ -1,5 +1,8 @@
+<div class='clear'></div>
 <% last_time_range = nil %>
-<table border="1" width="100%">
+<div style='display: block; margin-top: 20px; margin-bottom: 30px;'>
+<div><h2>Horarios de <%= @therapist.nombre %></h2>
+<table border='1' width='100%'>
   <tr>
     <th>Día</th>
     <th>7:00</th>
@@ -35,20 +38,21 @@
   </tr>
 
   <% @therapist.time_ranges.order_by_day_time.each do |time_range| %>
-      <%= !last_time_range.nil? && last_time_range.day != time_range.day ? "</tr>".html_safe : "" %>
-      <%= last_time_range.nil? || last_time_range.day != time_range.day ? "<tr> <td>#{t("date.day_names")[time_range.day]}</td>".html_safe : "" %>
+      <%= !last_time_range.nil? && last_time_range.day != time_range.day ? '</tr>'.html_safe : '' %>
+      <%= last_time_range.nil? || last_time_range.day != time_range.day ? "<tr> <td>#{t('date.day_names')[time_range.day]}</td>".html_safe : '' %>
       <%
          if time_range.taken
-           bg_color = 'background-color: green'
+           bg_color = 'background-color: #CC5555'
          elsif time_range.working_time
-           bg_color = 'background-color: blue'
+           bg_color = 'background-color: #55CC55'
          else
-           bg_color = ''
+           bg_color = 'background-color: #AAAAAA'
          end
       %>
-      <td title="" height="30" style="<%= bg_color %>; "></td>
+      <td title='' height='30' style='<%= bg_color %>; '></td>
       <% last_time_range = time_range %>
   <% end %>
 </table>
-
+<h3><span style='font-weight: bold; color: #55CC55;'>Disponible</span> - <span style='font-weight: bold; color: #CC5555;'>Ocupado</span> - <span style='font-weight: bold; color: #AAAAAA;'>No Disponible</span></div></h3>
+</div>
 

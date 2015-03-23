@@ -79,6 +79,14 @@ class ServicesController < ApplicationController
     prudent_destroy(@service)
   end
 
+  def ajax_therapist_timetable
+    unless params[:the_id].blank?
+      @therapist = Therapist.find params[:the_id]
+      @html_string = render_to_string(:partial => "/services/show_time_ranges.html.erb", :formats => [:html], :layout => false)
+      @html_string = @html_string.squish
+    end
+  end
+
   #def ajax_calculate_to_fecha_hora
   #  service = Service.new(:from_fecha_hora_string => params[:service][:from_fecha_hora_string])
   #  if service.from_fecha_hora_string

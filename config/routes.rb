@@ -5,6 +5,7 @@ Pru1::Application.routes.draw do
 
   resources :services do
     #get :ajax_calculate_to_fecha_hora, :on => :collection
+    get :ajax_therapist_timetable, :on => :collection
   end
 
   resources :payments

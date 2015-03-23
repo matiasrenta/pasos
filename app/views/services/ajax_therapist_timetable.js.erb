@@ -1,0 +1,6 @@
+<% if @html_string.blank?  %>
+    $("#show_time_ranges_div").html("<%= '' %>");
+<% else %>
+    $("#show_time_ranges_div").html("<%= @html_string.html_safe -%>");
+<% end %>
+
