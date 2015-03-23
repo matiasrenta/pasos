@@ -33,15 +33,6 @@
 
 
       </div>
-      <% if can?(:create, Therapy) || can?(:update, Therapy)%>
-        <%= render "therapies_form", :f => f %>
-      <% end %>
-      <br/><br/><br/>
-
-      <% if can?(:create, Assessment) || can?(:update, Assessment)%>
-        <%= render "form_assessment", :f => f %>
-      <% end %>
-
       <%= render "shared/submit_form_model", :model_class => Patient %>
 
   <% end %>

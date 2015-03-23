@@ -43,7 +43,7 @@ class TherapistsController < ApplicationController
 
     respond_to do |format|
       if @therapist.save
-        format.html { redirect_to(edit_therapist_path(@therapist), :notice => "Ingrese los rangos horarios en que trabaja este terapeuta") }
+        format.html { redirect_to(@therapist, :notice => "Ingrese los rangos horarios en que trabaja este terapeuta") }
         format.xml  { render :xml => @therapist, :status => :created, :location => @therapist }
       else
         format.html { render :action => "new" }
