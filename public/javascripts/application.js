@@ -127,6 +127,14 @@ $(document).on('nested:fieldAdded', function(event){
 //ejecuto un ajax debo llamar desde ese ajax a esta named function para simuar el "document ready"
 function docReady(){
 
+    // para desabilitar todos los submit button onclick
+    $("input[type='submit']").click(function(){
+        $(this).attr("disabled", true);
+    });
+    $("button[type='submit']").click(function(){
+        $(this).attr("disabled", true);
+    });
+
     // esto se tiene que ejecutar antes que el .multiselect, ya que le estoy quitando la clase antes para ponerle la "nested" así la funcion multiselect se ejecuta cuando
     // se agrega el renglón del form, y para cuando es updating? los renglones que ya estan creados tienen la clase "multi_select_no_filter" y no la "nested"
     $("#patient_therapies_attributes_new_therapist_schedule_ids").removeClass("multi_select_no_filter").addClass("multi_select_no_filter_nested");
