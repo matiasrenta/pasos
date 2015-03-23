@@ -66,8 +66,8 @@
         <td><%= service.to_fecha_hora %></td>
         <td><%= service.service_type_name %></td>
         <td align="right">$<%= number_to_currency(service.importe, :unit => "") %></td>
-        <td><%= service.asistido %></td>
-        <td><%= service.cancelado %></td>
+        <td align="center"><%= boolean_check_mark(service.asistido) %></td>
+        <td align="center"><%= boolean_check_mark(service.cancelado) %></td>
         <%= render 'shared/action_icons', :locals => {:target => service, :model_edit_path => edit_service_path(service)} %>
       </tr>
   <% end %>

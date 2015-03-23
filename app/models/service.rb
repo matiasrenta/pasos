@@ -10,6 +10,8 @@ class Service < ActiveRecord::Base
   #TODO: asegurar que un paciente no tenga dos servicios intersectados en un mismo dia
   #validate :uniq_service_at_time
 
+  after_update :calculate_patient_saldo, :if => :asistido_changed?
+
   scope :therapies, lambda{where(:service_type => Service.terapia_type[1])}
   #scope :dues, lambda{|till_datetime| where("from_fecha_hora <= ?", ActiveSupport::TimeZone["Mexico City"].parse(till_datetime.to_s(:db)))}
   scope :dues, lambda{|till_datetime| where("from_fecha_hora >= ? AND from_fecha_hora <= ?", Time.now, till_datetime)}
@@ -80,8 +82,9 @@ class Service < ActiveRecord::Base
     end
   end
 
-  def uniq_service_at_time
+  private
 
+  def uniq_service_at_time
   end
 
   def all_dates_correctly?
@@ -94,5 +97,13 @@ class Service < ActiveRecord::Base
     end
   end
 
+  def calculate_patient_saldo
+    if self.asistido
+      self.patient.saldo = self.patient.saldo.to_f - self.importe
+    else
+      self.patient.saldo = self.patient.saldo.to_f + self.importe
+    end
+    self.patient.save!
+  end
 
 end

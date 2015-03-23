@@ -128,10 +128,10 @@ $(document).on('nested:fieldAdded', function(event){
 function docReady(){
 
     // para desabilitar todos los submit button onclick
-    $("input[type='submit']").click(function(){
+    $("input[type='submit']").not($('#search_clear')).click(function(){
         $(this).attr("disabled", true);
     });
-    $("button[type='submit']").click(function(){
+    $("button[type='submit']").not($('#search_clear')).click(function(){
         $(this).attr("disabled", true);
     });
 

@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.xml
   def index
-    delocalize_dates([:from_fecha_hora_greater_than_or_equal_to, :to_fecha_hora_less_than_or_equal_to]) if params[:search]
+    delocalize_dates([:from_fecha_hora_greater_than_or_equal_to, :from_fecha_hora_less_than_or_equal_to]) if params[:search]
     @services = do_index(Service, params)
 
     respond_to do |format|
