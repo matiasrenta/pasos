@@ -1,26 +1,24 @@
 class DaylyServiceCreation < ActiveRecord::Base
 
-  DAYS_FROM_NOW = 7 # dias desde la fecha de hoy hasta donde se van a crear los servicios.
+  DAYS_FROM_NOW = 15 # dias desde la fecha de hoy hasta donde se van a crear los servicios.
 
   def self.handle_creations
     record = first
     today = Date.today
     if record.last_creation < today
-      quantity_days = (today + DAYS_FROM_NOW) - record.until_date
-      if quantity_days > 0
+      if (today + DAYS_FROM_NOW) > record.until_date
         create_services(FixedTherapy.all, record.until_date + 1, today + DAYS_FROM_NOW)
         record.last_creation = today
-        record.until_date = today + quantity_days
+        record.until_date = today + DAYS_FROM_NOW
         record.save!
       end
     end
   end
 
   def self.handle_creations_and_destroys_when_change_timetable(fixed_therapy, apply_from_date)
-    # TODO: deberia ser Date.today porque se necesitara que hoy mismo se creen los servicios para que el paciente asista hoy. El problema es que si ya existe el servicio y ya se precencio, ahi viene el lio
+    # se hace a partir de maniana para evitar manejar el problema de eliminar servicios ya presenciados
     return false if apply_from_date < Date.tomorrow
-    #TODO: PRIMERO ELIMINAR LOS SERVICES. apply_from_date debe ser a partir de maniana
-
+    Service.where("special IS NULL AND from_fecha_hora >= ? AND patient_id = ? AND therapist_id = ? AND service_type = ?", apply_from_date, fixed_therapy.patient_id, fixed_therapy.therapist_id, Service.terapia_type[1]).delete_all
     stop_date = first.until_date
     create_services([fixed_therapy], apply_from_date, stop_date) # mandamos stop_date para que no se creen servicio posterior al first.until_date, asi maniana no hay problema en la creacion automatica
   end

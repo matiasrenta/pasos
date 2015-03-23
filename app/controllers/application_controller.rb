@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
   before_filter :set_content_title
   #before_filter :set_user_language
+  before_filter :create_services_if_needed
 
   protect_from_forgery
 

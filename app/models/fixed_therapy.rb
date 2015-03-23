@@ -7,21 +7,30 @@ class FixedTherapy < ActiveRecord::Base
 
   validates_presence_of :patient_id, :therapist_id, :fecha_inicio
   validates_uniqueness_of :patient_id, :scope => :therapist_id
+  validate :valid_fecha_inicio?, :on => :create
   validate :all_dates_correctly?
 
   after_touch :handle_services
 
   private
 
-  def all_dates_correctly?
+  def valid_fecha_inicio?
     if fecha_inicio < Date.today
       errors.add(:fecha_inicio, 'No puede ser en el pasado')
       return false
-    elsif fecha_fin && fecha_fin <= fecha_inicio
+    end
+  end
+
+  def all_dates_correctly?
+    if fecha_fin && fecha_fin <= fecha_inicio
       errors.add(:fecha_fin, 'Debe ser mayor que la fecha de inicio')
       return false
     elsif timetable_since && timetable_since < fecha_inicio
       errors.add(:timetable_since, 'No puede ser menor a la fecha de inicio')
+      return false
+    elsif timetable_since && timetable_since <= Date.today
+      puts "@@@@@@@@@@@@@@@@ timetable_since=#{timetable_since}; Date.today#{Date.today}"
+      errors.add(:timetable_since, 'Debe ser a partir de mañana')
       return false
     end
   end

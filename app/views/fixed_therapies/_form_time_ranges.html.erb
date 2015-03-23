@@ -60,10 +60,19 @@
     <table>
       <tr>
         <td>
-          <b>Aplicar estos horarios a partir del:</b>
-          <%= fixed_therapy_fields.text_field :apply_timetable_from, :class => 'datepicker' %>
+          <div style="float: left;"><b>Aplicar estos horarios a partir del</b> (debe ser mayor a la fecha de hoy):</div>
+          <p><%= fixed_therapy_fields.text_field :apply_timetable_from, :class => 'datepicker' %></p>
+            <% if @fixed_therapy.errors.any? %>
+                <div id="error_explanation" style="float: left;">
+                  <ul>
+                    <% @fixed_therapy.errors.each do |error| %>
+                        <li><%= error.to_s.sub!("apply_timetable_from", "") %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
           <% end %>
-          <%= submit_tag "Aplicar horarios" %>
+          <p style="margin-top: 15px;"><%= submit_tag "Aplicar horarios" %></p>
         </td>
       </tr>
     </table>
