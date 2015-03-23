@@ -64,8 +64,17 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.update_attributes(params[:service])
-        format.html { redirect_to(@service, :notice => t("screens.notice.successfully_updated")) }
-        format.xml  { head :ok }
+        if params[:from_today]
+          format.html { redirect_to("/services/today_sessions", :notice => "Se ha registrado la asistencia") }
+          format.xml  { render :xml => @presence, :status => :created, :location => @presence }
+        else
+          format.html { redirect_to(@service, :notice => t("screens.notice.successfully_updated")) }
+          format.xml  { head :ok }
+        end
+
+
+
+
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @service.errors, :status => :unprocessable_entity }
@@ -85,6 +94,12 @@ class ServicesController < ApplicationController
       @html_string = render_to_string(:partial => "/services/show_time_ranges.html.erb", :formats => [:html], :layout => false)
       @html_string = @html_string.squish
     end
+  end
+
+  def today_sessions
+    set_content_title(["Asistencia del día", l(Time.zone.now.to_date, :format => :long_day)])
+    @services_no_asistidos = Service.for_today.no_asistidos
+    @services_asistidos = Service.for_today.asistidos
   end
 
   #def ajax_calculate_to_fecha_hora

@@ -16,6 +16,9 @@ class Service < ActiveRecord::Base
   scope :by_patient, lambda{|patient_id| where(:patient_id => patient_id)}
   scope :by_therapist, lambda{|therapist_id| where(:therapist_id => therapist_id)}
   scope :order_by_date, order(:from_fecha_hora)
+  scope :for_today, lambda{where("from_fecha_hora >= ? AND from_fecha_hora < ?", Date.today, Date.tomorrow)}
+  scope :asistidos, where(:asistido => true)
+  scope :no_asistidos, where("asistido IS NULL OR asistido = ?", false)
 
 
   #def self.calculate_to_fecha_hora(from_f_h)

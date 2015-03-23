@@ -148,7 +148,7 @@ module ApplicationHelper
                        pendings: 'true',
                         html_pendings: '<div>#{link_to(t("screens.menu.port.pendings"), root_path, :class => 'ajax')}</div>',
                        presences_today: 'true',
-                        html_presences_today: '<div>#{link_to(t("screens.menu.port.presences_today"), "/presences/today_sessions", :class => 'ajax')}</div>',
+                        html_presences_today: '<div>#{link_to(t("screens.menu.port.presences_today"), "/services/today_sessions", :class => 'ajax')}</div>',
                        services: 'true',
                         html_services: '<div>#{link_to(t("screens.menu.port.services"), services_path, :class => 'ajax')}</div>',
                        fixed_therapies: 'true',
