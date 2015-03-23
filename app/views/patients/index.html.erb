@@ -45,9 +45,8 @@
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :nombre_padre, t("simple_form.labels.nombre_padre") %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :nombre_madre, t("simple_form.labels.nombre_madre") %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :tel_casa, t("simple_form.labels.tel_casa") %></th>
-    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :cel_padre, t("simple_form.labels.cel_padre") %></th>
-    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :cel_madre, t("simple_form.labels.cel_madre") %></th>
-    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :email, t("simple_form.labels.email") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :costo_terapia, 'Costo por Sesión' %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :costo_terapia, t("simple_form.labels.saldo") %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :fecha_ingreso, t("simple_form.labels.fecha_ingreso") %></th>
     <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
   </tr>
@@ -58,9 +57,8 @@
         <td><%= patient.nombre_padre %></td>
         <td><%= patient.nombre_madre %></td>
         <td><%= patient.tel_casa %></td>
-        <td><%= patient.cel_padre %></td>
-        <td><%= patient.cel_madre %></td>
-        <td><%= patient.email %></td>
+        <td align="right">$<%= number_to_currency(patient.costo_terapia_with_tax, :unit => "") %></td>
+        <td align="right">$<%= number_to_currency(patient.saldo, :unit => "") %></td>
         <td><%= patient.fecha_ingreso %></td>
         <%= render 'shared/action_icons', :locals => {:target => patient, :model_edit_path => edit_patient_path(patient)} %>
       </tr>

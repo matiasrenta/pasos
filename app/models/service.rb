@@ -5,6 +5,7 @@ class Service < ActiveRecord::Base
   validates_presence_of :patient_id, :therapist_id, :from_fecha_hora, :to_fecha_hora, :from_fecha_hora_string, :to_fecha_hora_string, :importe, :service_type
   validates_presence_of :datos_escuela, :nombre_profesor, :grado_escolar, :if => :visita_escolar?
   validates_presence_of :motivo_cancelacion, :if => :cancelado
+  validate :all_dates_correctly?
   validate :asistido_in_past?
   #TODO: asegurar que un paciente no tenga dos servicios intersectados en un mismo dia
   #validate :uniq_service_at_time
@@ -50,7 +51,7 @@ class Service < ActiveRecord::Base
   end
 
   def to_fecha_hora_string
-    from_fecha_hora.to_s
+    to_fecha_hora.to_s
   end
 
   def from_fecha_hora_string=(fecha_hora_str)
@@ -78,6 +79,16 @@ class Service < ActiveRecord::Base
 
   def uniq_service_at_time
 
+  end
+
+  def all_dates_correctly?
+    if from_fecha_hora >= to_fecha_hora
+      errors.add(:to_fecha_hora_string, 'Debe ser mayor que la fecha de inicio')
+      return false
+    elsif from_fecha_hora.to_date != to_fecha_hora.to_date
+      errors.add(:to_fecha_hora_string, 'Debe ser en el mismo día que la fecha de inicio')
+      return false
+    end
   end
 
 
