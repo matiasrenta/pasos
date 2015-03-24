@@ -66,5 +66,6 @@ class Ability
 
     cannot :update, Payment
     cannot :update, Presence
+    cannot :update, Cancellation
   end
 end

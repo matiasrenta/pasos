@@ -1,6 +1,7 @@
 class Service < ActiveRecord::Base
   belongs_to :patient
   belongs_to :therapist
+  belongs_to :cancellation
 
   validates_presence_of :patient_id, :therapist_id, :from_fecha_hora, :to_fecha_hora, :from_fecha_hora_string, :to_fecha_hora_string, :importe, :service_type
   validates_presence_of :datos_escuela, :nombre_profesor, :grado_escolar, :if => :visita_escolar?
@@ -22,13 +23,14 @@ class Service < ActiveRecord::Base
   scope :asistidos, where(:asistido => true)
   scope :no_asistidos, where("asistido IS NULL OR asistido = ?", false)
   scope :cancelados, where(:cancelado => true)
-
-  scope :cancelables, no_asistidos.where("cancelado IS NULL OR cancelado = ?", false) #luego se le puede poner mas reglas
+  scope :no_cancelados, where("cancelado IS NULL OR cancelado = ?", false)
+  scope :cancelables, no_asistidos.no_cancelados #luego se le puede poner mas reglas
   scope :therapies, lambda{where(:service_type => Service.terapia_type[1])}
   scope :valoraciones, lambda{where(:service_type => Service.valoracion_type[1])}
   scope :visitas_escolares, lambda{where(:service_type => Service.visita_escolar_type[1])}
+  scope :by_service_type, lambda{|service_type_nro| where(:service_type => service_type_nro)}
   scope :from_date, lambda{|from_date| where("from_fecha_hora >= ?", from_date)}
-  scope :to_date, lambda{|to_date| where("to_fecha_hora <= ?", to_date)}
+  scope :to_date, lambda{|to_date| where("to_fecha_hora < ?", to_date + 1)} # le sumo un dia para que el datetime de la base sea menor
 
 
   #def self.calculate_to_fecha_hora(from_f_h)

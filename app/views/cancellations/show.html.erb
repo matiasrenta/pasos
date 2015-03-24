@@ -1,32 +1,53 @@
-<%= render "shared/control_buttons", :locals => {:instance => @cancellation} %>
+<table width="98%">
+  <tr>
+    <td valign="top">
+      <div style="width:350px;">
 
-<table class="show_table">
-  <tr>
+        <%= render "shared/control_buttons", :locals => {:instance => @cancellation} %>
+
+        <table class="show_table">
+          <tr>
             <td class="td_label"><b><%= t("simple_form.labels.patient") %>:</b></td>
-                            <td class="td_data"><%= @cancellation.patient.try(:name) %></td>
-              </tr>
-  <tr>
+            <td class="td_data"><%= @cancellation.patient.try(:nombre) %></td>
+          </tr>
+          <tr>
             <td class="td_label"><b><%= t("simple_form.labels.therapist") %>:</b></td>
-                            <td class="td_data"><%= @cancellation.therapist.try(:name) %></td>
-              </tr>
-  <tr>
+            <td class="td_data"><%= @cancellation.therapist.try(:nombre) %></td>
+          </tr>
+          <tr>
             <td class="td_label"><b><%= t("simple_form.labels.cancel_from_fecha") %>:</b></td>
-                <td class="td_data"><%= l(@cancellation.cancel_from_fecha, :format => :long) if @cancellation.cancel_from_fecha %></td>
-      </tr>
-  <tr>
+            <td class="td_data"><%= l(@cancellation.cancel_from_fecha, :format => :long) if @cancellation.cancel_from_fecha %></td>
+          </tr>
+          <tr>
             <td class="td_label"><b><%= t("simple_form.labels.cancel_to_fecha") %>:</b></td>
-                <td class="td_data"><%= l(@cancellation.cancel_to_fecha, :format => :long) if @cancellation.cancel_to_fecha %></td>
-      </tr>
-  <tr>
-            <td class="td_label"><b><%= t("simple_form.labels.service_from_fecha_hora") %>:</b></td>
-                <td class="td_data"><%= @cancellation.service_from_fecha_hora %></td>
-      </tr>
-  <tr>
+            <td class="td_data"><%= l(@cancellation.cancel_to_fecha, :format => :long) if @cancellation.cancel_to_fecha %></td>
+          </tr>
+          <tr>
             <td class="td_label"><b><%= t("simple_form.labels.service_type") %>:</b></td>
-                            <td class="td_data"><%= @cancellation.service_type %></td>
-              </tr>
-  <tr>
+            <td class="td_data"><%= @cancellation.service_type %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.motivo") %>:</b></td>
+            <td class="td_data"><%= @cancellation.motivo %></td>
+          </tr>
+          <tr>
             <td class="td_label"><b><%= t("simple_form.labels.user") %>:</b></td>
-                            <td class="td_data"><%= @cancellation.user.try(:name) %></td>
-              </tr>
+            <td class="td_data"><%= @cancellation.user.try(:full_name) %></td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td valign="top">
+    <td valign="top"><%= render "show_services", :locals => {:title => "Servicios cancelados (#{@cancellation.services.count})"} %></td>
+    </td>
+  </tr>
 </table>
+
+
+
+
+
+
+
+

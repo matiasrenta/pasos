@@ -2,11 +2,11 @@
   <%= simple_form_for(@cancellation) do |f| %>
 
       <div class="inputs">
-        <%= f.association :patient %>
-        <%= f.association :therapist %>
-        <%= f.input :cancel_from_fecha, :as => :string, :input_html => {:class => 'datepicker'} %>
-        <%= f.input :cancel_to_fecha, :as => :string, :input_html => {:class => 'datepicker'} %>
-        <%= f.input :service_type, :as => :select, :collection => [Service.terapia_type, Service.valoracion_type, Service.visita_escolar_type] %>
+        <%= f.association :patient, :prompt => "Todos" %>
+        <%= f.association :therapist, :prompt => "Todos" %>
+        <%= f.input :cancel_from_fecha, :as => :string, :hint => 'no puede ser menor a la fecha de hoy', :input_html => {:class => 'datepicker'} %>
+        <%= f.input :cancel_to_fecha, :placeholder => "sin límite", :as => :string, :input_html => {:class => 'datepicker'} %>
+        <%= f.input :service_type, :prompt => "Todos", :as => :select, :collection => [Service.terapia_type, Service.valoracion_type, Service.visita_escolar_type] %>
         <%= f.input :motivo, :input_html => { :rows => 4, :cols => 30 } %>
         <%= f.input :user_id, :as => :hidden, :input_html => {:value => current_user.id} %>
       </div>

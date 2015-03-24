@@ -152,7 +152,9 @@ module ApplicationHelper
                        services: 'true',
                         html_services: '<div>#{link_to(t("screens.menu.port.services"), services_path, :class => 'ajax')}</div>',
                        fixed_therapies: 'true',
-                        html_fixed_therapies: '<div>#{link_to(t("screens.menu.port.fixed_therapies"), fixed_therapies_path, :class => 'ajax')}</div>'
+                        html_fixed_therapies: '<div>#{link_to(t("screens.menu.port.fixed_therapies"), fixed_therapies_path, :class => 'ajax')}</div>',
+                       cancellations: 'true',
+                        html_cancellations: '<div>#{link_to(t("screens.menu.port.cancellations"), cancellations_path, :class => 'ajax')}</div>'
                       },
 
             cataItems:{

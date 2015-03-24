@@ -67,6 +67,8 @@ es:
       from_fecha_hora_string: 'Inicia'
       to_fecha_hora_string: 'Finaliza'
       service_type: 'Tipo de servicio'
+      cancel_from_fecha: 'Cancelar desde'
+      cancel_to_fecha: 'Cancelar hasta'
 
     hints:
 

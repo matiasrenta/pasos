@@ -23,18 +23,8 @@
           <%= f.input :cancel_to_fecha_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
         </div>
 
+        <%= f.input :service_type_equals, :label => t("simple_form.labels.service_type"), :as => :select, :collection => [Service.terapia_type, Service.valoracion_type, Service.visita_escolar_type] %>
 
-        <div class="from_to">
-          <%= label_tag(:service_from_fecha_hora_greater_than_or_equal_to, t("simple_form.labels.service_from_fecha_hora")) %>
-          <%= f.input :service_from_fecha_hora_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
-          <%= f.input :service_from_fecha_hora_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
-        </div>
-
-        <div class="from_to">
-          <%= label_tag(:service_type_greater_than_or_equal_to, t("simple_form.labels.service_type")) %>
-          <%= f.input :service_type_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :input_html => {:size => 13} %>
-          <%= f.input :service_type_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :input_html => {:size => 13} %>
-        </div>
         <%= f.input :user_id_equals, :label => t("simple_form.labels.user"), :as => :select, :collection => User.all %>
         <%= render "shared/submit_form_filter" %>
     <% end %>
@@ -45,26 +35,30 @@
 
 <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
   <tr>
-    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :patient_name, t("simple_form.labels.patient") %></th>
-    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :therapist_name, t("simple_form.labels.therapist") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :patient_nombre, t("simple_form.labels.patient") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :therapist_nombre, t("simple_form.labels.therapist") %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :cancel_from_fecha, t("simple_form.labels.cancel_from_fecha") %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :cancel_to_fecha, t("simple_form.labels.cancel_to_fecha") %></th>
-    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :service_from_fecha_hora, t("simple_form.labels.service_from_fecha_hora") %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :service_type, t("simple_form.labels.service_type") %></th>
-    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :user_name, t("simple_form.labels.user") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :service_type, t("simple_form.labels.user") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><a href="#">Servicios cancelados</a></th>
     <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
   </tr>
 
   <% @cancellations.each do |cancellation| %>
       <tr class=<%= cycle("alternate-row", "") %>>
-        <td><%= cancellation.patient.try(:name) %></td>
-        <td><%= cancellation.therapist.try(:name) %></td>
+        <td><%= cancellation.patient.try(:nombre) %></td>
+        <td><%= cancellation.therapist.try(:nombre) %></td>
         <td><%= cancellation.cancel_from_fecha %></td>
         <td><%= cancellation.cancel_to_fecha %></td>
-        <td><%= cancellation.service_from_fecha_hora %></td>
         <td><%= cancellation.service_type %></td>
-        <td><%= cancellation.user.try(:name) %></td>
-        <%= render 'shared/action_icons', :locals => {:target => cancellation, :model_edit_path => edit_cancellation_path(cancellation)} %>
+        <td><%= cancellation.user.try(:full_name) %></td>
+        <td align="right"><%= cancellation.services.count %></td>
+        <td class="options-width">
+          <%= link_to '', cancellation, :class=>"icon-1 info-tooltip", :title => t("helpers.link.show") if can? :read, cancellation %>
+          <%= link_to '', edit_cancellation_path(cancellation), :class=>"icon-3 info-tooltip", :title => t("helpers.link.edit") if can? :update, cancellation %>
+          <%= link_to '', cancellation, :class=>"icon-2 info-tooltip", :title => t("helpers.link.delete"), :confirm => "Se restablecerán los servicios a partir de hoy que fueron cancelados por esta cancelación masiva. Esta seguro?", :method => :delete if can? :destroy, cancellation %>
+        </td>
       </tr>
   <% end %>
 </table>

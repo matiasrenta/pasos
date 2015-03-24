@@ -5,8 +5,7 @@ class CancellationsController < ApplicationController
   # GET /cancellations.xml
   def index
     delocalize_dates([:cancel_from_fecha_greater_than_or_equal_to, :cancel_from_fecha_less_than_or_equal_to,
-                      :cancel_to_fecha_greater_than_or_equal_to, :cancel_to_fecha_less_than_or_equal_to,
-                      :service_from_fecha_hora_greater_than_or_equal_to, :service_from_fecha_hora_less_than_or_equal_to]) if params[:search]
+                      :cancel_to_fecha_greater_than_or_equal_to, :cancel_to_fecha_less_than_or_equal_to]) if params[:search]
     @cancellations = do_index(Cancellation, params)
     respond_to do |format|
       format.html # index.html.erb
@@ -41,7 +40,6 @@ class CancellationsController < ApplicationController
   # POST /cancellations
   # POST /cancellations.xml
   def create
-
     respond_to do |format|
       if @cancellation.save
         format.html { redirect_to(@cancellation, :notice => t("screens.notice.successfully_created")) }
@@ -55,18 +53,17 @@ class CancellationsController < ApplicationController
 
   # PUT /cancellations/1
   # PUT /cancellations/1.xml
-  def update
-
-    respond_to do |format|
-      if @cancellation.update_attributes(params[:cancellation])
-        format.html { redirect_to(@cancellation, :notice => t("screens.notice.successfully_updated")) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @cancellation.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+  #def update
+  #  respond_to do |format|
+  #    if @cancellation.update_attributes(params[:cancellation])
+  #      format.html { redirect_to(@cancellation, :notice => t("screens.notice.successfully_updated")) }
+  #      format.xml  { head :ok }
+  #    else
+  #      format.html { render :action => "edit" }
+  #      format.xml  { render :xml => @cancellation.errors, :status => :unprocessable_entity }
+  #    end
+  #  end
+  #end
 
   # DELETE /cancellations/1
   # DELETE /cancellations/1.xml

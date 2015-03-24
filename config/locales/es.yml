@@ -279,8 +279,8 @@ es:
       Application: "Mis pendientes"
       Applications: "Mis pendientes"
 
-      Cancellation: "Cancelación"
-      Cancellations: "Cancelaciones"
+      Cancellation: "Cancelación masiva"
+      Cancellations: "Cancelaciones masivas"
 
       FixedTherapy: "Terapia establecida"
       FixedTherapies: "Terapias establecidas"
@@ -378,7 +378,7 @@ es:
         presences_today: "Asistencia diaria"
         services: "Servicios"
         fixed_therapies: "Terapias establecidas"
-        cancellations: "Cancelaciones"
+        cancellations: "Cancelaciones masivas"
 
       cata:
         patients: "Pacientes"
