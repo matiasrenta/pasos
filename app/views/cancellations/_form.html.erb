@@ -1,0 +1,19 @@
+<div class="gray_form">
+  <%= simple_form_for(@cancellation) do |f| %>
+
+      <div class="inputs">
+        <%= f.association :patient %>
+        <%= f.association :therapist %>
+        <%= f.input :cancel_from_fecha, :as => :string, :input_html => {:class => 'datepicker'} %>
+        <%= f.input :cancel_to_fecha, :as => :string, :input_html => {:class => 'datepicker'} %>
+        <%= f.input :service_type, :as => :select, :collection => [Service.terapia_type, Service.valoracion_type, Service.visita_escolar_type] %>
+        <%= f.input :motivo, :input_html => { :rows => 4, :cols => 30 } %>
+        <%= f.input :user_id, :as => :hidden, :input_html => {:value => current_user.id} %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => Cancellation %>
+
+  <% end %>
+</div>
+
+

@@ -12,7 +12,7 @@ class Service < ActiveRecord::Base
 
   after_update :calculate_patient_saldo, :if => :asistido_changed?
 
-  scope :therapies, lambda{where(:service_type => Service.terapia_type[1])}
+
   #scope :dues, lambda{|till_datetime| where("from_fecha_hora <= ?", ActiveSupport::TimeZone["Mexico City"].parse(till_datetime.to_s(:db)))}
   scope :dues, lambda{|till_datetime| where("from_fecha_hora >= ? AND from_fecha_hora <= ?", Time.now, till_datetime)}
   scope :by_patient, lambda{|patient_id| where(:patient_id => patient_id)}
@@ -21,6 +21,14 @@ class Service < ActiveRecord::Base
   scope :for_today, lambda{where("from_fecha_hora >= ? AND from_fecha_hora < ?", Date.today, Date.tomorrow)}
   scope :asistidos, where(:asistido => true)
   scope :no_asistidos, where("asistido IS NULL OR asistido = ?", false)
+  scope :cancelados, where(:cancelado => true)
+
+  scope :cancelables, no_asistidos.where("cancelado IS NULL OR cancelado = ?", false) #luego se le puede poner mas reglas
+  scope :therapies, lambda{where(:service_type => Service.terapia_type[1])}
+  scope :valoraciones, lambda{where(:service_type => Service.valoracion_type[1])}
+  scope :visitas_escolares, lambda{where(:service_type => Service.visita_escolar_type[1])}
+  scope :from_date, lambda{|from_date| where("from_fecha_hora >= ?", from_date)}
+  scope :to_date, lambda{|to_date| where("to_fecha_hora <= ?", to_date)}
 
 
   #def self.calculate_to_fecha_hora(from_f_h)

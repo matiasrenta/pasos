@@ -16,7 +16,6 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.xml
   def show
-    @service = Service.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +26,6 @@ class ServicesController < ApplicationController
   # GET /services/new
   # GET /services/new.xml
   def new
-    @service = Service.new
     @service.service_type = params[:service_type]
 
     respond_to do |format|
@@ -38,13 +36,11 @@ class ServicesController < ApplicationController
 
   # GET /services/1/edit
   def edit
-    @service = Service.find(params[:id])
   end
 
   # POST /services
   # POST /services.xml
   def create
-    @service = Service.new(params[:service])
 
     respond_to do |format|
       if @service.save
@@ -60,7 +56,6 @@ class ServicesController < ApplicationController
   # PUT /services/1
   # PUT /services/1.xml
   def update
-    @service = Service.find(params[:id])
 
     respond_to do |format|
       if @service.update_attributes(params[:service])
@@ -71,10 +66,6 @@ class ServicesController < ApplicationController
           format.html { redirect_to(@service, :notice => t("screens.notice.successfully_updated")) }
           format.xml  { head :ok }
         end
-
-
-
-
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @service.errors, :status => :unprocessable_entity }
@@ -100,6 +91,15 @@ class ServicesController < ApplicationController
     set_content_title(["Asistencia del día", l(Time.zone.now.to_date, :format => :long_day)])
     @services_no_asistidos = Service.for_today.no_asistidos
     @services_asistidos = Service.for_today.asistidos
+  end
+
+  def handle_cancellations
+    # cancelar y eliminar
+    # cancelar/eliminar para un solo patient
+    # cancelar muchos patients porque el terapeuta no viene
+
+    # cancelar una cosa, cancelar un tipo de servicio entre fechas, cancelar entre fechas
+    # cancelar por paciente, cancelar por terapeuta
   end
 
   #def ajax_calculate_to_fecha_hora

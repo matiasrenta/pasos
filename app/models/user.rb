@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   belongs_to :state
   belongs_to :role
+  has_many :cancellations
   validates_presence_of :name, :last_name, :email, :role_id, :state_id
   validate :email,  :length => {:minimum => 3, :maximum => 100},
                     :uniqueness => true,

@@ -6,6 +6,7 @@ class Therapist < ActiveRecord::Base
   has_many :services
   has_many :time_ranges, :dependent => :delete_all
   has_many :fixed_therapies
+  has_many :cancellations
 
   attr_accessor :apply_timetable_from
 

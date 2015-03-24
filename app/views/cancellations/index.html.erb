@@ -1,0 +1,76 @@
+<%= render 'shared/pagination', :locals => {:target => @cancellations, :model_index_path => cancellations_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => {:model_class => Cancellation} %>
+
+<div class="toggle_container">
+  <div class="block">
+
+    <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :patient_id_equals, :label => t("simple_form.labels.patient"), :as => :select, :collection => Patient.all %>
+        <%= f.input :therapist_id_equals, :label => t("simple_form.labels.therapist"), :as => :select, :collection => Therapist.all %>
+
+        <div class="from_to">
+          <%= label_tag(:cancel_from_fecha_greater_than_or_equal_to, t("simple_form.labels.cancel_from_fecha")) %>
+          <%= f.input :cancel_from_fecha_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :cancel_from_fecha_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+
+        <div class="from_to">
+          <%= label_tag(:cancel_to_fecha_greater_than_or_equal_to, t("simple_form.labels.cancel_to_fecha")) %>
+          <%= f.input :cancel_to_fecha_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :cancel_to_fecha_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+
+        <div class="from_to">
+          <%= label_tag(:service_from_fecha_hora_greater_than_or_equal_to, t("simple_form.labels.service_from_fecha_hora")) %>
+          <%= f.input :service_from_fecha_hora_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+          <%= f.input :service_from_fecha_hora_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
+        </div>
+
+        <div class="from_to">
+          <%= label_tag(:service_type_greater_than_or_equal_to, t("simple_form.labels.service_type")) %>
+          <%= f.input :service_type_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :input_html => {:size => 13} %>
+          <%= f.input :service_type_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :input_html => {:size => 13} %>
+        </div>
+        <%= f.input :user_id_equals, :label => t("simple_form.labels.user"), :as => :select, :collection => User.all %>
+        <%= render "shared/submit_form_filter" %>
+    <% end %>
+
+  </div>
+</div>
+
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+  <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :patient_name, t("simple_form.labels.patient") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :therapist_name, t("simple_form.labels.therapist") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :cancel_from_fecha, t("simple_form.labels.cancel_from_fecha") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :cancel_to_fecha, t("simple_form.labels.cancel_to_fecha") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :service_from_fecha_hora, t("simple_form.labels.service_from_fecha_hora") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :service_type, t("simple_form.labels.service_type") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :user_name, t("simple_form.labels.user") %></th>
+    <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
+  </tr>
+
+  <% @cancellations.each do |cancellation| %>
+      <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= cancellation.patient.try(:name) %></td>
+        <td><%= cancellation.therapist.try(:name) %></td>
+        <td><%= cancellation.cancel_from_fecha %></td>
+        <td><%= cancellation.cancel_to_fecha %></td>
+        <td><%= cancellation.service_from_fecha_hora %></td>
+        <td><%= cancellation.service_type %></td>
+        <td><%= cancellation.user.try(:name) %></td>
+        <%= render 'shared/action_icons', :locals => {:target => cancellation, :model_edit_path => edit_cancellation_path(cancellation)} %>
+      </tr>
+  <% end %>
+</table>
+
+<%= render 'shared/pagination', :locals => {:target => @cancellations, :model_index_path => cancellations_path, :form_id => "per_page_change_form_bottom", :on_change => "mergeForms('per_page_change_form_bottom')".html_safe} %>
+
+<%= render "shared/control_buttons", :locals => {:model_class => Cancellation, :no_filter => true} %>
+
+

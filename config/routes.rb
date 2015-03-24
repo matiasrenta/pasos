@@ -1,4 +1,6 @@
 Pru1::Application.routes.draw do
+  resources :cancellations
+
   resources :fixed_therapies do
     put :update_massive_time_ranges, :on => :collection
   end

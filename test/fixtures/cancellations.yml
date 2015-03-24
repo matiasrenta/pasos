@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  patient_id: 1
+  therapist_id: 1
+  cancel_from_fecha: 2015-03-23
+  cancel_to_fecha: 2015-03-23
+  service_from_fecha_hora: 2015-03-23 18:13:50
+  service_type: 1
+  user_id: 1
+
+two:
+  patient_id: 1
+  therapist_id: 1
+  cancel_from_fecha: 2015-03-23
+  cancel_to_fecha: 2015-03-23
+  service_from_fecha_hora: 2015-03-23 18:13:50
+  service_type: 1
+  user_id: 1
