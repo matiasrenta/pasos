@@ -5,6 +5,7 @@
     <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Terapeuta</a></th>
     <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Desde</a></th>
     <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Hasta</a></th>
+    <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Tipo</a></th>
     <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Importe</a></th>
   </tr>
 
@@ -14,6 +15,7 @@
         <td><%= service.therapist.nombre %></td>
         <td><%= l(service.from_fecha_hora, :format => :long_day) %></td>
         <td><%= l(service.to_fecha_hora, :format => :long_day) %></td>
+        <td><%= service.service_type_name %></td>
         <td align="right">$<%= number_to_currency(service.importe, :unit => "") %></td>
       </tr>
   <% end %>

@@ -1,6 +1,10 @@
 <%= render 'shared/pagination', :locals => {:target => @nominas, :model_index_path => nominas_path, :form_id => "per_page_change_form_top", :on_change => "mergeForms('per_page_change_form_top')".html_safe} %>
 
-<%= render "shared/control_buttons", :locals => {:model_class => Nomina} %>
+<div class="buttons">
+  <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + t("helpers.link.create", :model => t("activerecord.models.Nomina")) , new_nomina_path if (listing? && (can? :create, Nomina)) %>
+  <%= link_to image_tag('/images/glyphicons/glyphicons_009_magic.png', :alt => '') + " " + "Crear masivamente" , new_massive_nominas_path if (listing? && (can? :create_massive, Nomina)) %>
+  <%= render "shared/control_filter", :locals => {:model_class => Nomina} %>
+</div>
 
 <div class="toggle_container">
   <div class="block">
@@ -36,15 +40,17 @@
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :fecha, t("simple_form.labels.fecha") %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :concepto, t("simple_form.labels.concepto") %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :total, t("simple_form.labels.total") %></th>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :total, 'Servicios' %></th>
     <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
   </tr>
 
   <% @nominas.each do |nomina| %>
       <tr class=<%= cycle("alternate-row", "") %>>
-        <td><%= nomina.therapist.try(:name) %></td>
+        <td><%= nomina.therapist.try(:nombre) %></td>
         <td><%= nomina.fecha %></td>
         <td><%= nomina.concepto %></td>
-        <td><%= nomina.total %></td>
+        <td align="right">$<%= number_to_currency(nomina.total, :unit => '')  %></td>
+        <td align="right"><%= nomina.services.count %></td>
         <%= render 'shared/action_icons', :locals => {:target => nomina, :model_edit_path => edit_nomina_path(nomina)} %>
       </tr>
   <% end %>

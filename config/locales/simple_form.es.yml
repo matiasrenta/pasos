@@ -69,6 +69,7 @@ es:
       service_type: 'Tipo de servicio'
       cancel_from_fecha: 'Cancelar desde'
       cancel_to_fecha: 'Cancelar hasta'
+      massive_date: 'Fecha'
 
     hints:
 

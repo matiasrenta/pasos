@@ -1,0 +1,23 @@
+<div class="gray_form">
+  <%= simple_form_for(@nomina, :url => '/nominas/create_for_all_therapists') do |f| %>
+
+      <div class="inputs">
+        <%= f.input :massive_date, :as => :string, :input_html => {:class => 'datepicker'} %>
+        <%= f.input :concepto %>
+      </div>
+
+      <div class="actions">
+        <div class="buttons">
+          <button type="submit" class="positive">
+            <img src="/images/glyphicons/glyphicons_206_ok_2.png" alt=""/>
+            <%= 'Crear nóminas para todos los terapeutas' %>
+          </button>
+          <button type="button" onclick="javascript:window.location.href = '<%= nominas_path %>';" class="warning" name="cancel" value="true">
+            <img src="/images/glyphicons/glyphicons_221_unshare.png" alt=""/>
+            <%= t('helpers.submit.cancel') %>
+          </button>
+        </div>
+      </div>
+
+  <% end %>
+</div>

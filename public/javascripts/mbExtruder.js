@@ -66,6 +66,7 @@ var htmlAdmi = "";
                 if (options.portItems.services)             { htmlPort += options.portItems.html_services; }
                 if (options.portItems.fixed_therapies)      { htmlPort += options.portItems.html_fixed_therapies; }
                 if (options.portItems.cancellations)        { htmlPort += options.portItems.html_cancellations; }
+                if (options.portItems.nominas)              { htmlPort += options.portItems.html_nominas; }
             }
 
             if (options.cataItems.main){

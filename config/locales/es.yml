@@ -382,6 +382,7 @@ es:
         services: "Servicios"
         fixed_therapies: "Terapias establecidas"
         cancellations: "Cancelaciones masivas"
+        nominas: "Nóminas"
 
       cata:
         patients: "Pacientes"

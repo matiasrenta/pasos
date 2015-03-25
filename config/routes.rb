@@ -1,6 +1,9 @@
 Pru1::Application.routes.draw do
   resources :nominas do
-    get :create_for_all_therapists, :on => :collection
+    collection do
+      get :new_massive
+      post :create_for_all_therapists
+    end
   end
 
   resources :cancellations

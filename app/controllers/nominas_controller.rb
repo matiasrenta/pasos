@@ -30,6 +30,14 @@ class NominasController < ApplicationController
     end
   end
 
+  def new_massive
+    @nomina = Nomina.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @nomina }
+    end
+  end
+
   # GET /nominas/1/edit
   def edit
   end
@@ -74,10 +82,16 @@ class NominasController < ApplicationController
   end
 
   def create_for_all_therapists
-    @nominas = Nomina.create_for_all_therapists
-    respond_to do |format|
-      format.html { redirect_to(nominas_url, :notice => "Se crearon #{@nominas.size} nominas") }
-      format.xml  { head :ok }
+    @nomina = Nomina.new(params[:nomina])
+    if @nomina.massive_date.blank?
+      @nomina.errors.add(:massive_date, "no puede estar en blanco")
+      render 'new_massive'
+    elsif @nomina.concepto.blank?
+      @nomina.errors.add(:concepto, "no puede estar en blanco")
+      render 'new_massive'
+    else
+      @nominas = Nomina.create_for_all_therapists(@nomina.massive_date)
+      redirect_to(nominas_url, :notice => "Se crearon #{@nominas.size} nominas")
     end
   end
 
