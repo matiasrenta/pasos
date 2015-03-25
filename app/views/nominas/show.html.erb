@@ -1,0 +1,48 @@
+
+
+
+
+
+
+<table width="98%">
+  <tr>
+    <td valign="top">
+      <div style="width:350px;">
+
+        <%= render "shared/control_buttons", :locals => {:instance => @nomina} %>
+
+        <table class="show_table">
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.therapist") %>:</b></td>
+            <td class="td_data"><%= @nomina.therapist.try(:nombre) %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.fecha") %>:</b></td>
+            <td class="td_data"><%= l(@nomina.fecha, :format => :long) if @nomina.fecha %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.concepto") %>:</b></td>
+            <td class="td_data"><%= @nomina.concepto %></td>
+          </tr>
+          <tr>
+            <td class="td_label"><b><%= t("simple_form.labels.total") %>:</b></td>
+            <td class="td_data"><%= number_to_currency(@nomina.total, :unit => '') %></td>
+          </tr>
+        </table>
+      </div>
+    </td>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td valign="top">
+    <td valign="top"><%= render "shared/show_services", :locals => {:services => @nomina.services, :title => "Servicios en la nómina (#{@nomina.services.count})"} %></td>
+    </td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+

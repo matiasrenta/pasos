@@ -1,0 +1,15 @@
+<div class="gray_form">
+  <%= simple_form_for(@nomina) do |f| %>
+
+      <div class="inputs">
+        <%= f.association :therapist, :collection => Therapist.actives %>
+        <%= f.input :fecha, :as => :string, :input_html => {:class => 'datepicker'} %>
+        <%= f.input :concepto %>
+      </div>
+
+      <%= render "shared/submit_form_model", :model_class => Nomina %>
+
+  <% end %>
+</div>
+
+

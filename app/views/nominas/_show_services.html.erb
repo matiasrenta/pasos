@@ -8,7 +8,7 @@
     <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Importe</a></th>
   </tr>
 
-  <% locals[:services].each do |service| %>
+  <%  locals[:services].each do |service| %>
       <tr class=<%= cycle("alternate-row", "") %>>
         <td><%= service.patient.nombre %></td>
         <td><%= service.therapist.nombre %></td>

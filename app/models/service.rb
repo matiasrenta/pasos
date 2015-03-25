@@ -2,6 +2,7 @@ class Service < ActiveRecord::Base
   belongs_to :patient
   belongs_to :therapist
   belongs_to :cancellation
+  belongs_to :nomina
 
   validates_presence_of :patient_id, :therapist_id, :from_fecha_hora, :to_fecha_hora, :from_fecha_hora_string, :to_fecha_hora_string, :importe, :service_type
   validates_presence_of :datos_escuela, :nombre_profesor, :grado_escolar, :if => :visita_escolar?
@@ -31,6 +32,9 @@ class Service < ActiveRecord::Base
   scope :by_service_type, lambda{|service_type_nro| where(:service_type => service_type_nro)}
   scope :from_date, lambda{|from_date| where("from_fecha_hora >= ?", from_date)}
   scope :to_date, lambda{|to_date| where("to_fecha_hora < ?", to_date + 1)} # le sumo un dia para que el datetime de la base sea menor
+  scope :nominados, where("nomina_id IS NOT NULL")
+  scope :last_nominado, nominados.maximum(:from_fecha_hora)
+  scope :no_nominados, where("nomina_id IS NULL")
 
 
   #def self.calculate_to_fecha_hora(from_f_h)

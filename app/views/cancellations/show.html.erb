@@ -39,7 +39,7 @@
     </td>
     <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td valign="top">
-    <td valign="top"><%= render "show_services", :locals => {:title => "Servicios cancelados (#{@cancellation.services.count})"} %></td>
+    <td valign="top"><%= render "shared/show_services", :locals => {:services => @cancellation.services, :title => "Servicios cancelados (#{@cancellation.services.count})"} %></td>
     </td>
   </tr>
 </table>

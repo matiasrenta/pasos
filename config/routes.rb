@@ -1,4 +1,8 @@
 Pru1::Application.routes.draw do
+  resources :nominas do
+    get :create_for_all_therapists, :on => :collection
+  end
+
   resources :cancellations
 
   resources :fixed_therapies do

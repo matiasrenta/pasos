@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  therapist_id: 1
+  fecha: 2015-03-24
+  concepto: MyString
+  total: 1.5
+
+two:
+  therapist_id: 1
+  fecha: 2015-03-24
+  concepto: MyString
+  total: 1.5
