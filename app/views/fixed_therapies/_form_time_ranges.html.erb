@@ -60,7 +60,7 @@
     <table>
       <tr>
         <td>
-          <div style="float: left;"><b>Aplicar estos horarios a partir del</b> (debe ser mayor a la fecha de hoy):</div>
+          <div style="float: left;"><b>Aplicar estos horarios a partir del</b> (debe ser entre la fecha de mañana y el <%= DaylyServiceCreation.first.until_date %>):</div>
           <p><%= fixed_therapy_fields.text_field :apply_timetable_from, :class => 'datepicker' %></p>
             <% if @fixed_therapy.errors.any? %>
                 <div id="error_explanation" style="float: left;">

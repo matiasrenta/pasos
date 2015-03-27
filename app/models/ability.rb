@@ -67,5 +67,6 @@ class Ability
     cannot :update, Payment
     cannot :update, Presence
     cannot :update, Cancellation
+    cannot :update, Nomina
   end
 end

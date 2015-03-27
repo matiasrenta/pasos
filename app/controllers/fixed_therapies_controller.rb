@@ -77,13 +77,16 @@ class FixedTherapiesController < ApplicationController
     elsif @fixed_therapy.timetable_since < Date.tomorrow
       @fixed_therapy.errors.add(:apply_timetable_from, 'Debe ingresar una fecha mayor a la fecha de hoy')
       render "show"
+    elsif @fixed_therapy.timetable_since > DaylyServiceCreation.first.until_date
+      @fixed_therapy.errors.add(:apply_timetable_from, "No debe ser mayor a #{DaylyServiceCreation.first.until_date}")
+      render "show"
     else
       FixedTherapy.transaction do
         @fixed_therapy.save
         @time_ranges = TimeRange.update(params[:time_ranges].keys, params[:time_ranges].values)
         @time_ranges.reject! { |tr| tr.errors.empty? }
         if @time_ranges.empty?
-          @fixed_therapy.touch
+          @fixed_therapy.handle_services
           redirect_to(@fixed_therapy, :notice => 'Los horarios fueron actualizados correctamente')
         else
           render "show"
