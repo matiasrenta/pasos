@@ -31,6 +31,7 @@ class NominasController < ApplicationController
   end
 
   def new_massive
+    set_content_title(["Nómina", "Creación masiva"])
     @nomina = Nomina.new
     respond_to do |format|
       format.html # new.html.erb
@@ -82,16 +83,14 @@ class NominasController < ApplicationController
   end
 
   def create_for_all_therapists
+    set_content_title(["Nómina", "Creaci'on masiva"])
     @nomina = Nomina.new(params[:nomina])
-    if @nomina.massive_date.blank?
-      @nomina.errors.add(:massive_date, "no puede estar en blanco")
-      render 'new_massive'
-    elsif @nomina.concepto.blank?
-      @nomina.errors.add(:concepto, "no puede estar en blanco")
-      render 'new_massive'
-    else
-      @nominas = Nomina.create_for_all_therapists(@nomina.massive_date)
+    @nomina.therapist = Therapist.first #esto es solo para que pase la validacion
+    if @nomina.valid?
+      @nominas = Nomina.create_for_all_therapists(@nomina.fecha)
       redirect_to(nominas_url, :notice => "Se crearon #{@nominas.size} nominas")
+    else
+      render 'new_massive'
     end
   end
 

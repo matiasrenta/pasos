@@ -2,7 +2,7 @@
   <%= simple_form_for(@nomina, :url => '/nominas/create_for_all_therapists') do |f| %>
 
       <div class="inputs">
-        <%= f.input :massive_date, :as => :string, :input_html => {:class => 'datepicker'} %>
+        <%= f.input :fecha, :as => :string, :input_html => {:class => 'datepicker'} %>
         <%= f.input :concepto %>
       </div>
 
