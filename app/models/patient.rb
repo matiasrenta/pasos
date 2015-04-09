@@ -18,7 +18,7 @@ class Patient < ActiveRecord::Base
     end
   end
 
-  validates_presence_of :nombre, :nombre_padre, :nombre_madre, :costo_terapia, :saldo, :state_id, :nombre_empresa, :direccion, :colonia, :delegacion, :cp, :ciudad, :email_empresa, :rfc
+  validates_presence_of :nombre, :fecha_nacimiento, :nombre_padre, :nombre_madre, :costo_terapia, :saldo, :state_id, :nombre_empresa, :direccion, :colonia, :delegacion, :cp, :ciudad, :email_empresa, :rfc
   validates_presence_of :motivo_alta, :if => "!fecha_alta.blank?"
   validates_presence_of :cel_padre, :if => "cel_madre.blank?", :message => "Debe ingresar algún celular"
   #validates_presence_of :recibo_donativo, :if => "!factura", :message => "debe ser Donativo o Factura"
@@ -38,6 +38,11 @@ class Patient < ActiveRecord::Base
 
   def costo_terapia_with_tax
     factura ? costo_terapia * Settings.mas_iva : costo_terapia
+  end
+
+  def edad
+    ((Time.now - fecha_nacimiento)/1.year).round
+    #Time.now.year - fecha_nacimiento.year
   end
 
   private

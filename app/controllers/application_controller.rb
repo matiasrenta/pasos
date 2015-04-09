@@ -69,9 +69,19 @@ class ApplicationController < ActionController::Base
 
   def integerize_money(fields)
     fields.each do |field|
-      money_s = params[:search][field]
+      money_s = params[:search][field] if params[:search]
       unless money_s.blank?
-        money_s = money_s.split('.').to_s.split(',').to_s
+        money_s = money_s.split('.')[0].to_s.split(',').to_s
+        params[:search][field] = money_s.to_f
+      end
+    end
+  end
+
+  def searchabilize_money(fields)
+    fields.each do |field|
+      money_s = params[:search][field] if params[:search]
+      unless money_s.blank?
+        money_s = money_s.to_s.split('.')[0].concat('000')
         params[:search][field] = money_s
       end
     end

@@ -28,8 +28,8 @@
 
         <div class="from_to">
           <%= label_tag(:importe_greater_than_or_equal_to, t("simple_form.labels.importe")) %>
-          <%= f.input :importe_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
-          <%= f.input :importe_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
+          <%= f.input :importe_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:size => 10} %>
+          <%= f.input :importe_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:size => 10} %>
         </div>
 
         <%= f.input :service_type_equals, :label => t("simple_form.labels.service_type"), :as => :select, :collection =>  [['Terapia', 1], ['Valoración', 2], ['Visita escolar', 3]] %>

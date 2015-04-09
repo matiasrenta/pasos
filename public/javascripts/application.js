@@ -252,7 +252,7 @@ function docReady(){
 
     $(".datepicker").dateMask({separator:'/', format:'dmy', minYear:1900, maxYear:2030});
     $(".datepicker").datepicker($.datepicker.regional['es']);
-    $(".datetimepicker").datetimepicker({timeText: "", hourText: "Hora", showMinute: false, closeText: "Aceptar", currentText: "Hoy"});
+    $(".datetimepicker").datetimepicker({timeText: "", hourText: "Hora", minuteText: "Minutos", showMinute: true, closeText: "Aceptar", currentText: "Hoy"});
 
 
 

@@ -11,6 +11,10 @@
             <td class="td_data"><%= @patient.nombre %></td>
           </tr>
           <tr>
+            <td class="td_label"><b>Fecha nacimiento:</b></td>
+            <td class="td_data"><%= @patient.fecha_nacimiento %> (<%= distance_of_time_in_words(Time.now, @patient.fecha_nacimiento, false, :highest_measure_only => true, :locale => :es) if @patient.fecha_nacimiento %>)</td>
+          </tr>
+          <tr>
             <td class="td_label"><b><%= t("simple_form.labels.nombre_padre") %>:</b></td>
             <td class="td_data"><%= @patient.nombre_padre %></td>
           </tr>

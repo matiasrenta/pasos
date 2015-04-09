@@ -22,14 +22,14 @@
 
         <div class="from_to">
           <%= label_tag(:costo_terapia_greater_than_or_equal_to, t("simple_form.labels.costo_terapia")) %>
-          <%= f.input :costo_terapia_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
-          <%= f.input :costo_terapia_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
+          <%= f.input :costo_terapia_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:size => 10} %>
+          <%= f.input :costo_terapia_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:size => 10} %>
         </div>
 
         <div class="from_to">
           <%= label_tag(:saldo_greater_than_or_equal_to, t("simple_form.labels.saldo")) %>
-          <%= f.input :saldo_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
-          <%= f.input :saldo_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:size => 10, :class => "money"} %>
+          <%= f.input :saldo_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:size => 10} %>
+          <%= f.input :saldo_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:size => 10} %>
         </div>
 
         <%= render "shared/submit_form_filter" %>

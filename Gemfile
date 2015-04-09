@@ -26,6 +26,7 @@ gem 'wkhtmltopdf-binary'
 gem 'state_machine-audit_trail'
 gem "tabs_on_rails"
 gem "settingslogic"
+gem 'dotiw'
 
 group :development do
   gem 'letter_opener'
