@@ -70,6 +70,12 @@ es:
       cancel_from_fecha: 'Cancelar desde'
       cancel_to_fecha: 'Cancelar hasta'
       massive_date: 'Fecha'
+      therapy_cost: 'Costo por terapia'
+      valoracion_cost: 'Costo por valoración'
+      visita_cost: 'Costo por visita escolar'
+      forced_therapy_cost: 'Forzar costo de terapias a'
+      forced_valoracion_cost: 'Forzar costo de valoraciones a'
+      forced_visita_cost: 'Forzar costo de visitas escolares a'
 
     hints:
 

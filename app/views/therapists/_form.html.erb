@@ -3,6 +3,9 @@
 
       <div class="inputs">
         <%= f.input :nombre %>
+        <%= f.input :therapy_cost, :input_html => {:class => "money"} %>
+        <%= f.input :valoracion_cost, :input_html => {:class => "money"} %>
+        <%= f.input :visita_cost, :input_html => {:class => "money"} %>
         <%= f.association :state, :input_html => {:disabled => creating?} %>
         <%= f.input :state_id, :as => :hidden if creating? %>
       </div>

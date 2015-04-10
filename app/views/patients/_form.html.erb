@@ -12,15 +12,29 @@
         <%= f.input :email %>
         <%= f.input :referente %>
         <%= f.input :fecha_ingreso, :as => :string, :input_html => {:class => 'datepicker'} %>
-        <%= f.input :recibo_donativo %>
-        <%= f.input :factura %>
-        <%= f.input :costo_terapia, :placeholder => "MXN", :input_html => {:class => 'money', :disabled => cannot?(:change_costo_terapia, Patient)} %>
-        <%= f.input :saldo, :placeholder => "MXN", :input_html => {:class => 'money', :disabled => cannot?(:change_saldo, Patient)} if updating?%>
         <%= f.input :diagnostico, :input_html => {:rows => 4, :cols => 30} %>
         <%= f.input :fecha_alta, :as => :string, :input_html => {:class => 'datepicker'} %>
         <%= f.input :motivo_alta, :input_html => {:rows => 4, :cols => 30} %>
         <%= f.association :state, :include_blank => false, :input_html => {:disabled => creating?} %>
         <%= f.input :state_id, :as => :hidden if creating? %>
+
+        <fieldset style="width:100%; float:left; padding:15px; margin:25px 0 25px 0; border:solid 1px; border-color:#999999;">
+          <legend style="color:black; font-weight:bold; font-size:12px;">&nbsp Datos Monetarios &nbsp</legend>
+          <%= f.input :recibo_donativo %>
+          <%= f.input :factura %>
+          <%= f.input :costo_terapia, :placeholder => "MXN", :input_html => {:class => 'money', :disabled => cannot?(:change_costo_terapia, Patient)} %>
+          <%= f.input :tarifa_especial %>
+
+          <%= f.input :forced_therapy_cost, :placeholder => "MXN", :input_html => {:class => 'money'} %>
+          <%= f.input :forced_valoracion_cost, :placeholder => "MXN", :input_html => {:class => 'money'} %>
+          <%= f.input :forced_visita_cost, :placeholder => "MXN", :input_html => {:class => 'money'} %>
+
+
+
+          <%= f.input :saldo, :placeholder => "MXN", :input_html => {:class => 'money', :disabled => cannot?(:change_saldo, Patient)} if updating?%>
+
+        </fieldset>
+
 
         <fieldset style="width:100%; float:left; padding:15px; margin:25px 0 25px 0; border:solid 1px; border-color:#999999;">
           <legend style="color:black; font-weight:bold; font-size:12px;">&nbsp Datos Fiscales &nbsp</legend>

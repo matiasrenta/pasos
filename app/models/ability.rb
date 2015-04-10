@@ -41,8 +41,8 @@ class Ability
     can :manage, Therapist
     can :manage, Payment
     can :manage, Presence
-
     can :manage, Therapy
+    can :manage_therapist_costs, Therapist
     cannot_for_everyone
   end
 
