@@ -24,7 +24,7 @@
           <%= f.input :factura %>
           <%= f.input :costo_terapia, :placeholder => "MXN", :input_html => {:class => 'money', :disabled => cannot?(:change_costo_terapia, Patient)} %>
 
-          <% if can :manage_therapist_costs, Therapist %>
+          <% if can? :manage_therapist_costs, Therapist %>
               <%= f.input :tarifa_especial %>
               <%= f.input :forced_therapy_cost, :placeholder => "MXN", :input_html => {:class => 'money'} %>
               <%= f.input :forced_valoracion_cost, :placeholder => "MXN", :input_html => {:class => 'money'} %>

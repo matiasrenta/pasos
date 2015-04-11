@@ -73,7 +73,6 @@ var htmlAdmi = "";
                 if (options.cataItems.patients)        { htmlCata += options.cataItems.html_patients; }
                 if (options.cataItems.therapists)      { htmlCata += options.cataItems.html_therapists; }
                 if (options.cataItems.payments)      { htmlCata += options.cataItems.html_payments; }
-                if (options.cataItems.presences)      { htmlCata += options.cataItems.html_presences; }
             }
 
             if (options.repoItems.main){

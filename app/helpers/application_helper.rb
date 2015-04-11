@@ -166,9 +166,7 @@ module ApplicationHelper
                        therapists: 'true',
                         html_therapists: '<div>#{link_to(t("screens.menu.cata.therapists"), therapists_path, :class => 'ajax')}</div>',
                        payments: 'true',
-                        html_payments: '<div>#{link_to(t("screens.menu.cata.payments"), payments_path, :class => 'ajax')}</div>',
-                       presences: 'true',
-                        html_presences: '<div>#{link_to(t("screens.menu.cata.presences"), presences_path, :class => 'ajax')}</div>'
+                        html_payments: '<div>#{link_to(t("screens.menu.cata.payments"), payments_path, :class => 'ajax')}</div>'
                       },
 
             repoItems:{

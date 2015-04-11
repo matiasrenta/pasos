@@ -21,6 +21,12 @@
     <td class="td_label"><b><%= t("simple_form.labels.importe") %>:</b></td>
     <td class="td_data">$<%= number_to_currency(@service.importe, :unit => "") %></td>
   </tr>
+  <% if can?(:manage_therapist_costs, Therapist) %>
+      <tr>
+        <td class="td_label"><b><%= t("simple_form.labels.therapist_cost") %>:</b></td>
+        <td class="td_data">$<%= number_to_currency(@service.therapist_cost, :unit => "") %></td>
+      </tr>
+  <% end %>
   <% if @service.visita_escolar? %>
       <tr>
         <td class="td_label"><b><%= t("simple_form.labels.datos_escuela") %>:</b></td>
