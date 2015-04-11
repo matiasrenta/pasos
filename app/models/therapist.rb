@@ -10,7 +10,7 @@ class Therapist < ActiveRecord::Base
 
   attr_accessor :apply_timetable_from
 
-  validates_presence_of :nombre, :state_id
+  validates_presence_of :nombre, :state_id, :therapy_cost, :valoracion_cost, :visita_cost
 
   accepts_nested_attributes_for :therapist_schedules, :allow_destroy => true#, :reject_if => lambda { |a| a[:name].blank? && a[:email].blank? && a[:phones].blank? && a[:description].blank?}
 

@@ -52,8 +52,7 @@ class Ability
     can [:read, :update], User, :id => @user.id
     can [:read, :create, :update, :destroy], Patient
     can :manage, Therapy
-    can :manage, Assessment
-    can :manage, Therapist
+    can [:read, :update], Therapist
 
     can [:read, :create, :destroy], Payment
     can [:read, :create, :destroy, :today_sessions], Presence

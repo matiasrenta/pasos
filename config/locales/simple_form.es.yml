@@ -76,6 +76,7 @@ es:
       forced_therapy_cost: 'Forzar costo de terapias a'
       forced_valoracion_cost: 'Forzar costo de valoraciones a'
       forced_visita_cost: 'Forzar costo de visitas escolares a'
+      therapist_cost: 'Costo de terapeuta'
 
     hints:
 

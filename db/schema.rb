@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150410000419) do
+ActiveRecord::Schema.define(:version => 20150410234931) do
 
   create_table "assessments", :force => true do |t|
     t.integer  "patient_id"
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20150410000419) do
     t.boolean  "special"
     t.integer  "cancellation_id"
     t.integer  "nomina_id"
+    t.float    "therapist_cost"
   end
 
   create_table "special_dates", :force => true do |t|
