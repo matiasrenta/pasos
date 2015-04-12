@@ -11,6 +11,7 @@
 
     <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
         <%= f.error_notification %>
+        <%= f.input :nro_nomina_equals, :label => "Folio" %>
         <%= f.input :therapist_id_equals, :label => t("simple_form.labels.therapist"), :as => :select, :collection => Therapist.all %>
 
         <div class="from_to">
@@ -18,8 +19,6 @@
           <%= f.input :fecha_greater_than_or_equal_to, :label => false, :hint => t("simple_form.labels.from"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
           <%= f.input :fecha_less_than_or_equal_to, :label => false, :hint => t("simple_form.labels.to"), :as => :string, :input_html => {:class => "datepicker", :size => 10} %>
         </div>
-
-        <%= f.input :concepto_contains, :label => t("simple_form.labels.concepto") %>
 
         <div class="from_to">
           <%= label_tag(:total_greater_than_or_equal_to, t("simple_form.labels.total")) %>
@@ -36,9 +35,9 @@
 
 <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
   <tr>
+    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :therapist_name, "Folio" %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :therapist_name, t("simple_form.labels.therapist") %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :fecha, t("simple_form.labels.fecha") %></th>
-    <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :concepto, t("simple_form.labels.concepto") %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :total, t("simple_form.labels.total") %></th>
     <th class="table-header-repeat line-left minwidth-1"><%= sort_link @search, :total, 'Servicios' %></th>
     <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
@@ -46,9 +45,9 @@
 
   <% @nominas.each do |nomina| %>
       <tr class=<%= cycle("alternate-row", "") %>>
+        <td><%= nomina.nro_nomina %></td>
         <td><%= nomina.therapist.try(:nombre) %></td>
         <td><%= nomina.fecha %></td>
-        <td><%= nomina.concepto %></td>
         <td align="right">$<%= number_to_currency(nomina.total, :unit => '')  %></td>
         <td align="right"><%= nomina.services.count %></td>
         <%= render 'shared/action_icons', :locals => {:target => nomina, :model_edit_path => edit_nomina_path(nomina)} %>

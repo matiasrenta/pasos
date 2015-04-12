@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150410234931) do
+ActiveRecord::Schema.define(:version => 20150412045549) do
 
   create_table "assessments", :force => true do |t|
     t.integer  "patient_id"
@@ -52,10 +52,11 @@ ActiveRecord::Schema.define(:version => 20150410234931) do
   create_table "nominas", :force => true do |t|
     t.integer  "therapist_id"
     t.date     "fecha"
-    t.string   "concepto"
     t.float    "total"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "nro_nomina"
+    t.text     "pdf_text"
   end
 
   create_table "patients", :force => true do |t|

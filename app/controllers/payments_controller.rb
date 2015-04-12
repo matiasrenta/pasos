@@ -60,9 +60,7 @@ class PaymentsController < ApplicationController
   # POST /payments.xml
   def create
     max_nro_recibo = Payment.maximum(:nro_recibo)
-    @payment.nro_recibo = max_nro_recibo + 1 if max_nro_recibo
-    @payment.nro_recibo = Settings.recibo_start_folio if !max_nro_recibo
-
+    @payment.nro_recibo = max_nro_recibo ? max_nro_recibo + 1 : Settings.recibo_start_folio
     @payment.pdf_text = render_to_string(:partial => "html_origin", :layout => false)
     respond_to do |format|
       if @payment.save

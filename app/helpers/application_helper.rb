@@ -184,6 +184,5 @@ module ApplicationHelper
 
 
   def find_chars(string1, string2)
-    puts "hola"
   end
 end

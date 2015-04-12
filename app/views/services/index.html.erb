@@ -69,7 +69,7 @@
         <td align="right">$<%= number_to_currency(service.importe, :unit => "") %></td>
         <td align="center"><%= boolean_check_mark(service.asistido) %></td>
         <td align="center"><%= boolean_check_mark(service.cancelado) %></td>
-        <td align="center"><%= service.nomina.try(:fecha) %></td>
+        <td align="center"><%= service.nomina.try(:nro_nomina) %></td>
         <%= render 'shared/action_icons', :locals => {:target => service, :model_edit_path => edit_service_path(service)} %>
       </tr>
   <% end %>

@@ -4,14 +4,14 @@ require File.expand_path('../application', __FILE__)
 APP_INSTANCE = Rails.root.to_s.split("/").last
 
 case APP_INSTANCE
-  #when "pasos" then
-  #  HOST = "pasos.deliriumtechmen.com"
-  #  LOGO = "logo_pasos.jpg"
-  #  NOREPLY_MAIL = "noreply@pasos.deliriumtechmen.com"
-  #  NOREPLY_FRIENDLY = %{"Pasos" <noreply@pasos.deliriumtechmen.com>}
-  #  NOREPLY_PASS = "misterio"
-  #  BASE_CURRENCY = "MXN"
-  when "pasos" then
+  when "sys" then
+    HOST = "104.131.241.21"
+    LOGO = "logo_pasos.jpg"
+    NOREPLY_MAIL = "noreply@fundacionpasos.org.mx"
+    NOREPLY_FRIENDLY = %{"Pasos" <noreply@fundacionpasos.org.mx>}
+    NOREPLY_PASS = "misterio"
+    BASE_CURRENCY = "MXN"
+  when "test" then
     HOST = "104.131.241.21"
     LOGO = "logo_pasos.jpg"
     NOREPLY_MAIL = "noreply@fundacionpasos.org.mx"

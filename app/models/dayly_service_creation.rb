@@ -29,7 +29,6 @@ class DaylyServiceCreation < ActiveRecord::Base
     fixed_therapies.each do |fixed_therapy|
       start_end_massive_ranges = TimeRange.start_end_dates_from_massive_adjacent_ranges(fixed_therapy.time_ranges.order_by_day_time)
       actual_date = from_date < Date.tomorrow ? Date.tomorrow : from_date
-      puts "actual_date=#{actual_date} - stop_date=#{stop_date}"
       while actual_date <= stop_date do
         start_end_massive_ranges.each {|bundle| create_service(fixed_therapy, actual_date, bundle) if bundle[:day] == actual_date.wday}
         actual_date = actual_date + 1

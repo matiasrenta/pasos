@@ -1,6 +1,7 @@
 defaults: &defaults
   therapy_cost: 100
   recibo_start_folio: 100
+  nomina_start_folio: 100
   mas_iva: 1.16
   cool:
     saweet: nested settings
