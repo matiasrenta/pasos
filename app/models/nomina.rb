@@ -24,7 +24,7 @@ class Nomina < ActiveRecord::Base
     # los servicios seran hasta el dia de anterior a self.fecha, ya que self.fecha será menor al datetime del servicio por unas horas
     Service.asistidos.no_nominados.by_therapist(self.therapist.id).from_date(from_date).to_date(self.fecha).each do |service|
       self.services << service
-      self.total = self.total.to_f + service.importe.to_f
+      self.total = self.total.to_f + service.therapist_cost.to_f
     end
   end
 

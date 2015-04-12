@@ -7,6 +7,9 @@
     <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Hasta</a></th>
     <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Tipo</a></th>
     <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Importe</a></th>
+    <% if can? :manage_therapist_cost, Therapist %>
+        <th class="table-header-repeat line-left"><a href="#" onclick="javascript:return false;">Costo terapeuta</a></th>
+    <% end %>
   </tr>
 
   <% locals[:services].each do |service| %>
@@ -17,6 +20,9 @@
         <td><%= l(service.to_fecha_hora, :format => :long_day) %></td>
         <td><%= service.service_type_name %></td>
         <td align="right">$<%= number_to_currency(service.importe, :unit => "") %></td>
+        <% if can? :manage_therapist_cost, Therapist %>
+            <td align="right">$<%= number_to_currency(service.therapist_cost, :unit => "") %></td>
+        <% end %>
       </tr>
   <% end %>
 </table>
