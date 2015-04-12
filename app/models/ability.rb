@@ -40,7 +40,6 @@ class Ability
     can :manage, Patient
     can :manage, Therapist
     can :manage, Payment
-    can :manage, Presence
     can :manage, Therapy
     can :manage_therapist_costs, Therapist
     cannot_for_everyone
@@ -54,7 +53,6 @@ class Ability
     #can :manage, Therapy
     can [:read, :update], Therapist
     can [:read, :create, :destroy], Payment
-    #can [:read, :create, :destroy, :today_sessions], Presence
     can :manage, Service
     can :manage, Cancellation
     can :manage, FixedTherapy
@@ -66,7 +64,6 @@ class Ability
     #todo: cannot manage para todas las entidades que son CONSTANT
 
     cannot :update, Payment
-    cannot :update, Presence
     cannot :update, Cancellation
     cannot :update, Nomina
   end

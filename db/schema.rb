@@ -10,15 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150412045549) do
-
-  create_table "assessments", :force => true do |t|
-    t.integer  "patient_id"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "assessment_type"
-  end
+ActiveRecord::Schema.define(:version => 20150412090635) do
 
   create_table "cancellations", :force => true do |t|
     t.integer  "patient_id"
@@ -104,16 +96,6 @@ ActiveRecord::Schema.define(:version => 20150412045549) do
     t.integer  "nro_recibo"
   end
 
-  create_table "presences", :force => true do |t|
-    t.integer  "therapy_id"
-    t.datetime "fecha_hora"
-    t.decimal  "importe",           :precision => 10, :scale => 2
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "presenscable_id"
-    t.string   "presenceable_type"
-  end
-
   create_table "roles", :force => true do |t|
     t.string   "i18n_name"
     t.datetime "created_at"
@@ -142,37 +124,10 @@ ActiveRecord::Schema.define(:version => 20150412045549) do
     t.float    "therapist_cost"
   end
 
-  create_table "special_dates", :force => true do |t|
-    t.integer  "therapy_id"
-    t.datetime "fecha_hora"
-    t.boolean  "cancellation"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "states", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "i18n_name"
-  end
-
-  create_table "therapies", :force => true do |t|
-    t.integer  "patient_id"
-    t.integer  "therapist_id"
-    t.date     "fecha_inicio"
-    t.integer  "sesiones_semanales"
-    t.integer  "state_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "therapist_schedules", :force => true do |t|
-    t.integer  "therapist_id"
-    t.integer  "dia"
-    t.integer  "hora"
-    t.integer  "state_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "therapists", :force => true do |t|
@@ -184,13 +139,6 @@ ActiveRecord::Schema.define(:version => 20150412045549) do
     t.float    "therapy_cost"
     t.float    "valoracion_cost"
     t.float    "visita_cost"
-  end
-
-  create_table "therapy_schedule_joins", :id => false, :force => true do |t|
-    t.integer  "therapy_id"
-    t.integer  "therapist_schedule_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "time_ranges", :force => true do |t|
