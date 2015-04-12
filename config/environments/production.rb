@@ -61,9 +61,8 @@ Pru1::Application.configure do
 
 
   config.middleware.use ExceptionNotifier,
-    #:sender_address => %{"Gudplan" <noreply@sye.matsoft.railsplayground.net>},
     :sender_address => NOREPLY_FRIENDLY,
-    :exception_recipients => %w{mrenta@syesoftware.com},
+    :exception_recipients => %w{matiasrenta@gmail.com},
     :ignore_exceptions => []
 
 
