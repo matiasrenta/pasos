@@ -136,11 +136,11 @@ class Service < ActiveRecord::Base
     if self.patient.tarifa_especial
       self.therapist_cost = self.patient.forced_therapy_cost    if self.terapia?
       self.therapist_cost = self.patient.forced_valoracion_cost if self.valoracion?
-      self.therapist_cost = self.patient.forced_valoracion_cost if self.visita_escolar?
+      self.therapist_cost = self.patient.forced_visita_cost if self.visita_escolar?
     else
       self.therapist_cost = self.therapist.therapy_cost    if self.terapia?
       self.therapist_cost = self.therapist.valoracion_cost if self.valoracion?
-      self.therapist_cost = self.therapist.valoracion_cost if self.visita_escolar?
+      self.therapist_cost = self.therapist.visita_cost if self.visita_escolar?
     end
   end
 

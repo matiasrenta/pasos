@@ -43,11 +43,11 @@
   <% end %>
   <tr>
     <td class="td_label"><b><%= t("simple_form.labels.asistido") %>:</b></td>
-    <td class="td_data"><%= @service.asistido %></td>
+    <td class="td_data"><%= boolean_check_mark(@service.asistido) %></td>
   </tr>
   <tr>
     <td class="td_label"><b><%= t("simple_form.labels.cancelado") %>:</b></td>
-    <td class="td_data"><%= @service.cancelado %></td>
+    <td class="td_data"><%= boolean_check_mark(@service.cancelado) %></td>
   </tr>
   <tr>
     <td class="td_label"><b><%= t("simple_form.labels.motivo_cancelacion") %>:</b></td>

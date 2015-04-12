@@ -51,11 +51,13 @@ class Ability
     can :see_cata_menu, User
     can [:read, :update], User, :id => @user.id
     can [:read, :create, :update, :destroy], Patient
-    can :manage, Therapy
+    #can :manage, Therapy
     can [:read, :update], Therapist
-
     can [:read, :create, :destroy], Payment
-    can [:read, :create, :destroy, :today_sessions], Presence
+    #can [:read, :create, :destroy, :today_sessions], Presence
+    can :manage, Service
+    can :manage, Cancellation
+    can :manage, FixedTherapy
     cannot_for_everyone
   end
 

@@ -380,15 +380,14 @@ es:
         pendings: "Mis pendientes"
         presences_today: "Asistencia diaria"
         services: "Servicios"
-        fixed_therapies: "Terapias establecidas"
         cancellations: "Cancelaciones masivas"
         nominas: "Nóminas"
 
       cata:
         patients: "Pacientes"
         therapists: "Terapeutas"
+        fixed_therapies: "Terapias establecidas"
         payments: "Historial de pagos"
-        presences: "Historial de asistencias"
 
       repo:
         report1: "Reporte 1"

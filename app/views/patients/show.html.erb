@@ -90,6 +90,26 @@
             <td class="td_label"><b><%= t("simple_form.labels.saldo") %>:</b></td>
             <td class="td_data">$<%= number_to_currency(@patient.saldo, :unit => "") %></td>
           </tr>
+          <tr>
+            <td class="td_label"><b>tarifa_especial:</b></td>
+            <td class="td_data"><%= boolean_check_mark(@patient.tarifa_especial) %></td>
+          </tr>
+
+          <% if can?(:manage_therapist_cost, Therapist) %>
+              <tr>
+                <td class="td_label"><b><%= t("simple_form.labels.forced_therapy_cost") %>:</b></td>
+                <td class="td_data">$<%= number_to_currency(@patient.forced_therapy_cost, :unit => "") %></td>
+              </tr>
+              <tr>
+                <td class="td_label"><b><%= t("simple_form.labels.forced_valoracion_cost") %>:</b></td>
+                <td class="td_data">$<%= number_to_currency(@patient.forced_valoracion_cost, :unit => "") %></td>
+              </tr>
+              <tr>
+                <td class="td_label"><b><%= t("simple_form.labels.forced_visita_cost") %>:</b></td>
+                <td class="td_data">$<%= number_to_currency(@patient.forced_visita_cost, :unit => "") %></td>
+              </tr>
+          <% end %>
+
 
           <tr>
             <td class="td_label"><b><%= t("simple_form.labels.fecha_alta") %>:</b></td>
@@ -121,6 +141,7 @@
     </td>
   </tr>
 </table>
+
 
 
 

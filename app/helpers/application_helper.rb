@@ -15,7 +15,7 @@ module ApplicationHelper
 
   def boolean_check_mark(boo)
     if boo
-      '&#10003;'.html_safe
+      '<span style="font-weight: bold; font-size: 18px; color: #00CC00; font-family: arial-black;">&#10003;</span>'.html_safe
     else
       ''
     end
@@ -151,11 +151,9 @@ module ApplicationHelper
                         html_presences_today: '<div>#{link_to(t("screens.menu.port.presences_today"), "/services/today_sessions", :class => 'ajax')}</div>',
                        services: 'true',
                         html_services: '<div>#{link_to(t("screens.menu.port.services"), services_path, :class => 'ajax')}</div>',
-                       fixed_therapies: 'true',
-                        html_fixed_therapies: '<div>#{link_to(t("screens.menu.port.fixed_therapies"), fixed_therapies_path, :class => 'ajax')}</div>',
                        cancellations: 'true',
                         html_cancellations: '<div>#{link_to(t("screens.menu.port.cancellations"), cancellations_path, :class => 'ajax')}</div>',
-                       nominas: 'true',
+                       nominas: #{(can? :manage, Nomina) ? "true" : "false"},
                         html_nominas: '<div>#{link_to(t("screens.menu.port.nominas"), nominas_path, :class => 'ajax')}</div>'
                       },
 
@@ -165,6 +163,8 @@ module ApplicationHelper
                         html_patients: '<div>#{link_to(t("screens.menu.cata.patients"), patients_path, :class => 'ajax')}</div>',
                        therapists: 'true',
                         html_therapists: '<div>#{link_to(t("screens.menu.cata.therapists"), therapists_path, :class => 'ajax')}</div>',
+                       fixed_therapies: 'true',
+                        html_fixed_therapies: '<div>#{link_to(t("screens.menu.cata.fixed_therapies"), fixed_therapies_path, :class => 'ajax')}</div>',
                        payments: 'true',
                         html_payments: '<div>#{link_to(t("screens.menu.cata.payments"), payments_path, :class => 'ajax')}</div>'
                       },

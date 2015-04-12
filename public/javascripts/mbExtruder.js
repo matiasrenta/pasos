@@ -64,7 +64,6 @@ var htmlAdmi = "";
                 if (options.portItems.pendings)             { htmlPort += options.portItems.html_pendings; }
                 if (options.portItems.presences_today)      { htmlPort += options.portItems.html_presences_today; }
                 if (options.portItems.services)             { htmlPort += options.portItems.html_services; }
-                if (options.portItems.fixed_therapies)      { htmlPort += options.portItems.html_fixed_therapies; }
                 if (options.portItems.cancellations)        { htmlPort += options.portItems.html_cancellations; }
                 if (options.portItems.nominas)              { htmlPort += options.portItems.html_nominas; }
             }
@@ -72,7 +71,8 @@ var htmlAdmi = "";
             if (options.cataItems.main){
                 if (options.cataItems.patients)        { htmlCata += options.cataItems.html_patients; }
                 if (options.cataItems.therapists)      { htmlCata += options.cataItems.html_therapists; }
-                if (options.cataItems.payments)      { htmlCata += options.cataItems.html_payments; }
+                if (options.cataItems.fixed_therapies) { htmlCata += options.cataItems.html_fixed_therapies; }
+                if (options.cataItems.payments)        { htmlCata += options.cataItems.html_payments; }
             }
 
             if (options.repoItems.main){
