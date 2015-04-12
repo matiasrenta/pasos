@@ -13,7 +13,7 @@ case APP_INSTANCE
     BASE_CURRENCY = "MXN"
   when "test" then
     HOST = "test.fundacionpasos.org.mx"
-    LOGO = "logo_pasos.jpg"
+    LOGO = "test.png"
     NOREPLY_MAIL = "noreply@fundacionpasos.org.mx"
     NOREPLY_FRIENDLY = %{"Pasos" <noreply@fundacionpasos.org.mx>}
     NOREPLY_PASS = "misterio"
