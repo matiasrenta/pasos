@@ -24,9 +24,9 @@ gem 'carrierwave'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'state_machine-audit_trail'
-gem "tabs_on_rails"
 gem "settingslogic"
 gem 'dotiw'
+gem 'public_activity', '0.5.0'
 
 group :development do
   gem 'letter_opener'

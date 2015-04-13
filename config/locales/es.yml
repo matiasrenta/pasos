@@ -390,12 +390,14 @@ es:
         payments: "Historial de pagos"
 
       repo:
+        activities: "Actividades de usuarios"
         report1: "Reporte 1"
         report2: "Reporte 2"
         report3: "Reporte 3"
 
       admi:
         users: "Usuarios"
+
 
 
 

@@ -1,0 +1,17 @@
+<% if activity.trackable %>
+    modificó <%= activity.trackable.service_type_name %>.
+    paciente: <%= link_to activity.trackable.patient.nombre, activity.trackable.patient %>,
+    terapeuta: <%= link_to activity.trackable.therapist.nombre, activity.trackable.therapist %>
+    <br/>
+    <b>Cambios:</b>
+    <ul>
+      <% changes = activity.parameters[:attributes_changed] %>
+      <% if changes %>
+          <% changes.keys.each do |key| %>
+            <li><%= "#{key} de #{changes[key][0]} paso a #{changes[key][1]}" %></li>
+          <% end %>
+      <% end %>
+    </ul>
+<% else %>
+    modificó un servicio el cual ha sido eliminado del sistema
+<% end %>

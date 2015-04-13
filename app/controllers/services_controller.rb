@@ -76,7 +76,7 @@ class ServicesController < ApplicationController
   # DELETE /services/1
   # DELETE /services/1.xml
   def destroy
-    prudent_destroy(@service)
+    prudent_destroy(@service, [:activities])
   end
 
   def ajax_therapist_timetable

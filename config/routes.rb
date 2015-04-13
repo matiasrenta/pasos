@@ -1,4 +1,5 @@
 Pru1::Application.routes.draw do
+  resources :activities
   resources :nominas do
     collection do
       get :new_massive

@@ -1,0 +1,7 @@
+<% if activity.trackable %>
+     agregó <%= activity.trackable.service_type_name %>.
+    paciente: <%= link_to activity.trackable.patient.nombre, activity.trackable.patient %>,
+    terapeuta: <%= link_to activity.trackable.therapist.nombre, activity.trackable.therapist %>
+<% else %>
+     agregó un servicio el cual ha sido eliminado del sistema
+<% end %>

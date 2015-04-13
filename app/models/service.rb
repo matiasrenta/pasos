@@ -1,4 +1,17 @@
 class Service < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked
+  tracked :owner => Proc.new{ |controller, model| controller.current_user }
+
+  #tracked recipient: ->(controller, model) { model.admin1 }
+  tracked :params => {
+      :attributes_changed => proc {|controller, model| model.id_changed? ? nil : model.changes}
+  #    user_name: proc {|controller, model| controller && controller.current_user.name},
+  #    user_email: proc {|controller, model| controller && controller.current_user.email},
+  #    admin1_name: proc {|controller, model| model.admin1.name},
+  #    proposal_state: proc {|controller, model| model.state}
+  }
+
   belongs_to :patient
   belongs_to :therapist
   belongs_to :cancellation

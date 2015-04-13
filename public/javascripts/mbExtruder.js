@@ -76,6 +76,7 @@ var htmlAdmi = "";
             }
 
             if (options.repoItems.main){
+                if (options.repoItems.activities)    { htmlRepo += options.repoItems.html_activities; }
                 if (options.repoItems.report1)       { htmlRepo += options.repoItems.html_report1; }
                 if (options.repoItems.report2)       { htmlRepo += options.repoItems.html_report2; }
                 if (options.repoItems.report3)       { htmlRepo += options.repoItems.html_report3; }

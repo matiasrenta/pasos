@@ -170,7 +170,9 @@ module ApplicationHelper
                       },
 
             repoItems:{
-                       main: #{(can? :see_repo_menu, User) ? "true" : "false"}
+                       main: #{(can? :see_repo_menu, User) ? "true" : "false"},
+                       activities: 'true',
+                        html_activities: '<div>#{link_to(t("screens.menu.repo.activities"), activities_path, :class => 'ajax')}</div>'
                       },
             admiItems:{
                        main: #{(current_user.admin?) ? "true" : "false"},
