@@ -23,12 +23,9 @@ class User < ActiveRecord::Base
     "#{name} #{last_name}"
   end
 
-
   def admin?
     self.role == Role.admin
   end
-
-
 
   def active?
     state == State.active
@@ -38,7 +35,6 @@ class User < ActiveRecord::Base
     state == State.inactive
   end
 
-
   def active_for_authentication?
     super && active?
   end
@@ -46,8 +42,6 @@ class User < ActiveRecord::Base
   def inactive_message
     active? ? super : "El usuario está inactivo"
   end
-
-
 
 end
 

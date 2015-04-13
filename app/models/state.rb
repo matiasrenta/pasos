@@ -1,7 +1,6 @@
 class State < ActiveRecord::Base
   has_many :therapists
   has_many :patients
-  has_many :therapist_schedules
   has_many :users
 
   validates_presence_of :name

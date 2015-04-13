@@ -40,7 +40,6 @@ class Ability
     can :manage, Patient
     can :manage, Therapist
     can :manage, Payment
-    can :manage, Therapy
     can :manage_therapist_costs, Therapist
     cannot_for_everyone
   end
@@ -50,7 +49,6 @@ class Ability
     can :see_cata_menu, User
     can [:read, :update], User, :id => @user.id
     can [:read, :create, :update, :destroy], Patient
-    #can :manage, Therapy
     can [:read, :update], Therapist
     can [:read, :create, :destroy], Payment
     can :manage, Service
@@ -62,7 +60,6 @@ class Ability
   #este metodo es para restringir cosas a nivel negocio, no importa el perfil. Ejemplo: si un Problem esta en estado cerrado NO SE PUEDE EDITAR (sea quien sea el usuario)
   def cannot_for_everyone
     #todo: cannot manage para todas las entidades que son CONSTANT
-
     cannot :update, Payment
     cannot :update, Cancellation
     cannot :update, Nomina
