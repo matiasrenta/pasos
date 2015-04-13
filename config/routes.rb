@@ -16,6 +16,7 @@ Pru1::Application.routes.draw do
     collection do
       #get :ajax_calculate_to_fecha_hora
       get :ajax_therapist_timetable
+      get :ajax_get_costo_terapia
       get :today_sessions
     end
 

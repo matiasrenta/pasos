@@ -1,0 +1,5 @@
+<% if @patient %>
+    $('#service_importe').val("<%=number_to_currency(@patient.costo_terapia, :unit => '').to_s.delete(' ')%>");
+<% else %>
+    $('#service_importe').val('');
+<% end %>

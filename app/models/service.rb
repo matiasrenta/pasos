@@ -8,6 +8,7 @@ class Service < ActiveRecord::Base
   validates_presence_of :datos_escuela, :nombre_profesor, :grado_escolar, :if => :visita_escolar?
   validates_presence_of :motivo_cancelacion, :if => :cancelado
   validates_presence_of :therapist_cost, :on => :update
+  validates_numericality_of :importe
   validate :all_dates_correctly?
   validate :asistido_in_past?
   #TODO: asegurar que un paciente no tenga dos servicios intersectados en un mismo dia

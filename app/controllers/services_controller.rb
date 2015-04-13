@@ -87,6 +87,12 @@ class ServicesController < ApplicationController
     end
   end
 
+  def ajax_get_costo_terapia
+    unless params[:the_id].blank?
+      @patient = Patient.find params[:the_id]
+    end
+  end
+
   def today_sessions
     set_content_title(["Asistencia del día", l(Time.zone.now.to_date, :format => :long_day)])
     @services_no_asistidos = Service.for_today.no_asistidos
