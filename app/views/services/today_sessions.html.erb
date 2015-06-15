@@ -5,9 +5,9 @@
 
       <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
         <tr>
-          <th class="table-header-repeat line-left"><a href="#">ID</a></th>
           <th class="table-header-repeat line-left"><a href="#">Paciente</a></th>
           <th class="table-header-repeat line-left"><a href="#">Terapeuta</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Hora</a></th>
           <th class="table-header-repeat line-left"><a href="#">Saldo</a></th>
           <th class="table-header-repeat line-left"><a href="#">Importe</a></th>
           <th class="table-header-repeat line-left"><a href="#">A cobrar</a></th>
@@ -16,9 +16,9 @@
         <% @services_no_asistidos.each do |service| %>
             <% costo_terapia_with_tax = service.patient.costo_terapia_with_tax %>
             <tr class=<%= cycle("alternate-row", "") %>>
-              <td><%= service.patient.id %></td>
               <td><%= service.patient.nombre %></td>
               <td><%= service.therapist.nombre %></td>
+              <td><%= service.from_fecha_hora.strftime('%H:%M') %> - <%= service.to_fecha_hora.strftime('%H:%M') %></td>
               <td align="right">$<%= number_to_currency(service.patient.saldo, :unit => "") %></td>
               <td align="right">$<%= number_to_currency(costo_terapia_with_tax, :unit => "") %></td>
               <td align="right">
@@ -43,10 +43,9 @@
       <h2>Asistencias registradas</h2>
       <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
         <tr>
-          <th class="table-header-repeat line-left"><a href="#">ID</a></th>
           <th class="table-header-repeat line-left"><a href="#">Paciente</a></th>
           <th class="table-header-repeat line-left"><a href="#">Terapeuta</a></th>
-          <th class="table-header-repeat line-left"><a href="#">Fecha Hora</a></th>
+          <th class="table-header-repeat line-left"><a href="#">Hora</a></th>
           <th class="table-header-repeat line-left"><a href="#">Importe</a></th>
           <th class="table-header-repeat line-left"><a href="#">Saldo</a></th>
           <th class="table-header-options line-left"><a href="#"><%= t("simple_form.labels.actions") %></a></th>
@@ -55,10 +54,9 @@
 
         <% @services_asistidos.each do |service| %>
             <tr class=<%= cycle("alternate-row", "") %>>
-              <td><%= service.patient.id %></td>
               <td><%= service.patient.nombre %></td>
               <td><%= service.therapist.nombre %></td>
-              <td><%= l(service.from_fecha_hora, :format => :without_seg) %></td>
+              <td><%= service.from_fecha_hora.strftime('%H:%M') %> - <%= service.to_fecha_hora.strftime('%H:%M') %></td>
               <td align="right">$<%= number_to_currency(service.importe, :unit => "") %></td>
               <td align="right">
                 <% if service.patient.saldo < 0 %>

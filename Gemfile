@@ -29,7 +29,7 @@ gem 'dotiw'
 gem 'public_activity', '0.5.0'
 
 group :development do
-  gem 'letter_opener'
+    gem 'letter_opener'
   gem 'ruby-graphviz'
   gem 'thin'
   # Gema para Postgresql
