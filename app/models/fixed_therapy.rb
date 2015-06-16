@@ -10,7 +10,9 @@ class FixedTherapy < ActiveRecord::Base
   validate :valid_fecha_inicio?, :on => :create
   validate :all_dates_correctly?
 
-  #after_touch :handle_services
+  # running significa que la fecha de fin no ha llegado por lo tanto esta vivo este fixed_therapy
+  scope :running, lambda{where("fecha_inicio <= ? AND (fecha_fin IS NULL OR fecha_fin >= ?)", Date.today, Date.today)}
+  scope :finalized, lambda{where("fecha_fin IS NOT NULL AND fecha_fin < ?", Date.today)}
 
   def handle_services
     #apply_from_date = fecha_inicio > Date.today ? fecha_inicio : Date.tomorrow

@@ -2,8 +2,8 @@ class Patient < ActiveRecord::Base
   belongs_to :state
   has_many :payments
   has_many :services
-  has_many :fixed_therapies
-  has_many :time_ranges
+  has_many :fixed_therapies, :dependent => :destroy
+  has_many :time_ranges, :dependent => :nullify
   has_many :cancellations
 
   validates_presence_of :nombre, :fecha_nacimiento, :nombre_padre, :nombre_madre, :costo_terapia, :saldo, :state_id, :nombre_empresa, :direccion, :colonia, :delegacion, :cp, :ciudad, :email_empresa, :rfc
@@ -18,7 +18,7 @@ class Patient < ActiveRecord::Base
   end
 
   before_validation :set_saldo_and_therapy_cost
-  #after_save :inactive_therapies
+  after_save :destroy_fixed_therapies_and_services, :if => "state_changed? && inactive?"
 
   def costo_terapia_with_tax
     factura ? costo_terapia * Settings.mas_iva : costo_terapia
@@ -31,9 +31,10 @@ class Patient < ActiveRecord::Base
     self.costo_terapia = 0 if !costo_terapia
   end
 
-  #def inactive_therapies
-  #  therapies.update_all( {:state_id => State.inactive.id},  {:state_id => State.active.id} ) if inactive?
-  #end
+  def destroy_fixed_therapies_and_services
+    fixed_therapies.destroy_all
+    services.from_date(Date.tomorrow).destroy_all
+  end
 
 
 end

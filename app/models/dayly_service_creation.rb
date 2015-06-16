@@ -3,6 +3,8 @@ class DaylyServiceCreation < ActiveRecord::Base
   DAYS_FROM_NOW = 15 # dias desde la fecha de hoy hasta donde se van a crear los servicios.
 
   def self.handle_creations
+    #primero que nada elimino todos los FixedTherapy que ya han finalizado, de esa forma tambien libero los TimeRange que estos ocupaban
+    FixedTherapy.finalized.destroy_all
     record = first
     today = Date.today
     if record.last_creation < today
@@ -27,11 +29,13 @@ class DaylyServiceCreation < ActiveRecord::Base
 
   def self.create_services(fixed_therapies, from_date, stop_date)
     fixed_therapies.each do |fixed_therapy|
+      stop_date_for_fixed_therapy = fixed_therapy.fecha_fin < stop_date ? fixed_therapy.fecha_fin : stop_date
+      from_date_for_fixed_therapy = fixed_therapy.fecha_inicio > from_date ? fixed_therapy.fecha_inicio : from_date
+      from_date_for_fixed_therapy = Date.tomorrow if from_date_for_fixed_therapy < Date.tomorrow
       start_end_massive_ranges = TimeRange.start_end_dates_from_massive_adjacent_ranges(fixed_therapy.time_ranges.order_by_day_time)
-      actual_date = from_date < Date.tomorrow ? Date.tomorrow : from_date
-      while actual_date <= stop_date do
-        start_end_massive_ranges.each {|bundle| create_service(fixed_therapy, actual_date, bundle) if bundle[:day] == actual_date.wday}
-        actual_date = actual_date + 1
+      while from_date_for_fixed_therapy <= stop_date_for_fixed_therapy do
+        start_end_massive_ranges.each {|bundle| create_service(fixed_therapy, from_date_for_fixed_therapy, bundle) if bundle[:day] == from_date_for_fixed_therapy.wday}
+        from_date_for_fixed_therapy = from_date_for_fixed_therapy + 1
       end
     end
   end
