@@ -53,6 +53,7 @@ class Service < ActiveRecord::Base
   scope :to_date, lambda{|to_date| where("to_fecha_hora < ?", to_date + 1)} # le sumo un dia para que el datetime de la base sea menor
   scope :nominados, where("nomina_id IS NOT NULL")
   scope :no_nominados, where("nomina_id IS NULL")
+  scope :with_active_patient, joins(:patient).where("patients.state_id = ?", State.active.id)
 
 
   #def self.calculate_to_fecha_hora(from_f_h)
