@@ -29,7 +29,7 @@ class DaylyServiceCreation < ActiveRecord::Base
 
   def self.create_services(fixed_therapies, from_date, stop_date)
     fixed_therapies.each do |fixed_therapy|
-      stop_date_for_fixed_therapy = fixed_therapy.fecha_fin < stop_date ? fixed_therapy.fecha_fin : stop_date
+      stop_date_for_fixed_therapy = (fixed_therapy.fecha_fin && fixed_therapy.fecha_fin < stop_date) ? fixed_therapy.fecha_fin : stop_date
       from_date_for_fixed_therapy = fixed_therapy.fecha_inicio > from_date ? fixed_therapy.fecha_inicio : from_date
       from_date_for_fixed_therapy = Date.tomorrow if from_date_for_fixed_therapy < Date.tomorrow
       start_end_massive_ranges = TimeRange.start_end_dates_from_massive_adjacent_ranges(fixed_therapy.time_ranges.order_by_day_time)
