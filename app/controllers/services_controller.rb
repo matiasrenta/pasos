@@ -95,7 +95,7 @@ class ServicesController < ApplicationController
 
   def today_sessions
     set_content_title(["Asistencia del día", l(Time.zone.now.to_date, :format => :long_day)])
-    @services_no_asistidos = Service.for_today.no_asistidos
+    @services_no_asistidos = Service.for_today.no_asistidos.no_cancelados.with_active_patient.with_active_therapist
     @services_asistidos = Service.for_today.asistidos
   end
 

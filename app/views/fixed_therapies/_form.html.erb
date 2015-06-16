@@ -5,7 +5,7 @@
         <%= f.association :patient %>
         <%= f.association :therapist %>
         <%= f.input :fecha_inicio, :as => :string, :input_html => {:class => 'datepicker'} %>
-        <%= f.input :fecha_fin, :as => :string, :input_html => {:class => 'datepicker'} %>
+        <%= f.input :fecha_fin, :as => :string, :hint => "Esta terapia establecida se eliminará automaticamente luego de esta fecha", :input_html => {:class => 'datepicker'} %>
       </div>
 
       <%= render "shared/submit_form_model", :model_class => FixedTherapy %>

@@ -10,6 +10,7 @@ class TimeRange < ActiveRecord::Base
   before_save do
     self.patient_id = nil if !taken
     self.fixed_therapy_id = nil if !taken
+    self.taken = false if !patient_id
   end
 
   scope :mondays,    where(:day => 1)
