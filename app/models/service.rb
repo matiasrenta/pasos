@@ -54,6 +54,7 @@ class Service < ActiveRecord::Base
   scope :nominados, where("nomina_id IS NOT NULL")
   scope :no_nominados, where("nomina_id IS NULL")
   scope :with_active_patient, joins(:patient).where("patients.state_id = ?", State.active.id)
+  scope :with_active_therapist, joins(:therapist).where("therapists.state_id = ?", State.active.id)
 
 
   #def self.calculate_to_fecha_hora(from_f_h)

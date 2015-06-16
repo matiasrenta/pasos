@@ -18,7 +18,7 @@ class Patient < ActiveRecord::Base
   end
 
   before_validation :set_saldo_and_therapy_cost
-  after_save :destroy_fixed_therapies_and_services, :if => "state_changed? && inactive?"
+  after_save :destroy_fixed_therapies_and_services, :if => "state_id_changed? && inactive?"
 
   def costo_terapia_with_tax
     factura ? costo_terapia * Settings.mas_iva : costo_terapia
