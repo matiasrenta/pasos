@@ -12,7 +12,7 @@
     <%= simple_form_for(@search, :html => {:name => "filter_form"}) do |f| %>
         <%= f.error_notification %>
         <%= f.input :nro_nomina_equals, :label => "Folio" %>
-        <%= f.input :therapist_id_equals, :label => t("simple_form.labels.therapist"), :as => :select, :collection => Therapist.all %>
+        <%= f.input :therapist_id_equals, :label => t("simple_form.labels.therapist"), :as => :select, :collection => Therapist.actives.ordered %>
 
         <div class="from_to">
           <%= label_tag(:fecha_greater_than_or_equal_to, t("simple_form.labels.fecha")) %>

@@ -11,6 +11,8 @@ class Therapist < ActiveRecord::Base
 
   after_create :create_time_range
 
+  scope :ordered, order(:nombre)
+
   private
 
   def create_time_range
