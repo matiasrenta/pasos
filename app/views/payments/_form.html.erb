@@ -2,7 +2,7 @@
   <%= simple_form_for(@payment) do |f| %>
 
       <div class="inputs">
-        <%= f.association :patient %>
+        <%= f.association :patient, :collection => collection_with_actual(Patient.actives, @payment.patient) %>
         <%= f.input :description, :input_html => {:rows => 4, :cols => 30} %>
         <%= f.input :importe, :input_html => {:class => "money"} %>
       </div>

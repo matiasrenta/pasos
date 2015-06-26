@@ -2,7 +2,7 @@
   <%= simple_form_for(@fixed_therapy) do |f| %>
 
       <div class="inputs">
-        <%= f.association :patient %>
+        <%= f.association :patient, :collection => Patient.actives %>
         <%= f.association :therapist %>
         <%= f.input :fecha_inicio, :as => :string, :input_html => {:class => 'datepicker'} %>
         <%= f.input :fecha_fin, :as => :string, :hint => "Esta terapia establecida se eliminará automaticamente luego de esta fecha", :input_html => {:class => 'datepicker'} %>

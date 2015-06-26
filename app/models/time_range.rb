@@ -7,11 +7,7 @@ class TimeRange < ActiveRecord::Base
   validate :taken_in_worging_time?
   validate :not_revert_working_time_if_taken
 
-  before_save do
-    self.patient_id = nil if !taken
-    self.fixed_therapy_id = nil if !taken
-    self.taken = false if !patient_id
-  end
+  before_save :handle_release
 
   scope :mondays,    where(:day => 1)
   scope :tuesdays,   where(:day => 2)
@@ -75,6 +71,16 @@ class TimeRange < ActiveRecord::Base
     if taken && !working_time && working_time_was
       errors.add(:working_time, "Horario asignado a #{self.patient.try(:nombre)}, reasigne primero el horario para este paciente")
     end
+  end
+
+  def handle_release
+    # si se puso como No taken, entonces patien_id y fixed_therapy_id deben liberarse
+    if !taken
+      self.patient_id = nil
+      self.fixed_therapy_id = nil
+    end
+    # si se destroy la fixed_therapy asociada, este time_range queda con fixed_therapy_id nullify
+    # entonces hay que liberar patient_id y ponerlo NO taken. Esta logica la hice en FixedTherapy en before_destroy porque :nullify no llama a los callbacks
   end
 
 end
