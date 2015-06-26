@@ -2,7 +2,7 @@
   <%= simple_form_for(@cancellation) do |f| %>
 
       <div class="inputs">
-        <%= f.association :patient, :prompt => "Todos" %>
+        <%= f.association :patient, :prompt => "Todos", :collection => collection_with_actual(Patient.actives, @cancellation.patient) %>
         <%= f.association :therapist, :prompt => "Todos" %>
         <%= f.input :cancel_from_fecha, :as => :string, :hint => 'no puede ser menor a la fecha de hoy', :input_html => {:class => 'datepicker'} %>
         <%= f.input :cancel_to_fecha, :placeholder => "sin límite", :as => :string, :input_html => {:class => 'datepicker'} %>

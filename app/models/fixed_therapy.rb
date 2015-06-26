@@ -1,6 +1,8 @@
 class FixedTherapy < ActiveRecord::Base
   belongs_to :patient
   belongs_to :therapist
+
+  before_destroy :clean_time_ranges #lo pongo antes del has_many porque sino primero quedan nullify y entonces no los puedo updatear
   has_many :time_ranges, :dependent => :nullify
 
   attr_accessor :apply_timetable_from
@@ -9,6 +11,8 @@ class FixedTherapy < ActiveRecord::Base
   validates_uniqueness_of :patient_id, :scope => :therapist_id
   validate :valid_fecha_inicio?, :on => :create
   validate :all_dates_correctly?
+
+
 
   # running significa que la fecha de fin no ha llegado por lo tanto esta vivo este fixed_therapy
   scope :running, lambda{where("fecha_inicio <= ? AND (fecha_fin IS NULL OR fecha_fin >= ?)", Date.today, Date.today)}
@@ -41,6 +45,11 @@ class FixedTherapy < ActiveRecord::Base
     end
   end
 
+  # cuando se elimina un fixed_therapy no basta con decir que los time_rages queden :nullify
+  # hay que nullify tambien el paciente y ponerlo como NO taken (no se puede hacer en un callback en TimeRange porque :nullify no ejecuta los callbacks)
+  def clean_time_ranges
+    time_ranges.update_all(:patient_id => nil, :taken => false)
+  end
 
 
 end
