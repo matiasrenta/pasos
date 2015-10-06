@@ -10,18 +10,20 @@
             <td class="td_label"><b><%= t("simple_form.labels.nombre") %>:</b></td>
             <td class="td_data"><%= @therapist.nombre %></td>
           </tr>
-          <tr>
-            <td class="td_label"><b><%= t("simple_form.labels.therapy_cost") %>:</b></td>
-            <td class="td_data">$<%= number_to_currency(@therapist.therapy_cost, :unit => "") %></td>
-          </tr>
-          <tr>
-            <td class="td_label"><b><%= t("simple_form.labels.valoracion_cost") %>:</b></td>
-            <td class="td_data">$<%= number_to_currency(@therapist.valoracion_cost, :unit => "") %></td>
-          </tr>
-          <tr>
-            <td class="td_label"><b><%= t("simple_form.labels.visita_cost") %>:</b></td>
-            <td class="td_data">$<%= number_to_currency(@therapist.visita_cost, :unit => "") %></td>
-          </tr>
+          <% if can?(:see_therapist_costs, Therapist) %>
+              <tr>
+                <td class="td_label"><b><%= t("simple_form.labels.therapy_cost") %>:</b></td>
+                <td class="td_data">$<%= number_to_currency(@therapist.therapy_cost, :unit => "") %></td>
+              </tr>
+              <tr>
+                <td class="td_label"><b><%= t("simple_form.labels.valoracion_cost") %>:</b></td>
+                <td class="td_data">$<%= number_to_currency(@therapist.valoracion_cost, :unit => "") %></td>
+              </tr>
+              <tr>
+                <td class="td_label"><b><%= t("simple_form.labels.visita_cost") %>:</b></td>
+                <td class="td_data">$<%= number_to_currency(@therapist.visita_cost, :unit => "") %></td>
+              </tr>
+          <% end %>
           <tr>
             <td class="td_label"><b><%= t("simple_form.labels.state") %>:</b></td>
             <td class="td_data"><%= @therapist.state.try(:name) %></td>
